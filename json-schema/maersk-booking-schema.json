@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/maersk-line/main/json-schema/maersk-booking-schema.json",
+  "title": "Maersk Ocean Booking",
+  "description": "DCSA-aligned Maersk ocean shipment booking.",
+  "type": "object",
+  "required": ["receiptTypeAtOrigin", "deliveryTypeAtDestination", "requestedEquipments"],
+  "properties": {
+    "carrierBookingReference": { "type": "string" },
+    "carrierServiceCode": { "type": "string" },
+    "receiptTypeAtOrigin": { "type": "string", "enum": ["CY", "SD", "CFS"] },
+    "deliveryTypeAtDestination": { "type": "string", "enum": ["CY", "SD", "CFS"] },
+    "cargoMovementTypeAtOrigin": { "type": "string", "enum": ["FCL", "LCL", "BBK"] },
+    "cargoMovementTypeAtDestination": { "type": "string", "enum": ["FCL", "LCL", "BBK"] },
+    "bookingStatus": {
+      "type": "string",
+      "enum": ["RECEIVED", "PENDING_UPDATE", "UPDATE_CONFIRMED", "CONFIRMED", "REJECTED", "CANCELLED", "COMPLETED"]
+    },
+    "serviceContractReference": { "type": "string" },
+    "requestedEquipments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ISOEquipmentCode": { "type": "string" },
+          "units": { "type": "integer" },
+          "isShipperOwned": { "type": "boolean" }
+        }
+      }
+    },
+    "commodities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "commodityType": { "type": "string" },
+          "HSCodes": { "type": "array", "items": { "type": "string" } },
+          "cargoGrossWeight": { "type": "number" }
+        }
+      }
+    }
+  }
+}

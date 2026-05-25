@@ -1,0 +1,21 @@
+{
+  "transportDocumentReference": "909876543",
+  "containers": [
+    {
+      "equipmentReference": "MSKU1234567",
+      "verifiedGrossMass": 24180,
+      "massUnit": "KGM",
+      "weighingMethod": "METHOD1",
+      "weighingDate": "2026-05-11T14:30:00Z",
+      "responsibleParty": {
+        "partyName": "Example Shipper A/S",
+        "signatory": "Jens Kristensen",
+        "contactEmail": "vgm@example-shipper.com"
+      },
+      "weighingFacility": {
+        "facilityName": "Aarhus Terminal Weighbridge 3",
+        "UNLocationCode": "DKAAR"
+      }
+    }
+  ]
+}

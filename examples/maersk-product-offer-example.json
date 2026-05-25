@@ -1,0 +1,27 @@
+{
+  "offerId": "OFR-2026-AAR-NWK-001",
+  "carrierServiceCode": "TA1",
+  "originLocation": "DKAAR",
+  "destinationLocation": "USEWR",
+  "departureDate": "2026-06-04T22:00:00Z",
+  "arrivalDate": "2026-06-18T10:00:00Z",
+  "transitTime": 14,
+  "containerIsoCode": "42G1",
+  "totalPrice": {
+    "chargeCode": "OFR",
+    "chargeName": "All-in Ocean Freight Offer",
+    "amount": 3250.00,
+    "currency": "USD",
+    "basis": "PerContainer"
+  },
+  "priceBreakdown": [
+    { "chargeCode": "BAS", "chargeName": "Basic Ocean Freight", "amount": 2400.00, "currency": "USD", "basis": "PerContainer" },
+    { "chargeCode": "BUC", "chargeName": "Bunker Adjustment", "amount": 450.00, "currency": "USD", "basis": "PerContainer" },
+    { "chargeCode": "DOC", "chargeName": "Documentation Fee", "amount": 150.00, "currency": "USD", "basis": "PerBillOfLading" },
+    { "chargeCode": "THC", "chargeName": "Terminal Handling Charge — Origin", "amount": 250.00, "currency": "USD", "basis": "PerContainer" }
+  ],
+  "demurrageDetention": {
+    "originFreeDays": 7,
+    "destinationFreeDays": 5
+  }
+}

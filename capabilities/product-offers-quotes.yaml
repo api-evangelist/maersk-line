@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Maersk Product Offers API — Quotes
+  description: >
+    Quote prices and surcharges for ocean shipments via the Maersk Product
+    Offers API.
+  tags:
+    - Maersk
+    - Offers
+    - Pricing
+    - Ocean
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      MAERSK_CONSUMER_KEY: MAERSK_CONSUMER_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: product-offers
+      baseUri: https://api.productmanagement.maersk.com
+      description: Maersk Offers API for price quotes.
+      resources:
+        - name: offers
+          path: /offers/v2/offers/brand/{brandScac}/departuredate/{departureDate}
+          operations:
+            - name: listAvailableOffers
+              method: GET
+              description: List shipping offers for an origin, destination, container, and departure date.
+              inputParameters:
+                - name: brandScac
+                  in: path
+                  type: string
+                  required: true
+                - name: departureDate
+                  in: path
+                  type: string
+                  required: true
+                - name: collectionOriginCityName
+                  in: query
+                  type: string
+                  required: true
+                - name: collectionOriginCountryCode
+                  in: query
+                  type: string
+                  required: true
+                - name: deliveryDestinationCityName
+                  in: query
+                  type: string
+                  required: true
+                - name: deliveryDestinationCountryCode
+                  in: query
+                  type: string
+                  required: true
+                - name: containerIsoCode
+                  in: query
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: containers
+          path: /offers/v2/offers/containers
+          operations:
+            - name: listContainers
+              method: GET
+              description: List supported container sizes and types.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+      authentication:
+        type: apikey
+        in: header
+        name: Consumer-Key
+        valueFrom: env.MAERSK_CONSUMER_KEY

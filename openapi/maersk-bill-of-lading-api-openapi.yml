@@ -1,0 +1,144 @@
+openapi: 3.1.0
+info:
+  title: Maersk Bill of Lading API
+  description: >
+    DCSA-compliant Carrier Bill of Lading (eBL) API. Retrieve, issue, and
+    surrender electronic transport documents for ocean shipments per the
+    DCSA eBL 3.0 interface.
+  version: '3.0'
+  contact:
+    name: Maersk Developer Support
+    url: https://developer.maersk.com/support
+
+servers:
+  - url: https://api.maersk.com
+    description: Production Gateway
+
+security:
+  - ConsumerKey: []
+  - OAuth2: [ebl]
+
+tags:
+  - name: BillOfLading
+    description: Electronic bill of lading lifecycle.
+
+paths:
+  /dcsa/ebl/v3/transport-documents/{transportDocumentReference}:
+    get:
+      summary: Get Transport Document
+      description: Retrieve the current state of a carrier transport document.
+      operationId: getTransportDocument
+      tags:
+        - BillOfLading
+      parameters:
+        - name: transportDocumentReference
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: Consumer-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Transport document returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransportDocument'
+        '404':
+          description: Document not found.
+
+  /dcsa/ebl/v3/transport-documents/{transportDocumentReference}/approve:
+    patch:
+      summary: Approve Transport Document
+      description: Shipper approval of the carrier-issued draft transport document.
+      operationId: approveTransportDocument
+      tags:
+        - BillOfLading
+      parameters:
+        - name: transportDocumentReference
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: Consumer-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Approval recorded.
+
+components:
+  securitySchemes:
+    ConsumerKey:
+      type: apiKey
+      in: header
+      name: Consumer-Key
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.maersk.com/customer-identity/oauth/v2/access_token
+          scopes:
+            ebl: Read and update eBL documents.
+  schemas:
+    TransportDocument:
+      type: object
+      properties:
+        transportDocumentReference:
+          type: string
+        transportDocumentTypeCode:
+          type: string
+          enum: [BOL, SWB]
+          description: Bill of Lading or Sea Waybill.
+        transportDocumentStatus:
+          type: string
+          enum: [DRAFT, APPROVED, ISSUED, SURRENDERED, VOIDED]
+        shipperParty:
+          $ref: '#/components/schemas/Party'
+        consigneeParty:
+          $ref: '#/components/schemas/Party'
+        carrierCode:
+          type: string
+        issueDate:
+          type: string
+          format: date
+        placeOfIssue:
+          type: object
+          properties:
+            UNLocationCode:
+              type: string
+        cargoMovementTypeAtOrigin:
+          type: string
+        cargoMovementTypeAtDestination:
+          type: string
+    Party:
+      type: object
+      properties:
+        partyName:
+          type: string
+        address:
+          type: object
+          properties:
+            street:
+              type: string
+            city:
+              type: string
+            countryCode:
+              type: string
+        partyContactDetails:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              email:
+                type: string
+              phone:
+                type: string

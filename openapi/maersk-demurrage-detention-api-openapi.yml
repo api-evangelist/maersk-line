@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: Maersk Import Demurrage and Detention API
+  description: >
+    Retrieve demurrage and detention charges, free days, and clock status for
+    import containers. Helps consignees and freight forwarders avoid
+    accessorial charges by surfacing accruing penalties.
+  version: '1.0'
+  contact:
+    name: Maersk Developer Support
+    url: https://developer.maersk.com/support
+
+servers:
+  - url: https://api.maersk.com
+    description: Production Gateway
+
+security:
+  - ConsumerKey: []
+
+tags:
+  - name: DemurrageDetention
+    description: Demurrage and detention charges and clocks.
+
+paths:
+  /demurrage-detention/v1/charges:
+    get:
+      summary: Get Demurrage And Detention Charges
+      description: >
+        Retrieve current demurrage and detention charges and remaining free
+        days for one or more containers.
+      operationId: getDemurrageDetention
+      tags:
+        - DemurrageDetention
+      parameters:
+        - name: equipmentReference
+          in: query
+          description: Comma-separated list of container numbers.
+          required: true
+          schema:
+            type: string
+        - name: transportDocumentReference
+          in: query
+          schema:
+            type: string
+        - name: Consumer-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Charge details returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DemurrageDetentionCharge'
+
+components:
+  securitySchemes:
+    ConsumerKey:
+      type: apiKey
+      in: header
+      name: Consumer-Key
+  schemas:
+    DemurrageDetentionCharge:
+      type: object
+      properties:
+        equipmentReference:
+          type: string
+        transportDocumentReference:
+          type: string
+        type:
+          type: string
+          enum: [Demurrage, Detention, Combined]
+        clockStart:
+          type: string
+          format: date-time
+        freeDays:
+          type: integer
+        elapsedDays:
+          type: integer
+        chargeableDays:
+          type: integer
+        amount:
+          type: number
+        currency:
+          type: string
+        tariffReference:
+          type: string

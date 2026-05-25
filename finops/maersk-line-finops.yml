@@ -1,0 +1,99 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Maersk
+providerId: maersk-line
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - FinOps
+  - Logistics
+  - Shipping
+  - FOCUS
+  - Cost Management
+description: >
+  FOCUS-aligned FinOps definition for Maersk shipping and logistics. The
+  metering surface is the physical shipment (container, voyage, kilo of
+  air freight, square meter of warehousing) rather than per-API call.
+  Surcharges, demurrage, and detention are accessorial cost units.
+sources:
+  - https://developer.maersk.com
+  - https://www.maersk.com/digital-services/data-integrations/api
+  - https://www.maersk.com/local-information
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Maersk
+serviceCategory: Logistics and Shipping
+billingModel:
+  pricingCategory: Usage-Based and Contract
+  pricingUnit: Per-container, per-shipment, per-kilo, per-cubic-meter
+  invoicingCadence: Per-shipment or contractual
+costUnits:
+  - id: ocean-freight
+    name: Ocean Freight
+    description: Base freight for moving a container between two ports.
+    metric: container
+    surfaceApi: Maersk Product Offers API
+  - id: bunker-adjustment
+    name: Bunker Adjustment Factor (BAF)
+    description: Fuel surcharge applied per container.
+    metric: container
+    classification: Surcharge
+  - id: terminal-handling
+    name: Terminal Handling Charge (THC)
+    description: Origin/destination loading and unloading charges.
+    metric: container
+    classification: Surcharge
+  - id: documentation
+    name: Documentation Fee
+    description: Bill of lading issuance and amendment fees.
+    metric: bill-of-lading
+    classification: AccessorialCharge
+  - id: demurrage
+    name: Demurrage
+    description: Penalty for retaining a container at the terminal beyond free time.
+    metric: container-day
+    surfaceApi: Maersk Demurrage and Detention API
+    classification: AccessorialCharge
+  - id: detention
+    name: Detention
+    description: Penalty for retaining a container outside the terminal beyond free time.
+    metric: container-day
+    surfaceApi: Maersk Demurrage and Detention API
+    classification: AccessorialCharge
+  - id: vgm-correction
+    name: VGM Correction Fee
+    description: Charge for late or corrected VGM submissions.
+    metric: container
+    surfaceApi: Maersk VGM API
+    classification: AccessorialCharge
+  - id: air-freight
+    name: Air Freight
+    description: Air transport charged on chargeable weight (greater of actual and volumetric).
+    metric: kilogram
+    surfaceApi: Maersk Air Booking API
+focusMapping:
+  ChargeCategory: Usage
+  ChargeFrequency: One-Time
+  PricingCategory: Negotiated and Dynamic
+  CommitmentDiscountCategory: Service Contract MQC
+allocation:
+  recommendedTags:
+    - laneId
+    - serviceContractReference
+    - businessUnit
+    - costCenter
+optimization:
+  - name: Negotiate Service Contract
+    description: Move repeat trade-lane volume from spot quotes to a service contract to lock rates and earn MQC commitments.
+  - name: Minimize Demurrage and Detention
+    description: Use the D&D API to monitor accruing free-day clocks and prioritize container pick-ups before penalty windows.
+  - name: Submit VGM Early
+    description: Programmatic VGM submission avoids late-fee penalties and missed sailings.
+  - name: Plan Around Bunker Cycles
+    description: Track BAF surcharge cycles and align high-volume bookings to favorable adjustment windows.

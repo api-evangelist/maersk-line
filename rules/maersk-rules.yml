@@ -1,0 +1,50 @@
+extends:
+  - spectral:oas
+documentationUrl: https://developer.maersk.com/support
+rules:
+  maersk-info-contact:
+    description: All Maersk APIs must include Maersk Developer Support contact info.
+    message: "info.contact must reference https://developer.maersk.com/support"
+    severity: error
+    given: $.info.contact
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: "developer\\.maersk\\.com"
+  maersk-server-https:
+    description: Maersk API servers must use the api.maersk.com gateway over HTTPS.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://(api\\.maersk\\.com|api\\.productmanagement\\.maersk\\.com|api-spt\\.env\\.productmanagement\\.maersk\\.com)"
+  maersk-security-consumer-key:
+    description: Maersk APIs must support the Consumer-Key API key scheme.
+    severity: error
+    given: $.components.securitySchemes
+    then:
+      field: ConsumerKey
+      function: truthy
+  maersk-operation-summary-title-case:
+    description: Operation summaries should be Title Case.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-z0-9]*)( [A-Z][a-z0-9]*)*$"
+  maersk-operation-tags-required:
+    description: All operations must declare at least one tag.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: tags
+      function: truthy
+  maersk-dcsa-path-prefix:
+    description: DCSA-aligned endpoints should live under the /dcsa/ path prefix.
+    severity: hint
+    given: $.paths[?(@property.match(/dcsa/i))]
+    then:
+      function: truthy

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/maersk-line/main/json-schema/maersk-shipment-schema.json",
+  "title": "Maersk Shipment",
+  "description": "A Maersk ocean shipment identified by carrier booking reference or transport document.",
+  "type": "object",
+  "required": ["carrierBookingReference"],
+  "properties": {
+    "carrierBookingReference": { "type": "string", "description": "Carrier booking reference." },
+    "transportDocumentReference": { "type": "string", "description": "Bill of lading number." },
+    "carrierServiceCode": { "type": "string" },
+    "shipmentStatus": {
+      "type": "string",
+      "enum": ["RECEIVED", "CONFIRMED", "IN_TRANSIT", "DELIVERED", "CANCELLED"]
+    },
+    "origin": { "$ref": "#/$defs/Location" },
+    "destination": { "$ref": "#/$defs/Location" },
+    "events": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Event" }
+    },
+    "equipment": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Container" }
+    }
+  },
+  "$defs": {
+    "Location": {
+      "type": "object",
+      "properties": {
+        "UNLocationCode": { "type": "string" },
+        "locationName": { "type": "string" },
+        "countryCode": { "type": "string" }
+      }
+    },
+    "Event": {
+      "type": "object",
+      "properties": {
+        "eventID": { "type": "string" },
+        "eventType": { "type": "string", "enum": ["TRANSPORT", "EQUIPMENT", "SHIPMENT"] },
+        "eventClassifierCode": { "type": "string", "enum": ["PLN", "ACT", "EST"] },
+        "eventDateTime": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Container": {
+      "type": "object",
+      "properties": {
+        "equipmentReference": { "type": "string" },
+        "ISOEquipmentCode": { "type": "string" },
+        "verifiedGrossMass": { "type": "number" }
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+provider: Maersk
+providerId: maersk-line
+created: '2026-05-25'
+modified: '2026-05-25'
+description: >
+  Domain vocabulary for Maersk container shipping and integrated logistics.
+  Anchored in DCSA standards plus Maersk-specific extensions for offers,
+  surcharges, and accessorial charges.
+sources:
+  - https://developer.maersk.com
+  - https://dcsa.org/standards
+  - https://www.maersk.com/digital-services/data-integrations
+terms:
+  - term: SCAC
+    definition: Standard Carrier Alpha Code. Maersk ocean brands include MAEU (Maersk), SEAU (Sealand Maersk).
+    type: Identifier
+  - term: UN/LOCODE
+    definition: United Nations Code for Trade and Transport Locations identifying ports, terminals, and inland facilities.
+    type: Identifier
+  - term: ISO Equipment Code
+    definition: ISO 6346 code describing container size and type (e.g. 22G1 = 20ft standard general purpose).
+    type: Equipment
+  - term: Carrier Booking Reference
+    definition: Unique identifier the carrier assigns to a confirmed ocean booking.
+    type: Identifier
+  - term: Transport Document Reference
+    definition: Bill of lading or sea waybill number issued by the carrier.
+    type: Identifier
+  - term: FCL
+    definition: Full Container Load — single shipper occupies the whole container.
+    type: CargoMovement
+  - term: LCL
+    definition: Less than Container Load — multiple shippers share a container.
+    type: CargoMovement
+  - term: BBK
+    definition: Break Bulk — non-containerized cargo such as project cargo or rolling stock.
+    type: CargoMovement
+  - term: CY
+    definition: Container Yard — origin or destination service type where the container is handed over at the terminal.
+    type: ServiceType
+  - term: SD
+    definition: Store Door / Merchant Haulage — origin or destination service type where Maersk delivers door-to-door.
+    type: ServiceType
+  - term: CFS
+    definition: Container Freight Station — origin or destination service type where Maersk handles consolidation/deconsolidation.
+    type: ServiceType
+  - term: VGM
+    definition: Verified Gross Mass — SOLAS-mandated container weight declaration submitted before vessel cut-off.
+    type: Compliance
+  - term: Demurrage
+    definition: Charge for keeping a container at the terminal beyond the free time.
+    type: Charge
+  - term: Detention
+    definition: Charge for keeping a container outside the terminal beyond the free time.
+    type: Charge
+  - term: DCSA
+    definition: Digital Container Shipping Association — non-profit setting interoperable container shipping standards. Maersk is a founding member.
+    type: Standard
+  - term: eBL
+    definition: Electronic Bill of Lading — digital transport document per the DCSA eBL 3.0 standard.
+    type: Document
+  - term: SOLAS
+    definition: International Convention for the Safety of Life at Sea — IMO regulation governing container weight verification (VGM) and other safety measures.
+    type: Regulation
+  - term: IMO Number
+    definition: Unique seven-digit IMO identifier assigned to a merchant vessel.
+    type: Identifier
+  - term: Service Code
+    definition: Carrier-defined string code for a published port-rotation service (e.g. TA1, AE7).
+    type: Identifier
+  - term: Bunker Adjustment Factor
+    definition: Surcharge that recovers volatility in marine fuel prices.
+    type: Charge
+  - term: Terminal Handling Charge
+    definition: Surcharge covering loading and unloading at the terminal.
+    type: Charge

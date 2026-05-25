@@ -1,0 +1,30 @@
+{
+  "carrierServiceCode": "TA1",
+  "receiptTypeAtOrigin": "CY",
+  "deliveryTypeAtDestination": "CY",
+  "cargoMovementTypeAtOrigin": "FCL",
+  "cargoMovementTypeAtDestination": "FCL",
+  "serviceContractReference": "MAEU-SC-2026-9988",
+  "commodities": [
+    {
+      "commodityType": "Wind turbine components",
+      "HSCodes": ["850231"],
+      "cargoGrossWeight": 18500,
+      "cargoGrossWeightUnit": "KGM"
+    }
+  ],
+  "requestedEquipments": [
+    {
+      "ISOEquipmentCode": "42G1",
+      "units": 2,
+      "isShipperOwned": false
+    }
+  ],
+  "partyContactDetails": [
+    {
+      "name": "Logistics Operations",
+      "email": "ops@example-shipper.com",
+      "phone": "+45 70 00 00 00"
+    }
+  ]
+}

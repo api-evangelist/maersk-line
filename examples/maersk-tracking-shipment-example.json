@@ -1,0 +1,46 @@
+{
+  "carrierBookingReference": "222334455",
+  "transportDocumentReference": "909876543",
+  "events": [
+    {
+      "eventID": "evt-001",
+      "eventType": "EQUIPMENT",
+      "eventClassifierCode": "ACT",
+      "eventDateTime": "2026-05-12T08:14:00Z",
+      "location": {
+        "locationName": "Aarhus Container Terminal",
+        "UNLocationCode": "DKAAR",
+        "countryCode": "DK"
+      },
+      "equipmentReference": "MSKU1234567"
+    },
+    {
+      "eventID": "evt-002",
+      "eventType": "TRANSPORT",
+      "eventClassifierCode": "ACT",
+      "eventDateTime": "2026-05-14T22:00:00Z",
+      "location": {
+        "locationName": "Port of Aarhus",
+        "UNLocationCode": "DKAAR",
+        "countryCode": "DK"
+      },
+      "transportCall": {
+        "carrierServiceCode": "TA1",
+        "vesselIMONumber": "9778791",
+        "carrierVoyageNumber": "519W",
+        "modeOfTransport": "VESSEL"
+      }
+    },
+    {
+      "eventID": "evt-003",
+      "eventType": "TRANSPORT",
+      "eventClassifierCode": "EST",
+      "eventDateTime": "2026-05-28T10:00:00Z",
+      "location": {
+        "locationName": "Port Newark",
+        "UNLocationCode": "USEWR",
+        "countryCode": "US"
+      }
+    }
+  ]
+}

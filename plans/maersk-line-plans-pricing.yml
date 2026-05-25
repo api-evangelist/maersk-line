@@ -1,0 +1,107 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Maersk
+providerId: maersk-line
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - Shipping
+  - Logistics
+  - Container
+  - Ocean
+  - Air
+description: >
+  Reconciled plan and pricing surface for Maersk APIs and services. Most APIs
+  on developer.maersk.com are free at the request layer for registered
+  customers; commercial value is settled on the underlying shipping or
+  logistics contract (ocean freight, surcharges, demurrage and detention,
+  warehousing, customs, etc.). Pricing here captures the commercial-contract
+  surface that Maersk APIs reference rather than per-API fees.
+sources:
+  - https://developer.maersk.com/support/getting-started-api
+  - https://www.maersk.com/digital-services/data-integrations/api
+  - https://www.maersk.com/digital-services/data-integrations
+plans:
+  - id: maersk-developer-portal
+    name: Developer Portal Access
+    type: free
+    description: >
+      Self-service access to developer.maersk.com. Requires Maersk customer
+      account and approval to subscribe to individual API products. No
+      per-request fee at the API layer for standard customer integrations.
+    entries:
+      - label: API Requests
+        name: requests
+        type: included
+        metric: request
+        limit: -1
+        price: 0
+        currency: USD
+        description: Standard request volume included for subscribed APIs.
+  - id: maersk-ocean-spot
+    name: Ocean Spot Quote
+    type: usage-based
+    description: >
+      Pay-as-you-go ocean freight via the Product Offers API. Prices vary by
+      trade lane, container size-type, departure date, and current market
+      conditions. All-in rates include base ocean freight plus surcharges.
+    entries:
+      - label: Per Container — Trade Lane Dependent
+        name: per-container
+        type: metered
+        metric: container
+        limit: -1
+        price: variable
+        currency: USD
+        description: Quoted at request time via Product Offers API.
+  - id: maersk-service-contract
+    name: Service Contract
+    type: contract
+    description: >
+      Negotiated annual ocean shipping contract with committed minimum
+      quantity (MQC). Service contract reference is supplied in booking
+      requests and unlocks contract-tariff pricing on the Product Offers and
+      Booking APIs.
+    entries:
+      - label: Contract Rate
+        name: contract-rate
+        type: contract
+        metric: container
+        limit: -1
+        price: negotiated
+        currency: USD
+        description: Negotiated per-container rate per trade lane and equipment type.
+  - id: maersk-logistics
+    name: Integrated Logistics
+    type: contract
+    description: >
+      Combined contract spanning ocean transport, warehousing, distribution,
+      customs, and supply chain management. APIs return data tied to the
+      integrated solution rather than per-leg pricing.
+    entries:
+      - label: Bundled Solution
+        name: bundled
+        type: contract
+        metric: project
+        limit: -1
+        price: negotiated
+        currency: USD
+        description: Negotiated multi-service contract.
+  - id: maersk-air-cargo
+    name: Maersk Air Cargo
+    type: usage-based
+    description: >
+      Air freight bookings via the Air Booking API. Charged per-kilo or
+      per-piece based on routing, product (General, Express, Pharma,
+      Perishable), and chargeable weight.
+    entries:
+      - label: Per Kilogram — Routing Dependent
+        name: per-kg
+        type: metered
+        metric: kilogram
+        limit: -1
+        price: variable
+        currency: USD
+        description: Quoted at request time.

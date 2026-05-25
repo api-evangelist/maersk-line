@@ -1,0 +1,62 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Maersk Verified Gross Mass API — Declarations
+  description: >
+    Submit and retrieve SOLAS Verified Gross Mass declarations for export
+    containers.
+  tags:
+    - Maersk
+    - VGM
+    - SOLAS
+    - Export
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      MAERSK_CONSUMER_KEY: MAERSK_CONSUMER_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: vgm
+      baseUri: https://api.maersk.com
+      description: Verified Gross Mass declarations.
+      resources:
+        - name: vgm
+          path: /export-shipments/vgm/v1/shipments/{transportDocumentReference}/vgm
+          operations:
+            - name: submitVgm
+              method: POST
+              description: Submit VGM for shipment containers.
+              inputParameters:
+                - name: transportDocumentReference
+                  in: path
+                  type: string
+                  required: true
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: getVgm
+              method: GET
+              description: Retrieve VGM entries for a shipment.
+              inputParameters:
+                - name: transportDocumentReference
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+      authentication:
+        type: apikey
+        in: header
+        name: Consumer-Key
+        valueFrom: env.MAERSK_CONSUMER_KEY

@@ -1,0 +1,226 @@
+openapi: 3.1.0
+info:
+  title: Maersk Product Offers API
+  description: >
+    Quote prices and product offers for ocean shipments. Returns route and
+    schedule, vessel and deadline information, and prices including
+    surcharges for the requested origin, destination, container size-type
+    combination, and departure date.
+  version: '2.0'
+  contact:
+    name: Maersk Developer Support
+    url: https://developer.maersk.com/support
+
+servers:
+  - url: https://api.productmanagement.maersk.com
+    description: Production
+  - url: https://api-spt.env.productmanagement.maersk.com
+    description: Sandbox
+
+security:
+  - ConsumerKey: []
+  - ForgeRockJWT: []
+
+tags:
+  - name: Offers
+    description: Product offers, prices, and surcharges.
+  - name: Locations
+    description: Origin and destination port lookups.
+  - name: Containers
+    description: Supported container size and type combinations.
+
+paths:
+  /offers/v2/offers/brand/{brandScac}/departuredate/{departureDate}:
+    get:
+      summary: List Available Offers
+      description: >
+        Retrieve product offers for a given origin, destination, container,
+        and departure date. Includes pricing, schedule, demurrage and
+        detention conditions.
+      operationId: listAvailableOffers
+      tags:
+        - Offers
+      parameters:
+        - name: brandScac
+          in: path
+          required: true
+          description: Carrier SCAC code (MAEU, SEAU, MCPU, SEJJ).
+          schema:
+            type: string
+            example: MAEU
+        - name: departureDate
+          in: path
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: collectionOriginCityName
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: collectionOriginCountryCode
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: deliveryDestinationCityName
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: deliveryDestinationCountryCode
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: containerIsoCode
+          in: query
+          required: true
+          schema:
+            type: string
+            example: 22G1
+        - name: serviceMode
+          in: query
+          schema:
+            type: string
+            enum: [Carrier-Haulage, Merchant-Haulage]
+      responses:
+        '200':
+          description: Offers returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductOffer'
+
+  /offers/v2/offers/brand/{brandScac}/locations:
+    get:
+      summary: Get Port Pair Locations
+      description: List available origin-destination port combinations.
+      operationId: getPortPairs
+      tags:
+        - Locations
+      parameters:
+        - name: brandScac
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: containerIsoCode
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Port pairs returned.
+
+  /offers/v2/offers/brand/{brandScac}/locations/origins:
+    get:
+      summary: Get Origin Ports
+      description: List origin ports with available offers.
+      operationId: getOriginPorts
+      tags:
+        - Locations
+      parameters:
+        - name: brandScac
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: cityName
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Origin ports returned.
+
+  /offers/v2/offers/brand/{brandScac}/locations/destinations:
+    get:
+      summary: Get Destination Ports
+      description: List destination ports with available offers.
+      operationId: getDestinationPorts
+      tags:
+        - Locations
+      parameters:
+        - name: brandScac
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Destination ports returned.
+
+  /offers/v2/offers/containers:
+    get:
+      summary: List Supported Containers
+      description: List all container size-types supported for offers.
+      operationId: listContainers
+      tags:
+        - Containers
+      responses:
+        '200':
+          description: Container catalog returned.
+
+components:
+  securitySchemes:
+    ConsumerKey:
+      type: apiKey
+      in: header
+      name: Consumer-Key
+    ForgeRockJWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    ProductOffer:
+      type: object
+      properties:
+        offerId:
+          type: string
+        carrierServiceCode:
+          type: string
+        originLocation:
+          type: string
+        destinationLocation:
+          type: string
+        departureDate:
+          type: string
+          format: date-time
+        arrivalDate:
+          type: string
+          format: date-time
+        transitTime:
+          type: integer
+        containerIsoCode:
+          type: string
+        totalPrice:
+          $ref: '#/components/schemas/Price'
+        priceBreakdown:
+          type: array
+          items:
+            $ref: '#/components/schemas/Price'
+        demurrageDetention:
+          type: object
+          properties:
+            originFreeDays:
+              type: integer
+            destinationFreeDays:
+              type: integer
+    Price:
+      type: object
+      properties:
+        chargeCode:
+          type: string
+        chargeName:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        basis:
+          type: string
+          enum: [PerContainer, PerShipment, PerBillOfLading]

@@ -1,0 +1,86 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Maersk
+providerId: maersk-line
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - Shipping
+  - Rate Limiting
+  - Quotas
+description: >
+  Reconciled rate limits for Maersk APIs served via the api.maersk.com
+  gateway. Limits are enforced per consumer key. Specific quotas vary by
+  subscribed API product; values below are the documented portal defaults
+  and may be raised by request through Maersk Developer Support.
+sources:
+  - https://developer.maersk.com/support/getting-started-api
+  - https://developer.maersk.com/support/authorisation
+  - https://developer.maersk.com/support/faqs
+headers:
+  limit: X-RateLimit-Limit
+  remaining: X-RateLimit-Remaining
+  reset: X-RateLimit-Reset
+  retryAfter: Retry-After
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  unauthorized: 401
+algorithm: fixed-window
+defaults:
+  scope: consumer-key
+  requestsPerMinute: 60
+  requestsPerHour: 1000
+  description: >
+    Default ceiling for standard developer-portal subscriptions. Higher
+    enterprise tiers are available on request.
+products:
+  - api: Track and Trace API
+    scope: consumer-key
+    requestsPerMinute: 120
+    requestsPerHour: 5000
+    notes: Tracking endpoints are read-heavy and provisioned for higher throughput.
+  - api: Ocean Booking API
+    scope: consumer-key
+    requestsPerMinute: 30
+    requestsPerHour: 500
+    notes: Booking is write-heavy; throughput is intentionally constrained.
+  - api: Schedules API
+    scope: consumer-key
+    requestsPerMinute: 60
+    requestsPerHour: 1000
+  - api: Product Offers API
+    scope: consumer-key
+    requestsPerMinute: 30
+    requestsPerHour: 500
+    notes: Pricing endpoints are quota-protected to prevent rate scraping.
+  - api: Bill of Lading API
+    scope: consumer-key
+    requestsPerMinute: 30
+    requestsPerHour: 500
+  - api: VGM API
+    scope: consumer-key
+    requestsPerMinute: 30
+    requestsPerHour: 500
+  - api: Demurrage and Detention API
+    scope: consumer-key
+    requestsPerMinute: 60
+    requestsPerHour: 1000
+  - api: Air Booking API
+    scope: consumer-key
+    requestsPerMinute: 30
+    requestsPerHour: 500
+authentication:
+  scheme: Consumer-Key plus OAuth 2.0 client_credentials
+  tokenUrl: https://api.maersk.com/customer-identity/oauth/v2/access_token
+  notes: >
+    All requests require the Consumer-Key header obtained from the developer
+    portal. Many APIs additionally require a short-lived OAuth 2.0 access
+    token issued via client_credentials flow.
+backoff:
+  strategy: exponential
+  initialDelaySeconds: 1
+  maxDelaySeconds: 60
+  description: Honor Retry-After when present; otherwise back off exponentially up to 60 seconds.

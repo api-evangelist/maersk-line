@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/maersk-line/main/json-schema/maersk-product-offer-schema.json",
+  "title": "Maersk Product Offer",
+  "description": "A priced ocean shipping offer returned by the Maersk Product Offers API.",
+  "type": "object",
+  "properties": {
+    "offerId": { "type": "string" },
+    "carrierServiceCode": { "type": "string" },
+    "originLocation": { "type": "string" },
+    "destinationLocation": { "type": "string" },
+    "departureDate": { "type": "string", "format": "date-time" },
+    "arrivalDate": { "type": "string", "format": "date-time" },
+    "transitTime": { "type": "integer", "description": "Days in transit." },
+    "containerIsoCode": { "type": "string" },
+    "totalPrice": { "$ref": "#/$defs/Price" },
+    "priceBreakdown": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Price" }
+    },
+    "demurrageDetention": {
+      "type": "object",
+      "properties": {
+        "originFreeDays": { "type": "integer" },
+        "destinationFreeDays": { "type": "integer" }
+      }
+    }
+  },
+  "$defs": {
+    "Price": {
+      "type": "object",
+      "properties": {
+        "chargeCode": { "type": "string" },
+        "chargeName": { "type": "string" },
+        "amount": { "type": "number" },
+        "currency": { "type": "string" },
+        "basis": {
+          "type": "string",
+          "enum": ["PerContainer", "PerShipment", "PerBillOfLading"]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Maersk Bill of Lading API — Transport Documents
+  description: >
+    Retrieve and approve electronic bills of lading per the DCSA eBL 3.0
+    interface.
+  tags:
+    - Maersk
+    - BillOfLading
+    - eBL
+    - DCSA
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      MAERSK_CONSUMER_KEY: MAERSK_CONSUMER_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: bill-of-lading
+      baseUri: https://api.maersk.com
+      description: Maersk eBL document operations.
+      resources:
+        - name: transport-document
+          path: /dcsa/ebl/v3/transport-documents/{transportDocumentReference}
+          operations:
+            - name: getTransportDocument
+              method: GET
+              description: Retrieve a transport document.
+              inputParameters:
+                - name: transportDocumentReference
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: approve
+          path: /dcsa/ebl/v3/transport-documents/{transportDocumentReference}/approve
+          operations:
+            - name: approveTransportDocument
+              method: PATCH
+              description: Shipper approval of a draft document.
+              inputParameters:
+                - name: transportDocumentReference
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+      authentication:
+        type: apikey
+        in: header
+        name: Consumer-Key
+        valueFrom: env.MAERSK_CONSUMER_KEY

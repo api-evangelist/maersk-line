@@ -1,0 +1,138 @@
+openapi: 3.1.0
+info:
+  title: Maersk Verified Gross Mass API
+  description: >
+    Submit Verified Gross Mass (VGM) declarations for export shipments per
+    SOLAS regulations. Allows shippers to electronically submit and update
+    VGM for each container before vessel cut-off.
+  version: '1.0'
+  contact:
+    name: Maersk Developer Support
+    url: https://developer.maersk.com/support
+
+servers:
+  - url: https://api.maersk.com
+    description: Production Gateway
+
+security:
+  - ConsumerKey: []
+  - OAuth2: [vgm]
+
+tags:
+  - name: VGM
+    description: Verified Gross Mass declarations.
+
+paths:
+  /export-shipments/vgm/v1/shipments/{transportDocumentReference}/vgm:
+    post:
+      summary: Submit Verified Gross Mass
+      description: >
+        Submit one or more VGM entries for the containers on a shipment.
+      operationId: submitVgm
+      tags:
+        - VGM
+      parameters:
+        - name: transportDocumentReference
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: Consumer-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VgmSubmission'
+      responses:
+        '202':
+          description: VGM accepted for processing.
+        '400':
+          description: Validation error.
+
+    get:
+      summary: Get Verified Gross Mass
+      description: Retrieve currently recorded VGM entries for a shipment.
+      operationId: getVgm
+      tags:
+        - VGM
+      parameters:
+        - name: transportDocumentReference
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: Consumer-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: VGM entries returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VgmSubmission'
+
+components:
+  securitySchemes:
+    ConsumerKey:
+      type: apiKey
+      in: header
+      name: Consumer-Key
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.maersk.com/customer-identity/oauth/v2/access_token
+          scopes:
+            vgm: Submit VGM declarations.
+  schemas:
+    VgmSubmission:
+      type: object
+      required: [containers]
+      properties:
+        transportDocumentReference:
+          type: string
+        containers:
+          type: array
+          items:
+            type: object
+            required: [equipmentReference, verifiedGrossMass, weighingMethod, responsibleParty]
+            properties:
+              equipmentReference:
+                type: string
+              verifiedGrossMass:
+                type: number
+              massUnit:
+                type: string
+                enum: [KGM, LBR]
+                default: KGM
+              weighingMethod:
+                type: string
+                enum: [METHOD1, METHOD2]
+                description: SOLAS VGM weighing method.
+              weighingDate:
+                type: string
+                format: date-time
+              responsibleParty:
+                type: object
+                properties:
+                  partyName:
+                    type: string
+                  signatory:
+                    type: string
+                  contactEmail:
+                    type: string
+              weighingFacility:
+                type: object
+                properties:
+                  facilityName:
+                    type: string
+                  UNLocationCode:
+                    type: string

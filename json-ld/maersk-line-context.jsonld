@@ -1,0 +1,74 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "maersk": "https://api.maersk.com/vocab#",
+    "dcsa": "https://dcsa.org/vocab#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Shipment": {
+      "@id": "schema:ParcelDelivery",
+      "@context": {
+        "carrierBookingReference": { "@id": "maersk:carrierBookingReference", "@type": "xsd:string" },
+        "transportDocumentReference": { "@id": "maersk:transportDocumentReference", "@type": "xsd:string" },
+        "origin": { "@id": "schema:originAddress" },
+        "destination": { "@id": "schema:deliveryAddress" },
+        "events": { "@id": "maersk:events", "@container": "@list" }
+      }
+    },
+
+    "Booking": {
+      "@id": "maersk:Booking",
+      "@context": {
+        "carrierBookingReference": { "@id": "maersk:carrierBookingReference", "@type": "xsd:string" },
+        "carrierServiceCode": { "@id": "maersk:carrierServiceCode", "@type": "xsd:string" },
+        "bookingStatus": { "@id": "maersk:bookingStatus", "@type": "xsd:string" },
+        "receiptTypeAtOrigin": { "@id": "dcsa:receiptTypeAtOrigin" },
+        "deliveryTypeAtDestination": { "@id": "dcsa:deliveryTypeAtDestination" }
+      }
+    },
+
+    "TransportDocument": {
+      "@id": "maersk:TransportDocument",
+      "@context": {
+        "transportDocumentReference": { "@id": "maersk:transportDocumentReference" },
+        "transportDocumentTypeCode": { "@id": "dcsa:transportDocumentTypeCode" },
+        "transportDocumentStatus": { "@id": "dcsa:transportDocumentStatus" },
+        "shipperParty": { "@id": "schema:sender" },
+        "consigneeParty": { "@id": "schema:recipient" }
+      }
+    },
+
+    "Container": {
+      "@id": "maersk:Container",
+      "@context": {
+        "equipmentReference": { "@id": "maersk:equipmentReference", "@type": "xsd:string" },
+        "ISOEquipmentCode": { "@id": "maersk:ISOEquipmentCode", "@type": "xsd:string" },
+        "verifiedGrossMass": { "@id": "maersk:verifiedGrossMass", "@type": "xsd:decimal" }
+      }
+    },
+
+    "Event": {
+      "@id": "schema:Event",
+      "@context": {
+        "eventID": { "@id": "maersk:eventID", "@type": "xsd:string" },
+        "eventType": { "@id": "maersk:eventType" },
+        "eventClassifierCode": { "@id": "maersk:eventClassifierCode" },
+        "eventDateTime": { "@id": "schema:startDate", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "ProductOffer": {
+      "@id": "maersk:ProductOffer",
+      "@context": {
+        "offerId": { "@id": "maersk:offerId" },
+        "departureDate": { "@id": "schema:departureTime", "@type": "xsd:dateTime" },
+        "arrivalDate": { "@id": "schema:arrivalTime", "@type": "xsd:dateTime" },
+        "transitTime": { "@id": "maersk:transitTime", "@type": "xsd:integer" },
+        "totalPrice": { "@id": "schema:price" }
+      }
+    }
+  }
+}
