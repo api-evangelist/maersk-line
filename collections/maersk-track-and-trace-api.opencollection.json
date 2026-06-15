@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maersk Track and Trace API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Consumer-Key",
+      "value": "{{Consumer-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tracking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Shipment Tracking Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maersk.com/track-and-trace-private/shipments",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "equipmentReference",
+                "value": "",
+                "type": "query",
+                "description": "Container number (ISO 6346)."
+              },
+              {
+                "name": "transportDocumentReference",
+                "value": "",
+                "type": "query",
+                "description": "Bill of lading number."
+              },
+              {
+                "name": "carrierBookingReference",
+                "value": "",
+                "type": "query",
+                "description": "Booking reference number."
+              }
+            ]
+          },
+          "docs": "Retrieve neutralized tracking events for a shipment referenced by container number, bill-of-lading number, or booking number. Returns location, vessel, voyage, planned and actual timestamps for each milestone.\n"
+        },
+        {
+          "info": {
+            "name": "List Container Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maersk.com/track-and-trace-private/events",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "equipmentReference",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "eventType",
+                "value": "",
+                "type": "query",
+                "description": "TRANSPORT, EQUIPMENT, or SHIPMENT."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve fine-grained event stream for a single container, including transport events, equipment events, and shipment events.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maersk Verified Gross Mass API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Consumer-Key",
+      "value": "{{Consumer-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VGM",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Verified Gross Mass",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maersk.com/export-shipments/vgm/v1/shipments/:transportDocumentReference/vgm",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "transportDocumentReference",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve currently recorded VGM entries for a shipment."
+        },
+        {
+          "info": {
+            "name": "Submit Verified Gross Mass",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.maersk.com/export-shipments/vgm/v1/shipments/:transportDocumentReference/vgm",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "transportDocumentReference",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit one or more VGM entries for the containers on a shipment.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

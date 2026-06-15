@@ -1,399 +1,370 @@
 aid: maersk-line
 url: https://raw.githubusercontent.com/api-evangelist/maersk-line/refs/heads/main/apis.yml
 apis:
-- aid: maersk-line:maersk-track-and-trace-api
-  name: Maersk Track and Trace API
-  tags:
-  - Shipping
-  - Tracking
-  - Containers
-  - Ocean
-  humanURL: https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus
-  properties:
-  - url: https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus
-    type: Documentation
-  - url: https://developer.maersk.com/api-catalogue/multi-carrier-track-trace
-    type: Documentation
-  - url: openapi/maersk-track-and-trace-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/maersk-shipment-schema.json
-    type: JSONSchema
-  - url: examples/maersk-tracking-shipment-example.json
-    type: Example
-  - url: capabilities/tracking-shipments.yaml
-    type: NaftikoCapability
-  description: >-
-    Retrieve neutralized container and shipment milestones via a RESTful API.
-    Supports lookup by container number, bill-of-lading number, or booking
-    reference. Returns transport, equipment, and shipment events with planned
-    and actual timestamps.
-- aid: maersk-line:maersk-ocean-booking-api
-  name: Maersk Ocean Booking API
-  tags:
-  - Shipping
-  - Booking
-  - DCSA
-  - Ocean
-  humanURL: https://developer.maersk.com/api-catalogue/EDP%20Booking
-  properties:
-  - url: https://developer.maersk.com/api-catalogue/EDP%20Booking
-    type: Documentation
-  - url: https://developer.maersk.com/api-catalogue/Booking%20Status
-    type: Documentation
-  - url: https://developer.maersk.com/api-catalogue/ocean-booking-status-webhook
-    type: Documentation
-  - url: openapi/maersk-ocean-booking-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/maersk-booking-schema.json
-    type: JSONSchema
-  - url: examples/maersk-booking-request-example.json
-    type: Example
-  - url: capabilities/ocean-booking-bookings.yaml
-    type: NaftikoCapability
-  description: >-
-    Create, retrieve, amend, and cancel ocean shipment bookings. DCSA Booking
-    2.0 compliant so the same payloads work across DCSA-aligned ocean
-    carriers. Includes booking status webhooks for asynchronous lifecycle
-    notifications.
-- aid: maersk-line:maersk-schedules-api
-  name: Maersk Schedules API
-  tags:
-  - Shipping
-  - Schedules
-  - Ocean
-  - DCSA
-  humanURL: https://developer.maersk.com/api-catalogue/Point-to-Point%20Schedules
-  properties:
-  - url: https://developer.maersk.com/api-catalogue/Point-to-Point%20Schedules
-    type: Documentation
-  - url: https://developer.maersk.com/api-catalogue/ocean-commercial-schedules
-    type: Documentation
-  - url: openapi/maersk-schedules-api-openapi.yml
-    type: OpenAPI
-  - url: capabilities/schedules-sailings.yaml
-    type: NaftikoCapability
-  description: >-
-    Retrieve point-to-point sailing options and commercial service schedules
-    for Maersk ocean routes. Returns vessel, voyage, transit time, and
-    intermediate transshipments for a given origin, destination, and date
-    range.
-- aid: maersk-line:maersk-product-offers-api
-  name: Maersk Product Offers API
-  tags:
-  - Shipping
-  - Pricing
-  - Quotes
-  - Surcharges
-  humanURL: https://api.productmanagement.maersk.com/offers/docs/endpoints/productoffers.html
-  properties:
-  - url: https://api.productmanagement.maersk.com/offers/docs/endpoints/productoffers.html
-    type: Documentation
-  - url: https://api.productmanagement.maersk.com/offers/docs/datamodels/productoffers.html
-    type: Documentation
-  - url: https://api.productmanagement.maersk.com/offers/docs/datamodels/prices.html
-    type: Documentation
-  - url: openapi/maersk-product-offers-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/maersk-product-offer-schema.json
-    type: JSONSchema
-  - url: examples/maersk-product-offer-example.json
-    type: Example
-  - url: capabilities/product-offers-quotes.yaml
-    type: NaftikoCapability
-  description: >-
-    Quote ocean shipping offers. Returns route and schedule, vessel and
-    deadline details, plus full price breakdowns including base ocean
-    freight, bunker adjustment, terminal handling, and other surcharges.
-    Supports origin and destination port lookups and supported container
-    catalog endpoints.
-- aid: maersk-line:maersk-bill-of-lading-api
-  name: Maersk Bill of Lading API
-  tags:
-  - Shipping
-  - eBL
-  - DCSA
-  - Documents
-  humanURL: https://developer.maersk.com/api-catalogue/dcsa-bill-of-lading
-  properties:
-  - url: https://developer.maersk.com/api-catalogue/dcsa-bill-of-lading
-    type: Documentation
-  - url: openapi/maersk-bill-of-lading-api-openapi.yml
-    type: OpenAPI
-  - url: capabilities/bill-of-lading-documents.yaml
-    type: NaftikoCapability
-  description: >-
-    DCSA-compliant Carrier Bill of Lading (eBL) API. Retrieve, approve, and
-    surrender electronic transport documents per the DCSA eBL 3.0 interface
-    standard.
-- aid: maersk-line:maersk-vgm-api
-  name: Maersk Verified Gross Mass API
-  tags:
-  - Shipping
-  - VGM
-  - SOLAS
-  - Export
-  - Compliance
-  humanURL: https://developer.maersk.com/api-catalogue/VGM
-  properties:
-  - url: https://developer.maersk.com/api-catalogue/VGM
-    type: Documentation
-  - url: https://developer.maersk.com/api-catalogue/VGM/Learn-more
-    type: Documentation
-  - url: openapi/maersk-vgm-api-openapi.yml
-    type: OpenAPI
-  - url: examples/maersk-vgm-submission-example.json
-    type: Example
-  - url: capabilities/vgm-declarations.yaml
-    type: NaftikoCapability
-  description: >-
-    Submit and retrieve Verified Gross Mass declarations for export
-    containers per SOLAS regulations. Allows shippers to electronically file
-    container weights before vessel cut-off.
-- aid: maersk-line:maersk-demurrage-detention-api
-  name: Maersk Import Demurrage and Detention API
-  tags:
-  - Shipping
-  - Demurrage
-  - Detention
-  - Import
-  - Charges
-  humanURL: https://developer.maersk.com/api-catalogue/Import%20Demurrage%20and%20Detention
-  properties:
-  - url: https://developer.maersk.com/api-catalogue/Import%20Demurrage%20and%20Detention
-    type: Documentation
-  - url: openapi/maersk-demurrage-detention-api-openapi.yml
-    type: OpenAPI
-  - url: capabilities/demurrage-detention-charges.yaml
-    type: NaftikoCapability
-  description: >-
-    Retrieve accruing demurrage and detention charges, free-day balances,
-    and clock status for import containers. Helps consignees and freight
-    forwarders avoid accessorial charges by surfacing live penalty risk.
-- aid: maersk-line:maersk-air-booking-api
-  name: Maersk Air Booking API
-  tags:
-  - Shipping
-  - Air
-  - Booking
-  - Cargo
-  humanURL: https://developer.maersk.com/api-catalogue/external-air-booking
-  properties:
-  - url: https://developer.maersk.com/api-catalogue/external-air-booking
-    type: Documentation
-  - url: openapi/maersk-air-booking-api-openapi.yml
-    type: OpenAPI
-  - url: capabilities/air-booking-bookings.yaml
-    type: NaftikoCapability
-  description: >-
-    Submit air freight booking requests via Maersk Air Cargo. Supports
-    consolidation, charter, and forwarder bookings with product tiers for
-    General, Express, Pharma, and Perishable cargo.
-- aid: maersk-line:maersk-container-maintenance-repair-api
-  name: Maersk Container Maintenance and Repair API
-  tags:
-  - Shipping
-  - Equipment
-  - Containers
-  - Maintenance
-  humanURL: https://developer.maersk.com/api-catalogue/aems-maintenance-repair
-  properties:
-  - url: https://developer.maersk.com/api-catalogue/aems-maintenance-repair
-    type: Documentation
-  description: >-
-    Container Maintenance and Repair (M&R) API surfacing equipment-management
-    events and repair workflow data for Maersk container assets.
+  - aid: maersk-line:maersk-track-and-trace-api
+    name: Maersk Track and Trace API
+    tags:
+      - Shipping
+      - Tracking
+      - Containers
+      - Ocean
+    humanURL: https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus
+    properties:
+      - url: https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus
+        type: Documentation
+      - url: https://developer.maersk.com/api-catalogue/multi-carrier-track-trace
+        type: Documentation
+      - url: openapi/maersk-track-and-trace-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/maersk-shipment-schema.json
+        type: JSONSchema
+      - url: examples/maersk-tracking-shipment-example.json
+        type: Example
+    description: >-
+      Retrieve neutralized container and shipment milestones via a RESTful API. Supports lookup by container number,
+      bill-of-lading number, or booking reference. Returns transport, equipment, and shipment events with planned and
+      actual timestamps.
+  - aid: maersk-line:maersk-ocean-booking-api
+    name: Maersk Ocean Booking API
+    tags:
+      - Shipping
+      - Booking
+      - DCSA
+      - Ocean
+    humanURL: https://developer.maersk.com/api-catalogue/EDP%20Booking
+    properties:
+      - url: https://developer.maersk.com/api-catalogue/EDP%20Booking
+        type: Documentation
+      - url: https://developer.maersk.com/api-catalogue/Booking%20Status
+        type: Documentation
+      - url: https://developer.maersk.com/api-catalogue/ocean-booking-status-webhook
+        type: Documentation
+      - url: openapi/maersk-ocean-booking-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/maersk-booking-schema.json
+        type: JSONSchema
+      - url: examples/maersk-booking-request-example.json
+        type: Example
+    description: >-
+      Create, retrieve, amend, and cancel ocean shipment bookings. DCSA Booking 2.0 compliant so the same payloads work
+      across DCSA-aligned ocean carriers. Includes booking status webhooks for asynchronous lifecycle notifications.
+  - aid: maersk-line:maersk-schedules-api
+    name: Maersk Schedules API
+    tags:
+      - Shipping
+      - Schedules
+      - Ocean
+      - DCSA
+    humanURL: https://developer.maersk.com/api-catalogue/Point-to-Point%20Schedules
+    properties:
+      - url: https://developer.maersk.com/api-catalogue/Point-to-Point%20Schedules
+        type: Documentation
+      - url: https://developer.maersk.com/api-catalogue/ocean-commercial-schedules
+        type: Documentation
+      - url: openapi/maersk-schedules-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Retrieve point-to-point sailing options and commercial service schedules for Maersk ocean routes. Returns vessel,
+      voyage, transit time, and intermediate transshipments for a given origin, destination, and date range.
+  - aid: maersk-line:maersk-product-offers-api
+    name: Maersk Product Offers API
+    tags:
+      - Shipping
+      - Pricing
+      - Quotes
+      - Surcharges
+    humanURL: https://api.productmanagement.maersk.com/offers/docs/endpoints/productoffers.html
+    properties:
+      - url: https://api.productmanagement.maersk.com/offers/docs/endpoints/productoffers.html
+        type: Documentation
+      - url: https://api.productmanagement.maersk.com/offers/docs/datamodels/productoffers.html
+        type: Documentation
+      - url: https://api.productmanagement.maersk.com/offers/docs/datamodels/prices.html
+        type: Documentation
+      - url: openapi/maersk-product-offers-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/maersk-product-offer-schema.json
+        type: JSONSchema
+      - url: examples/maersk-product-offer-example.json
+        type: Example
+    description: >-
+      Quote ocean shipping offers. Returns route and schedule, vessel and deadline details, plus full price breakdowns
+      including base ocean freight, bunker adjustment, terminal handling, and other surcharges. Supports origin and
+      destination port lookups and supported container catalog endpoints.
+  - aid: maersk-line:maersk-bill-of-lading-api
+    name: Maersk Bill of Lading API
+    tags:
+      - Shipping
+      - eBL
+      - DCSA
+      - Documents
+    humanURL: https://developer.maersk.com/api-catalogue/dcsa-bill-of-lading
+    properties:
+      - url: https://developer.maersk.com/api-catalogue/dcsa-bill-of-lading
+        type: Documentation
+      - url: openapi/maersk-bill-of-lading-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      DCSA-compliant Carrier Bill of Lading (eBL) API. Retrieve, approve, and surrender electronic transport documents
+      per the DCSA eBL 3.0 interface standard.
+  - aid: maersk-line:maersk-vgm-api
+    name: Maersk Verified Gross Mass API
+    tags:
+      - Shipping
+      - VGM
+      - SOLAS
+      - Export
+      - Compliance
+    humanURL: https://developer.maersk.com/api-catalogue/VGM
+    properties:
+      - url: https://developer.maersk.com/api-catalogue/VGM
+        type: Documentation
+      - url: https://developer.maersk.com/api-catalogue/VGM/Learn-more
+        type: Documentation
+      - url: openapi/maersk-vgm-api-openapi.yml
+        type: OpenAPI
+      - url: examples/maersk-vgm-submission-example.json
+        type: Example
+    description: >-
+      Submit and retrieve Verified Gross Mass declarations for export containers per SOLAS regulations. Allows shippers
+      to electronically file container weights before vessel cut-off.
+  - aid: maersk-line:maersk-demurrage-detention-api
+    name: Maersk Import Demurrage and Detention API
+    tags:
+      - Shipping
+      - Demurrage
+      - Detention
+      - Import
+      - Charges
+    humanURL: https://developer.maersk.com/api-catalogue/Import%20Demurrage%20and%20Detention
+    properties:
+      - url: https://developer.maersk.com/api-catalogue/Import%20Demurrage%20and%20Detention
+        type: Documentation
+      - url: openapi/maersk-demurrage-detention-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Retrieve accruing demurrage and detention charges, free-day balances, and clock status for import containers.
+      Helps consignees and freight forwarders avoid accessorial charges by surfacing live penalty risk.
+  - aid: maersk-line:maersk-air-booking-api
+    name: Maersk Air Booking API
+    tags:
+      - Shipping
+      - Air
+      - Booking
+      - Cargo
+    humanURL: https://developer.maersk.com/api-catalogue/external-air-booking
+    properties:
+      - url: https://developer.maersk.com/api-catalogue/external-air-booking
+        type: Documentation
+      - url: openapi/maersk-air-booking-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Submit air freight booking requests via Maersk Air Cargo. Supports consolidation, charter, and forwarder bookings
+      with product tiers for General, Express, Pharma, and Perishable cargo.
+  - aid: maersk-line:maersk-container-maintenance-repair-api
+    name: Maersk Container Maintenance and Repair API
+    tags:
+      - Shipping
+      - Equipment
+      - Containers
+      - Maintenance
+    humanURL: https://developer.maersk.com/api-catalogue/aems-maintenance-repair
+    properties:
+      - url: https://developer.maersk.com/api-catalogue/aems-maintenance-repair
+        type: Documentation
+    description: >-
+      Container Maintenance and Repair (M&R) API surfacing equipment-management events and repair workflow data for
+      Maersk container assets.
 name: Maersk
 tags:
-- Shipping
-- Logistics
-- Container Shipping
-- Ocean Freight
-- Air Freight
-- Supply Chain
-- DCSA
-- Maritime
+  - Shipping
+  - Logistics
+  - Container Shipping
+  - Ocean Freight
+  - Air Freight
+  - Supply Chain
+  - DCSA
+  - Maritime
 kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
-- url: https://developer.maersk.com
-  name: Maersk Developer Portal
-  type: Portal
-- url: https://developer.maersk.com/api-catalogue
-  name: API Catalogue
-  type: Documentation
-- url: https://developer.maersk.com/support/:tabName
-  name: Developer Support
-  type: Support
-- url: https://developer.maersk.com/support/getting-started-api
-  name: Getting Started API
-  type: GettingStarted
-- url: https://developer.maersk.com/support/authorisation
-  name: Authorisation
-  type: Authentication
-- url: https://developer.maersk.com/support/faqs
-  name: Developer FAQs
-  type: FAQ
-- url: https://www.maersk.com/digital-services/data-integrations/api
-  name: API Solutions
-  type: Documentation
-- url: https://www.maersk.com/digital-services/data-integrations
-  name: Data Integrations (EDI & API)
-  type: Documentation
-- url: https://www.maersk.com/digital-services/data-integrations/solutions
-  name: Data Integrations Solutions
-  type: Documentation
-- url: https://www.maersk.com
-  name: Maersk
-  type: Portal
-- url: https://www.maersk.com/about
-  name: About Maersk
-  type: About
-- url: https://www.maersk.com/news
-  name: News
-  type: Blog
-- url: https://www.maersk.com/insights
-  name: Insights
-  type: Blog
-- url: https://www.maersk.com/local-information
-  name: Local Information
-  type: Documentation
-- url: https://www.maersk.com/terms
-  name: Terms and Conditions
-  type: TermsOfService
-- url: https://www.maersk.com/privacy-policy
-  name: Privacy Policy
-  type: PrivacyPolicy
-- url: https://www.maersk.com/career
-  name: Careers
-  type: Documentation
-- url: https://www.linkedin.com/company/maersk-group
-  name: LinkedIn
-  type: LinkedIn
-- url: https://twitter.com/Maersk
-  name: X (Twitter)
-  type: X
-- url: https://www.youtube.com/user/MAERSK
-  name: YouTube
-  type: YouTube
-- url: https://github.com/Maersk-Global
-  name: Maersk-Global on GitHub
-  type: GitHubOrganization
-- url: https://github.com/MaerskTech
-  name: MaerskTech on GitHub
-  type: GitHubOrganization
-- url: https://dcsa.org
-  name: Digital Container Shipping Association
-  type: Standard
-- url: https://github.com/dcsaorg/DCSA-OpenAPI
-  name: DCSA OpenAPI Specifications
-  type: Specification
-- url: rules/maersk-rules.yml
-  type: SpectralRules
-- url: vocabulary/maersk-line-vocabulary.yml
-  type: Vocabulary
-- url: json-ld/maersk-line-context.jsonld
-  type: JSONLD
-- url: plans/maersk-line-plans-pricing.yml
-  type: Plans
-- url: rate-limits/maersk-line-rate-limits.yml
-  type: RateLimits
-- url: finops/maersk-line-finops.yml
-  type: FinOps
-- type: Authentication
-  url: https://developer.maersk.com/support/authorisation
-  name: OAuth 2.0 Authorisation
-- type: Features
-  data:
-  - name: Container Tracking
-    description: Public Track and Trace API with neutralized container and shipment events.
-  - name: Ocean Booking (DCSA)
-    description: Create, retrieve, amend, and cancel bookings via the DCSA Booking 2.0 interface.
-  - name: Sailing Schedules
-    description: Point-to-point and commercial service schedules across the Maersk ocean network.
-  - name: Product Offers and Pricing
-    description: Quote all-in ocean rates including base freight and surcharges.
-  - name: Electronic Bills of Lading
-    description: Issue and approve eBLs per the DCSA eBL 3.0 standard.
-  - name: Verified Gross Mass (VGM)
-    description: Submit SOLAS-mandated container weight declarations electronically.
-  - name: Demurrage and Detention Visibility
-    description: Surface accruing accessorial charges and remaining free-day clocks.
-  - name: Air Cargo Bookings
-    description: Book air freight via Maersk Air Cargo with product tiers including Pharma and Perishable.
-  - name: Container Maintenance and Repair
-    description: Surface equipment-management events and M&R workflow data.
-  - name: DCSA Alignment
-    description: APIs implement DCSA interface standards for portability across carriers.
-  - name: OAuth 2.0 with Consumer Keys
-    description: Client-credentials OAuth tokens layered over per-app Consumer-Key authentication.
-  - name: Booking Status Webhooks
-    description: Asynchronous push notifications for booking lifecycle events.
-- type: UseCases
-  data:
-  - name: Supply Chain Visibility
-    description: Pipe container milestones into TMS and OMS platforms to give merchandisers, planners, and customers real-time shipment status.
-  - name: Self-Service Quoting
-    description: Embed real-time ocean and air quotes into freight-forwarder portals and marketplace platforms.
-  - name: Automated Booking
-    description: Trigger DCSA-compliant bookings from ERP procurement events and route them through Maersk's network.
-  - name: Compliance Automation
-    description: Programmatic VGM submission and eBL approvals eliminate manual filings.
-  - name: Penalty Avoidance
-    description: Monitor D&D clocks across import containers and trigger dispatch workflows before free days expire.
-  - name: Rate Audit and FinOps
-    description: Reconcile expected surcharges and accessorial charges against invoices using Product Offers and D&D data.
-- type: Integrations
-  data:
-  - name: SAP Transportation Management
-    description: Many Maersk customers integrate Maersk APIs with SAP TM.
-  - name: Oracle Transportation Management
-    description: OTM connectors consume Maersk shipment and booking events.
-  - name: Blue Yonder
-    description: Supply-chain planning platforms ingest tracking and schedule data.
-  - name: project44
-    description: Multi-carrier visibility platforms aggregate Maersk Track and Trace.
-  - name: FourKites
-    description: Real-time supply-chain visibility platforms relay container milestones.
-  - name: DCSA
-    description: Founding member; Maersk APIs implement DCSA Booking, Schedules, eBL, and Track and Trace interfaces.
-  - name: EDI
-    description: Legacy IFTSAI, IFTSTA, IFTMBF, and BAPLIE EDI flows interoperate with the API surface.
-- type: Solutions
-  data:
-  - name: Ocean Transport
-    description: Container shipping across Maersk's global vessel network.
-  - name: Air Freight
-    description: Maersk Air Cargo for time-sensitive shipments.
-  - name: Warehousing and Distribution
-    description: Global warehouse network with API-enabled inventory and outbound data.
-  - name: Supply Chain Management
-    description: Managed end-to-end logistics with integrated transport, warehousing, customs, and finance.
-  - name: Customs Services
-    description: Customs brokerage and clearance integrated with shipment data.
-  - name: Inland Transport
-    description: Truck, rail, and barge transport for first- and last-mile movements.
-  - name: Cold Chain
-    description: Reefer and pharma-grade transport for temperature-sensitive cargo.
-  - name: Project Logistics
-    description: Break-bulk and out-of-gauge cargo for industrial projects.
+  - url: https://developer.maersk.com
+    name: Maersk Developer Portal
+    type: Portal
+  - url: https://developer.maersk.com/api-catalogue
+    name: API Catalogue
+    type: Documentation
+  - url: https://developer.maersk.com/support/:tabName
+    name: Developer Support
+    type: Support
+  - url: https://developer.maersk.com/support/getting-started-api
+    name: Getting Started API
+    type: GettingStarted
+  - url: https://developer.maersk.com/support/authorisation
+    name: Authorisation
+    type: Authentication
+  - url: https://developer.maersk.com/support/faqs
+    name: Developer FAQs
+    type: FAQ
+  - url: https://www.maersk.com/digital-services/data-integrations/api
+    name: API Solutions
+    type: Documentation
+  - url: https://www.maersk.com/digital-services/data-integrations
+    name: Data Integrations (EDI & API)
+    type: Documentation
+  - url: https://www.maersk.com/digital-services/data-integrations/solutions
+    name: Data Integrations Solutions
+    type: Documentation
+  - url: https://www.maersk.com
+    name: Maersk
+    type: Portal
+  - url: https://www.maersk.com/about
+    name: About Maersk
+    type: About
+  - url: https://www.maersk.com/news
+    name: News
+    type: Blog
+  - url: https://www.maersk.com/insights
+    name: Insights
+    type: Blog
+  - url: https://www.maersk.com/local-information
+    name: Local Information
+    type: Documentation
+  - url: https://www.maersk.com/terms
+    name: Terms and Conditions
+    type: TermsOfService
+  - url: https://www.maersk.com/privacy-policy
+    name: Privacy Policy
+    type: PrivacyPolicy
+  - url: https://www.maersk.com/career
+    name: Careers
+    type: Documentation
+  - url: https://www.linkedin.com/company/maersk-group
+    name: LinkedIn
+    type: LinkedIn
+  - url: https://twitter.com/Maersk
+    name: X (Twitter)
+    type: X
+  - url: https://www.youtube.com/user/MAERSK
+    name: YouTube
+    type: YouTube
+  - url: https://github.com/Maersk-Global
+    name: Maersk-Global on GitHub
+    type: GitHubOrganization
+  - url: https://github.com/MaerskTech
+    name: MaerskTech on GitHub
+    type: GitHubOrganization
+  - url: https://dcsa.org
+    name: Digital Container Shipping Association
+    type: Standard
+  - url: https://github.com/dcsaorg/DCSA-OpenAPI
+    name: DCSA OpenAPI Specifications
+    type: Specification
+  - url: rules/maersk-rules.yml
+    type: SpectralRules
+  - url: vocabulary/maersk-line-vocabulary.yml
+    type: Vocabulary
+  - url: json-ld/maersk-line-context.jsonld
+    type: JSONLD
+  - url: plans/maersk-line-plans-pricing.yml
+    type: Plans
+  - url: rate-limits/maersk-line-rate-limits.yml
+    type: RateLimits
+  - url: finops/maersk-line-finops.yml
+    type: FinOps
+  - type: Authentication
+    url: https://developer.maersk.com/support/authorisation
+    name: OAuth 2.0 Authorisation
+  - type: Features
+    data:
+      - name: Container Tracking
+        description: Public Track and Trace API with neutralized container and shipment events.
+      - name: Ocean Booking (DCSA)
+        description: Create, retrieve, amend, and cancel bookings via the DCSA Booking 2.0 interface.
+      - name: Sailing Schedules
+        description: Point-to-point and commercial service schedules across the Maersk ocean network.
+      - name: Product Offers and Pricing
+        description: Quote all-in ocean rates including base freight and surcharges.
+      - name: Electronic Bills of Lading
+        description: Issue and approve eBLs per the DCSA eBL 3.0 standard.
+      - name: Verified Gross Mass (VGM)
+        description: Submit SOLAS-mandated container weight declarations electronically.
+      - name: Demurrage and Detention Visibility
+        description: Surface accruing accessorial charges and remaining free-day clocks.
+      - name: Air Cargo Bookings
+        description: Book air freight via Maersk Air Cargo with product tiers including Pharma and Perishable.
+      - name: Container Maintenance and Repair
+        description: Surface equipment-management events and M&R workflow data.
+      - name: DCSA Alignment
+        description: APIs implement DCSA interface standards for portability across carriers.
+      - name: OAuth 2.0 with Consumer Keys
+        description: Client-credentials OAuth tokens layered over per-app Consumer-Key authentication.
+      - name: Booking Status Webhooks
+        description: Asynchronous push notifications for booking lifecycle events.
+  - type: UseCases
+    data:
+      - name: Supply Chain Visibility
+        description: >-
+          Pipe container milestones into TMS and OMS platforms to give merchandisers, planners, and customers real-time
+          shipment status.
+      - name: Self-Service Quoting
+        description: Embed real-time ocean and air quotes into freight-forwarder portals and marketplace platforms.
+      - name: Automated Booking
+        description: Trigger DCSA-compliant bookings from ERP procurement events and route them through Maersk's network.
+      - name: Compliance Automation
+        description: Programmatic VGM submission and eBL approvals eliminate manual filings.
+      - name: Penalty Avoidance
+        description: Monitor D&D clocks across import containers and trigger dispatch workflows before free days expire.
+      - name: Rate Audit and FinOps
+        description: Reconcile expected surcharges and accessorial charges against invoices using Product Offers and D&D data.
+  - type: Integrations
+    data:
+      - name: SAP Transportation Management
+        description: Many Maersk customers integrate Maersk APIs with SAP TM.
+      - name: Oracle Transportation Management
+        description: OTM connectors consume Maersk shipment and booking events.
+      - name: Blue Yonder
+        description: Supply-chain planning platforms ingest tracking and schedule data.
+      - name: project44
+        description: Multi-carrier visibility platforms aggregate Maersk Track and Trace.
+      - name: FourKites
+        description: Real-time supply-chain visibility platforms relay container milestones.
+      - name: DCSA
+        description: Founding member; Maersk APIs implement DCSA Booking, Schedules, eBL, and Track and Trace interfaces.
+      - name: EDI
+        description: Legacy IFTSAI, IFTSTA, IFTMBF, and BAPLIE EDI flows interoperate with the API surface.
+  - type: Solutions
+    data:
+      - name: Ocean Transport
+        description: Container shipping across Maersk's global vessel network.
+      - name: Air Freight
+        description: Maersk Air Cargo for time-sensitive shipments.
+      - name: Warehousing and Distribution
+        description: Global warehouse network with API-enabled inventory and outbound data.
+      - name: Supply Chain Management
+        description: Managed end-to-end logistics with integrated transport, warehousing, customs, and finance.
+      - name: Customs Services
+        description: Customs brokerage and clearance integrated with shipment data.
+      - name: Inland Transport
+        description: Truck, rail, and barge transport for first- and last-mile movements.
+      - name: Cold Chain
+        description: Reefer and pharma-grade transport for temperature-sensitive cargo.
+      - name: Project Logistics
+        description: Break-bulk and out-of-gauge cargo for industrial projects.
 maintainers:
-- FN: Kin Lane
-  email: info@apievangelist.com
-  X: apievangelist
-  url: https://apievangelist.com
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    X: apievangelist
+    url: https://apievangelist.com
 created: '2026-05-25'
 modified: '2026-05-25'
 position: Producing
 description: >-
-  A.P. Moller - Maersk is the Danish integrated container shipping and
-  logistics company. Maersk operates one of the world's largest ocean fleets
-  and a global network of warehouses, inland transport, customs services,
-  and air-freight capacity through Maersk Air Cargo. The Maersk Developer
-  Portal exposes a catalogue of APIs for Track and Trace, Ocean Booking
-  (DCSA-aligned), Schedules, Product Offers and pricing, electronic Bills of
-  Lading, Verified Gross Mass, Demurrage and Detention, Air Booking, VGM, and
-  container Maintenance and Repair. Many of Maersk's APIs implement
-  Digital Container Shipping Association (DCSA) interface standards so the
-  same client can address multiple carriers.
+  A.P. Moller - Maersk is the Danish integrated container shipping and logistics company. Maersk operates one of the
+  world's largest ocean fleets and a global network of warehouses, inland transport, customs services, and air-freight
+  capacity through Maersk Air Cargo. The Maersk Developer Portal exposes a catalogue of APIs for Track and Trace, Ocean
+  Booking (DCSA-aligned), Schedules, Product Offers and pricing, electronic Bills of Lading, Verified Gross Mass,
+  Demurrage and Detention, Air Booking, VGM, and container Maintenance and Repair. Many of Maersk's APIs implement
+  Digital Container Shipping Association (DCSA) interface standards so the same client can address multiple carriers.
 specificationVersion: '0.16'

@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maersk Import Demurrage and Detention API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Consumer-Key",
+      "value": "{{Consumer-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DemurrageDetention",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Demurrage And Detention Charges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maersk.com/demurrage-detention/v1/charges",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "equipmentReference",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of container numbers."
+              },
+              {
+                "name": "transportDocumentReference",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve current demurrage and detention charges and remaining free days for one or more containers.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

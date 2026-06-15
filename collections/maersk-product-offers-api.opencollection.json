@@ -1,0 +1,171 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maersk Product Offers API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Consumer-Key",
+      "value": "{{Consumer-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Offers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Available Offers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.productmanagement.maersk.com/offers/v2/offers/brand/:brandScac/departuredate/:departureDate",
+            "params": [
+              {
+                "name": "brandScac",
+                "value": "",
+                "type": "path",
+                "description": "Carrier SCAC code (MAEU, SEAU, MCPU, SEJJ)."
+              },
+              {
+                "name": "departureDate",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collectionOriginCityName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "collectionOriginCountryCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deliveryDestinationCityName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deliveryDestinationCountryCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "containerIsoCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "serviceMode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve product offers for a given origin, destination, container, and departure date. Includes pricing, schedule, demurrage and detention conditions.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Port Pair Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.productmanagement.maersk.com/offers/v2/offers/brand/:brandScac/locations",
+            "params": [
+              {
+                "name": "brandScac",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "containerIsoCode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List available origin-destination port combinations."
+        },
+        {
+          "info": {
+            "name": "Get Origin Ports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.productmanagement.maersk.com/offers/v2/offers/brand/:brandScac/locations/origins",
+            "params": [
+              {
+                "name": "brandScac",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cityName",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List origin ports with available offers."
+        },
+        {
+          "info": {
+            "name": "Get Destination Ports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.productmanagement.maersk.com/offers/v2/offers/brand/:brandScac/locations/destinations",
+            "params": [
+              {
+                "name": "brandScac",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List destination ports with available offers."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Containers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Supported Containers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.productmanagement.maersk.com/offers/v2/offers/containers"
+          },
+          "docs": "List all container size-types supported for offers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

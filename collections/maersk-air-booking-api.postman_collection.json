@@ -1,0 +1,276 @@
+{
+  "item": [
+    {
+      "id": "89df92bc-93c6-46c6-a325-c11b1c23a618",
+      "name": "AirBookings",
+      "description": {
+        "content": "Air freight bookings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "68f4f4e7-e48b-44a4-be5b-7cc1ca14044d",
+          "name": "Create Air Booking",
+          "request": {
+            "name": "Create Air Booking",
+            "description": {
+              "content": "Submit a new air freight booking request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "air-booking",
+                "v1",
+                "bookings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"origin\": \"<string>\",\n  \"destination\": \"<string>\",\n  \"departureDate\": \"<date>\",\n  \"pieces\": [\n    {\n      \"count\": \"<integer>\",\n      \"grossWeight\": \"<number>\",\n      \"weightUnit\": \"<string>\",\n      \"dimensions\": {\n        \"length\": \"<number>\",\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"unit\": \"<string>\"\n      }\n    },\n    {\n      \"count\": \"<integer>\",\n      \"grossWeight\": \"<number>\",\n      \"weightUnit\": \"<string>\",\n      \"dimensions\": {\n        \"length\": \"<number>\",\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"unit\": \"<string>\"\n      }\n    }\n  ],\n  \"productCode\": \"<string>\",\n  \"shipper\": {\n    \"name\": \"<string>\",\n    \"accountNumber\": \"<string>\",\n    \"contactEmail\": \"<string>\"\n  },\n  \"consignee\": {\n    \"name\": \"<string>\",\n    \"accountNumber\": \"<string>\",\n    \"contactEmail\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "06a5ed75-dde1-4304-bff7-903ab5c91e98",
+              "name": "Booking created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air-booking",
+                    "v1",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": \"<string>\",\n  \"destination\": \"<string>\",\n  \"departureDate\": \"<date>\",\n  \"pieces\": [\n    {\n      \"count\": \"<integer>\",\n      \"grossWeight\": \"<number>\",\n      \"weightUnit\": \"<string>\",\n      \"dimensions\": {\n        \"length\": \"<number>\",\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"unit\": \"<string>\"\n      }\n    },\n    {\n      \"count\": \"<integer>\",\n      \"grossWeight\": \"<number>\",\n      \"weightUnit\": \"<string>\",\n      \"dimensions\": {\n        \"length\": \"<number>\",\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"unit\": \"<string>\"\n      }\n    }\n  ],\n  \"productCode\": \"<string>\",\n  \"shipper\": {\n    \"name\": \"string\",\n    \"accountNumber\": \"string\",\n    \"contactEmail\": \"string\"\n  },\n  \"consignee\": {\n    \"name\": \"string\",\n    \"accountNumber\": \"string\",\n    \"contactEmail\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"origin\": \"string\",\n  \"destination\": \"string\",\n  \"departureDate\": \"1979-03-24\",\n  \"pieces\": [\n    {\n      \"count\": 9758,\n      \"grossWeight\": 2630.2081003394082,\n      \"weightUnit\": \"LBR\",\n      \"dimensions\": {\n        \"length\": 2867.657611067058,\n        \"width\": 7370.354972454192,\n        \"height\": 8894.328829148877,\n        \"unit\": \"INH\"\n      }\n    },\n    {\n      \"count\": 2087,\n      \"grossWeight\": 7211.626701471847,\n      \"weightUnit\": \"LBR\",\n      \"dimensions\": {\n        \"length\": 6203.805465708847,\n        \"width\": 180.56325733101008,\n        \"height\": 4442.013622087819,\n        \"unit\": \"INH\"\n      }\n    }\n  ],\n  \"productCode\": \"GENERAL\",\n  \"shipper\": {\n    \"name\": \"string\",\n    \"accountNumber\": \"string\",\n    \"contactEmail\": \"string\"\n  },\n  \"consignee\": {\n    \"name\": \"string\",\n    \"accountNumber\": \"string\",\n    \"contactEmail\": \"string\"\n  },\n  \"bookingReference\": \"string\",\n  \"status\": \"REJECTED\",\n  \"createdAt\": \"1974-06-12T10:50:29.104Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b91eab3f-d297-4600-ac7b-6af9c3006a52",
+          "name": "Get Air Booking",
+          "request": {
+            "name": "Get Air Booking",
+            "description": {
+              "content": "Retrieve an existing air booking by reference.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "air-booking",
+                "v1",
+                "bookings",
+                ":bookingReference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bookingReference",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17ab66cc-5f0b-420e-b7f6-e176c8071854",
+              "name": "Booking returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air-booking",
+                    "v1",
+                    "bookings",
+                    ":bookingReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bookingReference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"origin\": \"string\",\n  \"destination\": \"string\",\n  \"departureDate\": \"1979-03-24\",\n  \"pieces\": [\n    {\n      \"count\": 9758,\n      \"grossWeight\": 2630.2081003394082,\n      \"weightUnit\": \"LBR\",\n      \"dimensions\": {\n        \"length\": 2867.657611067058,\n        \"width\": 7370.354972454192,\n        \"height\": 8894.328829148877,\n        \"unit\": \"INH\"\n      }\n    },\n    {\n      \"count\": 2087,\n      \"grossWeight\": 7211.626701471847,\n      \"weightUnit\": \"LBR\",\n      \"dimensions\": {\n        \"length\": 6203.805465708847,\n        \"width\": 180.56325733101008,\n        \"height\": 4442.013622087819,\n        \"unit\": \"INH\"\n      }\n    }\n  ],\n  \"productCode\": \"GENERAL\",\n  \"shipper\": {\n    \"name\": \"string\",\n    \"accountNumber\": \"string\",\n    \"contactEmail\": \"string\"\n  },\n  \"consignee\": {\n    \"name\": \"string\",\n    \"accountNumber\": \"string\",\n    \"contactEmail\": \"string\"\n  },\n  \"bookingReference\": \"string\",\n  \"status\": \"REJECTED\",\n  \"createdAt\": \"1974-06-12T10:50:29.104Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.maersk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Consumer-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "02d14c5b-ef5c-41a0-8463-8b377eedf6f5",
+    "name": "Maersk Air Booking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.\n\n\nContact Support:\n Name: Maersk Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

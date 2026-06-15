@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maersk Schedules API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Consumer-Key",
+      "value": "{{Consumer-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schedules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Point To Point Schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maersk.com/products/ocean-products/point-to-point",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "collectionOriginCountryCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "collectionOriginCityName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deliveryDestinationCountryCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deliveryDestinationCityName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dateRange",
+                "value": "",
+                "type": "query",
+                "description": "Departure date range in ISO 8601, e.g. P4W."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns sailing options between an origin and destination port for a given date range, including vessel, voyage, transit time, and intermediate transshipments.\n"
+        },
+        {
+          "info": {
+            "name": "Get Commercial Service Schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maersk.com/dcsa/cs/v1/service-schedules",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "carrierServiceCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UNLocationCode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve commercial service schedules per DCSA Commercial Schedules interface. Returns the planned port rotations for a carrier service.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

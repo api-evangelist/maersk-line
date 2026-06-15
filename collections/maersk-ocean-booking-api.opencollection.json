@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maersk Ocean Booking API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Consumer-Key",
+      "value": "{{Consumer-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bookings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Ocean Booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.maersk.com/dcsa/bkg/v2/bookings",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a booking request for an ocean shipment. The request body follows the DCSA Booking 2.0 schema covering parties, cargo, equipment, routing, and references.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve Ocean Booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maersk.com/dcsa/bkg/v2/bookings/:carrierBookingReference",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "carrierBookingReference",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve an existing booking by carrier booking reference."
+        },
+        {
+          "info": {
+            "name": "Amend Ocean Booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.maersk.com/dcsa/bkg/v2/bookings/:carrierBookingReference",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "carrierBookingReference",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit an amendment to an existing booking."
+        },
+        {
+          "info": {
+            "name": "Cancel Ocean Booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.maersk.com/dcsa/bkg/v2/bookings/:carrierBookingReference",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "carrierBookingReference",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancel an existing booking."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

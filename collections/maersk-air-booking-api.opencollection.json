@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maersk Air Booking API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Consumer-Key",
+      "value": "{{Consumer-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AirBookings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Air Booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.maersk.com/air-booking/v1/bookings",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a new air freight booking request."
+        },
+        {
+          "info": {
+            "name": "Get Air Booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maersk.com/air-booking/v1/bookings/:bookingReference",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "bookingReference",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve an existing air booking by reference."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,321 @@
+{
+  "item": [
+    {
+      "id": "e893343a-40c4-46fd-b821-16cabbfbe95f",
+      "name": "Schedules",
+      "description": {
+        "content": "Sailing schedules and vessel routings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "688fcacf-9824-4de9-8654-116cd6d35294",
+          "name": "Get Point To Point Schedules",
+          "request": {
+            "name": "Get Point To Point Schedules",
+            "description": {
+              "content": "Returns sailing options between an origin and destination port for a given date range, including vessel, voyage, transit time, and intermediate transshipments.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                "ocean-products",
+                "point-to-point"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collectionOriginCountryCode",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionOriginCityName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "deliveryDestinationCountryCode",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "deliveryDestinationCityName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "dateRange",
+                  "value": "<string>",
+                  "description": "Departure date range in ISO 8601, e.g. P4W."
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8cccd855-4df9-4425-8e00-d5116d8cb7cf",
+              "name": "Schedules returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "ocean-products",
+                    "point-to-point"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collectionOriginCountryCode",
+                      "value": "DK"
+                    },
+                    {
+                      "key": "collectionOriginCityName",
+                      "value": "Aarhus"
+                    },
+                    {
+                      "key": "deliveryDestinationCountryCode",
+                      "value": "US"
+                    },
+                    {
+                      "key": "deliveryDestinationCityName",
+                      "value": "Newark"
+                    },
+                    {
+                      "key": "dateRange",
+                      "value": "P4W"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"transportSchedules\": [\n      {\n        \"vesselName\": \"string\",\n        \"vesselIMONumber\": \"string\",\n        \"carrierServiceCode\": \"string\",\n        \"carrierVoyageNumber\": \"string\",\n        \"departureDateTime\": \"2019-04-18T17:39:08.466Z\",\n        \"arrivalDateTime\": \"1993-05-21T06:57:06.623Z\",\n        \"transitTime\": 1840\n      },\n      {\n        \"vesselName\": \"string\",\n        \"vesselIMONumber\": \"string\",\n        \"carrierServiceCode\": \"string\",\n        \"carrierVoyageNumber\": \"string\",\n        \"departureDateTime\": \"2000-07-23T15:02:18.619Z\",\n        \"arrivalDateTime\": \"1962-02-12T18:39:31.737Z\",\n        \"transitTime\": 8517\n      }\n    ]\n  },\n  {\n    \"transportSchedules\": [\n      {\n        \"vesselName\": \"string\",\n        \"vesselIMONumber\": \"string\",\n        \"carrierServiceCode\": \"string\",\n        \"carrierVoyageNumber\": \"string\",\n        \"departureDateTime\": \"1956-02-15T14:00:37.894Z\",\n        \"arrivalDateTime\": \"1961-11-02T04:49:29.430Z\",\n        \"transitTime\": 3876\n      },\n      {\n        \"vesselName\": \"string\",\n        \"vesselIMONumber\": \"string\",\n        \"carrierServiceCode\": \"string\",\n        \"carrierVoyageNumber\": \"string\",\n        \"departureDateTime\": \"1984-08-03T18:20:25.052Z\",\n        \"arrivalDateTime\": \"2006-05-31T07:11:12.259Z\",\n        \"transitTime\": 1435\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e31ac7b-1d20-4571-8a26-bc925a424344",
+          "name": "Get Commercial Service Schedules",
+          "request": {
+            "name": "Get Commercial Service Schedules",
+            "description": {
+              "content": "Retrieve commercial service schedules per DCSA Commercial Schedules interface. Returns the planned port rotations for a carrier service.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dcsa",
+                "cs",
+                "v1",
+                "service-schedules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "carrierServiceCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "UNLocationCode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b14614b-f105-4fac-96d6-95bc507bf037",
+              "name": "Service schedules returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dcsa",
+                    "cs",
+                    "v1",
+                    "service-schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "carrierServiceCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "UNLocationCode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"carrierServiceCode\": \"string\",\n    \"carrierServiceName\": \"string\",\n    \"vesselSchedules\": [\n      {\n        \"vesselIMONumber\": \"string\",\n        \"transportCalls\": [\n          {\n            \"UNLocationCode\": \"string\",\n            \"portCallStatusCode\": \"string\",\n            \"plannedArrivalDate\": \"1974-07-12T12:20:21.781Z\",\n            \"plannedDepartureDate\": \"1956-05-28T22:11:44.614Z\"\n          },\n          {\n            \"UNLocationCode\": \"string\",\n            \"portCallStatusCode\": \"string\",\n            \"plannedArrivalDate\": \"1971-03-25T22:00:46.423Z\",\n            \"plannedDepartureDate\": \"1954-09-22T11:31:01.624Z\"\n          }\n        ]\n      },\n      {\n        \"vesselIMONumber\": \"string\",\n        \"transportCalls\": [\n          {\n            \"UNLocationCode\": \"string\",\n            \"portCallStatusCode\": \"string\",\n            \"plannedArrivalDate\": \"1949-08-23T18:42:20.442Z\",\n            \"plannedDepartureDate\": \"2005-05-30T17:25:06.024Z\"\n          },\n          {\n            \"UNLocationCode\": \"string\",\n            \"portCallStatusCode\": \"string\",\n            \"plannedArrivalDate\": \"1981-03-31T22:52:47.993Z\",\n            \"plannedDepartureDate\": \"1979-05-25T12:35:05.481Z\"\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"carrierServiceCode\": \"string\",\n    \"carrierServiceName\": \"string\",\n    \"vesselSchedules\": [\n      {\n        \"vesselIMONumber\": \"string\",\n        \"transportCalls\": [\n          {\n            \"UNLocationCode\": \"string\",\n            \"portCallStatusCode\": \"string\",\n            \"plannedArrivalDate\": \"2023-02-09T18:20:34.403Z\",\n            \"plannedDepartureDate\": \"2012-10-01T03:08:13.523Z\"\n          },\n          {\n            \"UNLocationCode\": \"string\",\n            \"portCallStatusCode\": \"string\",\n            \"plannedArrivalDate\": \"1964-08-18T21:58:16.610Z\",\n            \"plannedDepartureDate\": \"1985-01-10T13:26:45.493Z\"\n          }\n        ]\n      },\n      {\n        \"vesselIMONumber\": \"string\",\n        \"transportCalls\": [\n          {\n            \"UNLocationCode\": \"string\",\n            \"portCallStatusCode\": \"string\",\n            \"plannedArrivalDate\": \"2007-03-29T06:50:52.934Z\",\n            \"plannedDepartureDate\": \"2005-04-01T03:46:56.039Z\"\n          },\n          {\n            \"UNLocationCode\": \"string\",\n            \"portCallStatusCode\": \"string\",\n            \"plannedArrivalDate\": \"2021-05-10T07:15:27.304Z\",\n            \"plannedDepartureDate\": \"1993-05-14T23:37:40.756Z\"\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.maersk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Consumer-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "43a73101-4e78-49fd-9263-110bfd3ca889",
+    "name": "Maersk Schedules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Point-to-Point and Commercial Schedules API for ocean shipping. Retrieve sailing schedules, vessel routes, and transit times between origin and destination ports. DCSA-aligned schedule structures.\n\n\nContact Support:\n Name: Maersk Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

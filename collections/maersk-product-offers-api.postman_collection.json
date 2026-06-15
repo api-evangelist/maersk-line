@@ -1,0 +1,634 @@
+{
+  "item": [
+    {
+      "id": "47b71c5c-d13b-4e5f-8a00-2876dab2ac77",
+      "name": "Offers",
+      "description": {
+        "content": "Product offers, prices, and surcharges.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e9b4e593-2efa-41da-896b-e7c00558233e",
+          "name": "List Available Offers",
+          "request": {
+            "name": "List Available Offers",
+            "description": {
+              "content": "Retrieve product offers for a given origin, destination, container, and departure date. Includes pricing, schedule, demurrage and detention conditions.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "offers",
+                "v2",
+                "offers",
+                "brand",
+                ":brandScac",
+                "departuredate",
+                ":departureDate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collectionOriginCityName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionOriginCountryCode",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "deliveryDestinationCityName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "deliveryDestinationCountryCode",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "containerIsoCode",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "serviceMode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "brandScac",
+                  "description": "(Required) Carrier SCAC code (MAEU, SEAU, MCPU, SEJJ)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<date>",
+                  "key": "departureDate",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "77723be6-c52c-4097-92d9-37449fd3f2e1",
+              "name": "Offers returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offers",
+                    "v2",
+                    "offers",
+                    "brand",
+                    ":brandScac",
+                    "departuredate",
+                    ":departureDate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collectionOriginCityName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionOriginCountryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deliveryDestinationCityName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deliveryDestinationCountryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "containerIsoCode",
+                      "value": "22G1"
+                    },
+                    {
+                      "key": "serviceMode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "brandScac",
+                      "description": "(Required) Carrier SCAC code (MAEU, SEAU, MCPU, SEJJ)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "departureDate",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"offerId\": \"string\",\n    \"carrierServiceCode\": \"string\",\n    \"originLocation\": \"string\",\n    \"destinationLocation\": \"string\",\n    \"departureDate\": \"1961-12-16T16:50:55.947Z\",\n    \"arrivalDate\": \"1986-02-19T15:03:36.416Z\",\n    \"transitTime\": 2524,\n    \"containerIsoCode\": \"string\",\n    \"totalPrice\": {\n      \"chargeCode\": \"string\",\n      \"chargeName\": \"string\",\n      \"amount\": 3979.5396947640793,\n      \"currency\": \"string\",\n      \"basis\": \"PerShipment\"\n    },\n    \"priceBreakdown\": [\n      {\n        \"chargeCode\": \"string\",\n        \"chargeName\": \"string\",\n        \"amount\": 5537.456494273782,\n        \"currency\": \"string\",\n        \"basis\": \"PerShipment\"\n      },\n      {\n        \"chargeCode\": \"string\",\n        \"chargeName\": \"string\",\n        \"amount\": 2951.458063031599,\n        \"currency\": \"string\",\n        \"basis\": \"PerContainer\"\n      }\n    ],\n    \"demurrageDetention\": {\n      \"originFreeDays\": 2949,\n      \"destinationFreeDays\": 32\n    }\n  },\n  {\n    \"offerId\": \"string\",\n    \"carrierServiceCode\": \"string\",\n    \"originLocation\": \"string\",\n    \"destinationLocation\": \"string\",\n    \"departureDate\": \"2002-06-19T21:41:28.355Z\",\n    \"arrivalDate\": \"1949-03-02T10:01:43.283Z\",\n    \"transitTime\": 9871,\n    \"containerIsoCode\": \"string\",\n    \"totalPrice\": {\n      \"chargeCode\": \"string\",\n      \"chargeName\": \"string\",\n      \"amount\": 3122.7965679410363,\n      \"currency\": \"string\",\n      \"basis\": \"PerShipment\"\n    },\n    \"priceBreakdown\": [\n      {\n        \"chargeCode\": \"string\",\n        \"chargeName\": \"string\",\n        \"amount\": 1148.0106331083828,\n        \"currency\": \"string\",\n        \"basis\": \"PerContainer\"\n      },\n      {\n        \"chargeCode\": \"string\",\n        \"chargeName\": \"string\",\n        \"amount\": 5356.234212003385,\n        \"currency\": \"string\",\n        \"basis\": \"PerBillOfLading\"\n      }\n    ],\n    \"demurrageDetention\": {\n      \"originFreeDays\": 8821,\n      \"destinationFreeDays\": 9940\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f1ffd448-9842-4c5e-acf6-928faa01322a",
+      "name": "Locations",
+      "description": {
+        "content": "Origin and destination port lookups.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "716389bf-871b-43fb-83be-2695d36cf055",
+          "name": "Get Port Pair Locations",
+          "request": {
+            "name": "Get Port Pair Locations",
+            "description": {
+              "content": "List available origin-destination port combinations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "offers",
+                "v2",
+                "offers",
+                "brand",
+                ":brandScac",
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "containerIsoCode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "brandScac",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7c65695-836c-4af8-b2a8-79fbad894e7b",
+              "name": "Port pairs returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offers",
+                    "v2",
+                    "offers",
+                    "brand",
+                    ":brandScac",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "containerIsoCode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "brandScac",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e5cdd67-504a-4ebd-8b40-37a252a8b523",
+          "name": "Get Origin Ports",
+          "request": {
+            "name": "Get Origin Ports",
+            "description": {
+              "content": "List origin ports with available offers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "offers",
+                "v2",
+                "offers",
+                "brand",
+                ":brandScac",
+                "locations",
+                "origins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cityName",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "brandScac",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65db275a-8434-4a49-9559-430dfecb5794",
+              "name": "Origin ports returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offers",
+                    "v2",
+                    "offers",
+                    "brand",
+                    ":brandScac",
+                    "locations",
+                    "origins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cityName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "brandScac",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4439fb81-3703-4408-953b-f7b877d4336f",
+          "name": "Get Destination Ports",
+          "request": {
+            "name": "Get Destination Ports",
+            "description": {
+              "content": "List destination ports with available offers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "offers",
+                "v2",
+                "offers",
+                "brand",
+                ":brandScac",
+                "locations",
+                "destinations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "brandScac",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a5c96ec3-1558-40ff-af84-b1357520b1a7",
+              "name": "Destination ports returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offers",
+                    "v2",
+                    "offers",
+                    "brand",
+                    ":brandScac",
+                    "locations",
+                    "destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "brandScac",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a3f599fb-68fc-4b78-a3f3-59335d2d27ff",
+      "name": "Containers",
+      "description": {
+        "content": "Supported container size and type combinations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a6ac81f0-7450-418c-bcd8-a96726b90ac7",
+          "name": "List Supported Containers",
+          "request": {
+            "name": "List Supported Containers",
+            "description": {
+              "content": "List all container size-types supported for offers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "offers",
+                "v2",
+                "offers",
+                "containers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6af629f8-8193-49f3-b68d-46e715c4547d",
+              "name": "Container catalog returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offers",
+                    "v2",
+                    "offers",
+                    "containers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.productmanagement.maersk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Consumer-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ba145294-46c2-4015-a5fe-251c10e9588d",
+    "name": "Maersk Product Offers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Quote prices and product offers for ocean shipments. Returns route and schedule, vessel and deadline information, and prices including surcharges for the requested origin, destination, container size-type combination, and departure date.\n\n\nContact Support:\n Name: Maersk Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

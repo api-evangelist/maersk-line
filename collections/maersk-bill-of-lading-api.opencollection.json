@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maersk Bill of Lading API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Consumer-Key",
+      "value": "{{Consumer-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BillOfLading",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Transport Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maersk.com/dcsa/ebl/v3/transport-documents/:transportDocumentReference",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "transportDocumentReference",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the current state of a carrier transport document."
+        },
+        {
+          "info": {
+            "name": "Approve Transport Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.maersk.com/dcsa/ebl/v3/transport-documents/:transportDocumentReference/approve",
+            "headers": [
+              {
+                "name": "Consumer-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "transportDocumentReference",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Shipper approval of the carrier-issued draft transport document."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
