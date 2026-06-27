@@ -19,7 +19,7 @@ apis:
       - url: json-schema/maersk-shipment-schema.json
         type: JSONSchema
       - url: examples/maersk-tracking-shipment-example.json
-        type: Example
+        type: Examples
     description: >-
       Retrieve neutralized container and shipment milestones via a RESTful API. Supports lookup by container number,
       bill-of-lading number, or booking reference. Returns transport, equipment, and shipment events with planned and
@@ -44,7 +44,7 @@ apis:
       - url: json-schema/maersk-booking-schema.json
         type: JSONSchema
       - url: examples/maersk-booking-request-example.json
-        type: Example
+        type: Examples
     description: >-
       Create, retrieve, amend, and cancel ocean shipment bookings. DCSA Booking 2.0 compliant so the same payloads work
       across DCSA-aligned ocean carriers. Includes booking status webhooks for asynchronous lifecycle notifications.
@@ -86,7 +86,7 @@ apis:
       - url: json-schema/maersk-product-offer-schema.json
         type: JSONSchema
       - url: examples/maersk-product-offer-example.json
-        type: Example
+        type: Examples
     description: >-
       Quote ocean shipping offers. Returns route and schedule, vessel and deadline details, plus full price breakdowns
       including base ocean freight, bunker adjustment, terminal handling, and other surcharges. Supports origin and
@@ -124,7 +124,7 @@ apis:
       - url: openapi/maersk-vgm-api-openapi.yml
         type: OpenAPI
       - url: examples/maersk-vgm-submission-example.json
-        type: Example
+        type: Examples
     description: >-
       Submit and retrieve Verified Gross Mass declarations for export containers per SOLAS regulations. Allows shippers
       to electronically file container weights before vessel cut-off.
@@ -257,7 +257,7 @@ common:
     type: GitHubOrganization
   - url: https://dcsa.org
     name: Digital Container Shipping Association
-    type: Standard
+    type: Standards
   - url: https://github.com/dcsaorg/DCSA-OpenAPI
     name: DCSA OpenAPI Specifications
     type: Specification
