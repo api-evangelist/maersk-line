@@ -1,0 +1,50 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/maersk-bill-of-lading-api-openapi.yml, openapi/maersk-ocean-booking-api-openapi.yml,
+  openapi/maersk-track-and-trace-api-openapi.yml, openapi/maersk-vgm-api-openapi.yml
+schemes:
+- name: OAuth2
+  source: openapi/maersk-bill-of-lading-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.maersk.com/customer-identity/oauth/v2/access_token
+- name: OAuth2
+  source: openapi/maersk-ocean-booking-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.maersk.com/customer-identity/oauth/v2/access_token
+- name: OAuth2
+  source: openapi/maersk-track-and-trace-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.maersk.com/customer-identity/oauth/v2/access_token
+- name: OAuth2
+  source: openapi/maersk-vgm-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.maersk.com/customer-identity/oauth/v2/access_token
+scopes:
+- scope: booking
+  description: Manage bookings.
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/maersk-ocean-booking-api-openapi.yml
+- scope: ebl
+  description: Read and update eBL documents.
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/maersk-bill-of-lading-api-openapi.yml
+- scope: read
+  description: Read access to tracking data.
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/maersk-track-and-trace-api-openapi.yml
+- scope: vgm
+  description: Submit VGM declarations.
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/maersk-vgm-api-openapi.yml

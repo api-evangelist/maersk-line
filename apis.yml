@@ -189,6 +189,8 @@ kind: contract
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+  - type: OAuthScopes
+    url: scopes/maersk-line-scopes.yml
   - url: https://developer.maersk.com
     name: Maersk Developer Portal
     type: Portal
