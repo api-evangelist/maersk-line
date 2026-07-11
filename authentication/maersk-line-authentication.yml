@@ -1,0 +1,46 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/maersk-air-booking-api-openapi.yml, openapi/maersk-bill-of-lading-api-openapi.yml,
+  openapi/maersk-demurrage-detention-api-openapi.yml, openapi/maersk-ocean-booking-api-openapi.yml,
+  openapi/maersk-product-offers-api-openapi.yml, openapi/maersk-schedules-api-openapi.yml, openapi/maersk-track-and-trace-api-openapi.yml,
+  openapi/maersk-vgm-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  - oauth2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: ConsumerKey
+  type: apiKey
+  in: header
+  parameter: Consumer-Key
+  sources:
+  - openapi/maersk-air-booking-api-openapi.yml
+  - openapi/maersk-bill-of-lading-api-openapi.yml
+  - openapi/maersk-demurrage-detention-api-openapi.yml
+  - openapi/maersk-ocean-booking-api-openapi.yml
+  - openapi/maersk-product-offers-api-openapi.yml
+  - openapi/maersk-schedules-api-openapi.yml
+  - openapi/maersk-track-and-trace-api-openapi.yml
+  - openapi/maersk-vgm-api-openapi.yml
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.maersk.com/customer-identity/oauth/v2/access_token
+    scopes: 1
+  sources:
+  - openapi/maersk-bill-of-lading-api-openapi.yml
+  - openapi/maersk-ocean-booking-api-openapi.yml
+  - openapi/maersk-track-and-trace-api-openapi.yml
+  - openapi/maersk-vgm-api-openapi.yml
+- name: ForgeRockJWT
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/maersk-product-offers-api-openapi.yml
