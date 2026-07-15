@@ -1,0 +1,278 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/maersk-air-booking-api-openapi.yml, openapi/maersk-bill-of-lading-api-openapi.yml,
+  openapi/maersk-demurrage-detention-api-openapi.yml, openapi/maersk-ocean-booking-api-openapi.yml,
+  openapi/maersk-product-offers-api-openapi.yml, openapi/maersk-schedules-api-openapi.yml, openapi/maersk-track-and-trace-api-openapi.yml,
+  openapi/maersk-vgm-api-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 20
+  by_action_class:
+    acting: 6
+    connected: 14
+  by_consequence:
+    write: 5
+    read: 14
+    physical: 1
+  human_in_the_loop_required: 0
+operations:
+- path: /air-booking/v1/bookings
+  method: post
+  operationId: createAirBooking
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /air-booking/v1/bookings/{bookingReference}
+  method: get
+  operationId: getAirBooking
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /dcsa/ebl/v3/transport-documents/{transportDocumentReference}
+  method: get
+  operationId: getTransportDocument
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - ebl
+- path: /dcsa/ebl/v3/transport-documents/{transportDocumentReference}/approve
+  method: patch
+  operationId: approveTransportDocument
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - ebl
+- path: /demurrage-detention/v1/charges
+  method: get
+  operationId: getDemurrageDetention
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /dcsa/bkg/v2/bookings
+  method: post
+  operationId: createBooking
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - booking
+- path: /dcsa/bkg/v2/bookings/{carrierBookingReference}
+  method: get
+  operationId: getBooking
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - booking
+- path: /dcsa/bkg/v2/bookings/{carrierBookingReference}
+  method: patch
+  operationId: amendBooking
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - booking
+- path: /dcsa/bkg/v2/bookings/{carrierBookingReference}
+  method: delete
+  operationId: cancelBooking
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - booking
+- path: /offers/v2/offers/brand/{brandScac}/departuredate/{departureDate}
+  method: get
+  operationId: listAvailableOffers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /offers/v2/offers/brand/{brandScac}/locations
+  method: get
+  operationId: getPortPairs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /offers/v2/offers/brand/{brandScac}/locations/origins
+  method: get
+  operationId: getOriginPorts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /offers/v2/offers/brand/{brandScac}/locations/destinations
+  method: get
+  operationId: getDestinationPorts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /offers/v2/offers/containers
+  method: get
+  operationId: listContainers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /products/ocean-products/point-to-point
+  method: get
+  operationId: getPointToPointSchedules
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /dcsa/cs/v1/service-schedules
+  method: get
+  operationId: getServiceSchedules
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /track-and-trace-private/shipments
+  method: get
+  operationId: listShipmentEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - read
+- path: /track-and-trace-private/events
+  method: get
+  operationId: listContainerEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - read
+- path: /export-shipments/vgm/v1/shipments/{transportDocumentReference}/vgm
+  method: post
+  operationId: submitVgm
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - vgm
+- path: /export-shipments/vgm/v1/shipments/{transportDocumentReference}/vgm
+  method: get
+  operationId: getVgm
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - vgm
