@@ -1,47 +1,42 @@
 openapi: 3.1.0
 info:
-  title: Maersk Verified Gross Mass API
-  description: >
-    Submit Verified Gross Mass (VGM) declarations for export shipments per
-    SOLAS regulations. Allows shippers to electronically submit and update
-    VGM for each container before vessel cut-off.
+  title: Maersk Air Booking AirBookings VGM API
+  description: 'Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.
+
+    '
   version: '1.0'
   contact:
     name: Maersk Developer Support
     url: https://developer.maersk.com/support
-
 servers:
-  - url: https://api.maersk.com
-    description: Production Gateway
-
+- url: https://api.maersk.com
+  description: Production Gateway
 security:
-  - ConsumerKey: []
-  - OAuth2: [vgm]
-
+- ConsumerKey: []
 tags:
-  - name: VGM
-    description: Verified Gross Mass declarations.
-
+- name: VGM
+  description: Verified Gross Mass declarations.
 paths:
   /export-shipments/vgm/v1/shipments/{transportDocumentReference}/vgm:
     post:
       summary: Submit Verified Gross Mass
-      description: >
-        Submit one or more VGM entries for the containers on a shipment.
+      description: 'Submit one or more VGM entries for the containers on a shipment.
+
+        '
       operationId: submitVgm
       tags:
-        - VGM
+      - VGM
       parameters:
-        - name: transportDocumentReference
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Consumer-Key
-          in: header
-          required: true
-          schema:
-            type: string
+      - name: transportDocumentReference
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Consumer-Key
+        in: header
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -53,24 +48,23 @@ paths:
           description: VGM accepted for processing.
         '400':
           description: Validation error.
-
     get:
       summary: Get Verified Gross Mass
       description: Retrieve currently recorded VGM entries for a shipment.
       operationId: getVgm
       tags:
-        - VGM
+      - VGM
       parameters:
-        - name: transportDocumentReference
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Consumer-Key
-          in: header
-          required: true
-          schema:
-            type: string
+      - name: transportDocumentReference
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Consumer-Key
+        in: header
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: VGM entries returned.
@@ -78,24 +72,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VgmSubmission'
-
 components:
-  securitySchemes:
-    ConsumerKey:
-      type: apiKey
-      in: header
-      name: Consumer-Key
-    OAuth2:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: https://api.maersk.com/customer-identity/oauth/v2/access_token
-          scopes:
-            vgm: Submit VGM declarations.
   schemas:
     VgmSubmission:
       type: object
-      required: [containers]
+      required:
+      - containers
       properties:
         transportDocumentReference:
           type: string
@@ -103,7 +85,11 @@ components:
           type: array
           items:
             type: object
-            required: [equipmentReference, verifiedGrossMass, weighingMethod, responsibleParty]
+            required:
+            - equipmentReference
+            - verifiedGrossMass
+            - weighingMethod
+            - responsibleParty
             properties:
               equipmentReference:
                 type: string
@@ -111,11 +97,15 @@ components:
                 type: number
               massUnit:
                 type: string
-                enum: [KGM, LBR]
+                enum:
+                - KGM
+                - LBR
                 default: KGM
               weighingMethod:
                 type: string
-                enum: [METHOD1, METHOD2]
+                enum:
+                - METHOD1
+                - METHOD2
                 description: SOLAS VGM weighing method.
               weighingDate:
                 type: string
@@ -136,3 +126,8 @@ components:
                     type: string
                   UNLocationCode:
                     type: string
+  securitySchemes:
+    ConsumerKey:
+      type: apiKey
+      in: header
+      name: Consumer-Key

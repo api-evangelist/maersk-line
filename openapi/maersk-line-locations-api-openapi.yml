@@ -1,0 +1,81 @@
+openapi: 3.1.0
+info:
+  title: Maersk Air Booking AirBookings Locations API
+  description: 'Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.
+
+    '
+  version: '1.0'
+  contact:
+    name: Maersk Developer Support
+    url: https://developer.maersk.com/support
+servers:
+- url: https://api.maersk.com
+  description: Production Gateway
+security:
+- ConsumerKey: []
+tags:
+- name: Locations
+  description: Origin and destination port lookups.
+paths:
+  /offers/v2/offers/brand/{brandScac}/locations:
+    get:
+      summary: Get Port Pair Locations
+      description: List available origin-destination port combinations.
+      operationId: getPortPairs
+      tags:
+      - Locations
+      parameters:
+      - name: brandScac
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: containerIsoCode
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Port pairs returned.
+  /offers/v2/offers/brand/{brandScac}/locations/origins:
+    get:
+      summary: Get Origin Ports
+      description: List origin ports with available offers.
+      operationId: getOriginPorts
+      tags:
+      - Locations
+      parameters:
+      - name: brandScac
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cityName
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Origin ports returned.
+  /offers/v2/offers/brand/{brandScac}/locations/destinations:
+    get:
+      summary: Get Destination Ports
+      description: List destination ports with available offers.
+      operationId: getDestinationPorts
+      tags:
+      - Locations
+      parameters:
+      - name: brandScac
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Destination ports returned.
+components:
+  securitySchemes:
+    ConsumerKey:
+      type: apiKey
+      in: header
+      name: Consumer-Key

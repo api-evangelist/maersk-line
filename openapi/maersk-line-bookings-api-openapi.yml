@@ -1,44 +1,37 @@
 openapi: 3.1.0
 info:
-  title: Maersk Ocean Booking API
-  description: >
-    DCSA-compliant Ocean Booking v2 API for Maersk. Create, retrieve, amend,
-    and cancel ocean shipment bookings. Aligned with the DCSA Booking 2.0
-    interface standard so requests work across multiple ocean carriers.
-  version: '2.0'
+  title: Maersk Air Booking AirBookings Bookings API
+  description: 'Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.
+
+    '
+  version: '1.0'
   contact:
     name: Maersk Developer Support
     url: https://developer.maersk.com/support
-
 servers:
-  - url: https://api.maersk.com
-    description: Production Gateway
-
+- url: https://api.maersk.com
+  description: Production Gateway
 security:
-  - ConsumerKey: []
-  - OAuth2: [booking]
-
+- ConsumerKey: []
 tags:
-  - name: Bookings
-    description: Create and manage ocean shipment bookings.
-
+- name: Bookings
+  description: Create and manage ocean shipment bookings.
 paths:
   /dcsa/bkg/v2/bookings:
     post:
       summary: Create Ocean Booking
-      description: >
-        Submit a booking request for an ocean shipment. The request body
-        follows the DCSA Booking 2.0 schema covering parties, cargo, equipment,
-        routing, and references.
+      description: 'Submit a booking request for an ocean shipment. The request body follows the DCSA Booking 2.0 schema covering parties, cargo, equipment, routing, and references.
+
+        '
       operationId: createBooking
       tags:
-        - Bookings
+      - Bookings
       parameters:
-        - name: Consumer-Key
-          in: header
-          required: true
-          schema:
-            type: string
+      - name: Consumer-Key
+        in: header
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -56,25 +49,24 @@ paths:
           description: Invalid booking request.
         '401':
           description: Unauthorized.
-
   /dcsa/bkg/v2/bookings/{carrierBookingReference}:
     get:
       summary: Retrieve Ocean Booking
       description: Retrieve an existing booking by carrier booking reference.
       operationId: getBooking
       tags:
-        - Bookings
+      - Bookings
       parameters:
-        - name: carrierBookingReference
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Consumer-Key
-          in: header
-          required: true
-          schema:
-            type: string
+      - name: carrierBookingReference
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Consumer-Key
+        in: header
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Booking returned.
@@ -89,18 +81,18 @@ paths:
       description: Submit an amendment to an existing booking.
       operationId: amendBooking
       tags:
-        - Bookings
+      - Bookings
       parameters:
-        - name: carrierBookingReference
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Consumer-Key
-          in: header
-          required: true
-          schema:
-            type: string
+      - name: carrierBookingReference
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Consumer-Key
+        in: header
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -117,54 +109,89 @@ paths:
       description: Cancel an existing booking.
       operationId: cancelBooking
       tags:
-        - Bookings
+      - Bookings
       parameters:
-        - name: carrierBookingReference
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Consumer-Key
-          in: header
-          required: true
-          schema:
-            type: string
+      - name: carrierBookingReference
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Consumer-Key
+        in: header
+        required: true
+        schema:
+          type: string
       responses:
         '204':
           description: Booking cancelled.
-
 components:
-  securitySchemes:
-    ConsumerKey:
-      type: apiKey
-      in: header
-      name: Consumer-Key
-    OAuth2:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: https://api.maersk.com/customer-identity/oauth/v2/access_token
-          scopes:
-            booking: Manage bookings.
   schemas:
+    Booking:
+      allOf:
+      - $ref: '#/components/schemas/BookingRequest'
+      - type: object
+        properties:
+          carrierBookingReference:
+            type: string
+          bookingStatus:
+            type: string
+            enum:
+            - RECEIVED
+            - PENDING_UPDATE
+            - UPDATE_CONFIRMED
+            - CONFIRMED
+            - REJECTED
+            - CANCELLED
+            - COMPLETED
+          bookingRequestDateTime:
+            type: string
+            format: date-time
+    RequestedEquipment:
+      type: object
+      properties:
+        ISOEquipmentCode:
+          type: string
+          example: 22GP
+        units:
+          type: integer
+        isShipperOwned:
+          type: boolean
     BookingRequest:
       type: object
-      required: [carrierServiceCode, receiptTypeAtOrigin, deliveryTypeAtDestination, cargoMovementTypeAtOrigin, cargoMovementTypeAtDestination, requestedEquipments]
+      required:
+      - carrierServiceCode
+      - receiptTypeAtOrigin
+      - deliveryTypeAtDestination
+      - cargoMovementTypeAtOrigin
+      - cargoMovementTypeAtDestination
+      - requestedEquipments
       properties:
         carrierServiceCode:
           type: string
         receiptTypeAtOrigin:
           type: string
-          enum: [CY, SD, CFS]
+          enum:
+          - CY
+          - SD
+          - CFS
         deliveryTypeAtDestination:
           type: string
-          enum: [CY, SD, CFS]
+          enum:
+          - CY
+          - SD
+          - CFS
         cargoMovementTypeAtOrigin:
           type: string
-          enum: [FCL, LCL, BBK]
+          enum:
+          - FCL
+          - LCL
+          - BBK
         cargoMovementTypeAtDestination:
           type: string
-          enum: [FCL, LCL, BBK]
+          enum:
+          - FCL
+          - LCL
+          - BBK
         serviceContractReference:
           type: string
         commodities:
@@ -179,19 +206,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PartyContact'
-    Booking:
-      allOf:
-        - $ref: '#/components/schemas/BookingRequest'
-        - type: object
-          properties:
-            carrierBookingReference:
-              type: string
-            bookingStatus:
-              type: string
-              enum: [RECEIVED, PENDING_UPDATE, UPDATE_CONFIRMED, CONFIRMED, REJECTED, CANCELLED, COMPLETED]
-            bookingRequestDateTime:
-              type: string
-              format: date-time
     Commodity:
       type: object
       properties:
@@ -205,17 +219,9 @@ components:
           type: number
         cargoGrossWeightUnit:
           type: string
-          enum: [KGM, LBR]
-    RequestedEquipment:
-      type: object
-      properties:
-        ISOEquipmentCode:
-          type: string
-          example: 22GP
-        units:
-          type: integer
-        isShipperOwned:
-          type: boolean
+          enum:
+          - KGM
+          - LBR
     PartyContact:
       type: object
       properties:
@@ -225,3 +231,8 @@ components:
           type: string
         phone:
           type: string
+  securitySchemes:
+    ConsumerKey:
+      type: apiKey
+      in: header
+      name: Consumer-Key

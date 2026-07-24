@@ -1,0 +1,35 @@
+openapi: 3.1.0
+info:
+  title: Maersk Air Booking AirBookings Containers API
+  description: 'Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.
+
+    '
+  version: '1.0'
+  contact:
+    name: Maersk Developer Support
+    url: https://developer.maersk.com/support
+servers:
+- url: https://api.maersk.com
+  description: Production Gateway
+security:
+- ConsumerKey: []
+tags:
+- name: Containers
+  description: Supported container size and type combinations.
+paths:
+  /offers/v2/offers/containers:
+    get:
+      summary: List Supported Containers
+      description: List all container size-types supported for offers.
+      operationId: listContainers
+      tags:
+      - Containers
+      responses:
+        '200':
+          description: Container catalog returned.
+components:
+  securitySchemes:
+    ConsumerKey:
+      type: apiKey
+      in: header
+      name: Consumer-Key

@@ -1,26 +1,21 @@
 openapi: 3.1.0
 info:
-  title: Maersk Air Booking API
-  description: >
-    Submit air freight booking requests via Maersk Air Cargo. Covers
-    consolidation, charter, and forwarder bookings between supported
-    origin and destination airports.
+  title: Maersk Air Booking AirBookings API
+  description: 'Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.
+
+    '
   version: '1.0'
   contact:
     name: Maersk Developer Support
     url: https://developer.maersk.com/support
-
 servers:
-  - url: https://api.maersk.com
-    description: Production Gateway
-
+- url: https://api.maersk.com
+  description: Production Gateway
 security:
-  - ConsumerKey: []
-
+- ConsumerKey: []
 tags:
-  - name: AirBookings
-    description: Air freight bookings.
-
+- name: AirBookings
+  description: Air freight bookings.
 paths:
   /air-booking/v1/bookings:
     post:
@@ -28,13 +23,13 @@ paths:
       description: Submit a new air freight booking request.
       operationId: createAirBooking
       tags:
-        - AirBookings
+      - AirBookings
       parameters:
-        - name: Consumer-Key
-          in: header
-          required: true
-          schema:
-            type: string
+      - name: Consumer-Key
+        in: header
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -48,25 +43,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AirBooking'
-
   /air-booking/v1/bookings/{bookingReference}:
     get:
       summary: Get Air Booking
       description: Retrieve an existing air booking by reference.
       operationId: getAirBooking
       tags:
-        - AirBookings
+      - AirBookings
       parameters:
-        - name: bookingReference
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Consumer-Key
-          in: header
-          required: true
-          schema:
-            type: string
+      - name: bookingReference
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Consumer-Key
+        in: header
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Booking returned.
@@ -74,17 +68,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AirBooking'
-
 components:
-  securitySchemes:
-    ConsumerKey:
-      type: apiKey
-      in: header
-      name: Consumer-Key
   schemas:
     AirBookingRequest:
       type: object
-      required: [origin, destination, departureDate, pieces]
+      required:
+      - origin
+      - destination
+      - departureDate
+      - pieces
       properties:
         origin:
           type: string
@@ -97,7 +89,11 @@ components:
           format: date
         productCode:
           type: string
-          enum: [GENERAL, EXPRESS, PHARMA, PERISHABLE]
+          enum:
+          - GENERAL
+          - EXPRESS
+          - PHARMA
+          - PERISHABLE
         pieces:
           type: array
           items:
@@ -109,7 +105,9 @@ components:
                 type: number
               weightUnit:
                 type: string
-                enum: [KGM, LBR]
+                enum:
+                - KGM
+                - LBR
               dimensions:
                 type: object
                 properties:
@@ -121,24 +119,13 @@ components:
                     type: number
                   unit:
                     type: string
-                    enum: [CMT, INH]
+                    enum:
+                    - CMT
+                    - INH
         shipper:
           $ref: '#/components/schemas/AirParty'
         consignee:
           $ref: '#/components/schemas/AirParty'
-    AirBooking:
-      allOf:
-        - $ref: '#/components/schemas/AirBookingRequest'
-        - type: object
-          properties:
-            bookingReference:
-              type: string
-            status:
-              type: string
-              enum: [RECEIVED, CONFIRMED, REJECTED, CANCELLED, COMPLETED]
-            createdAt:
-              type: string
-              format: date-time
     AirParty:
       type: object
       properties:
@@ -148,3 +135,26 @@ components:
           type: string
         contactEmail:
           type: string
+    AirBooking:
+      allOf:
+      - $ref: '#/components/schemas/AirBookingRequest'
+      - type: object
+        properties:
+          bookingReference:
+            type: string
+          status:
+            type: string
+            enum:
+            - RECEIVED
+            - CONFIRMED
+            - REJECTED
+            - CANCELLED
+            - COMPLETED
+          createdAt:
+            type: string
+            format: date-time
+  securitySchemes:
+    ConsumerKey:
+      type: apiKey
+      in: header
+      name: Consumer-Key
