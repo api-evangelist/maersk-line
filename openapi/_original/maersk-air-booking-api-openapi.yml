@@ -1,0 +1,150 @@
+openapi: 3.1.0
+info:
+  title: Maersk Air Booking API
+  description: >
+    Submit air freight booking requests via Maersk Air Cargo. Covers
+    consolidation, charter, and forwarder bookings between supported
+    origin and destination airports.
+  version: '1.0'
+  contact:
+    name: Maersk Developer Support
+    url: https://developer.maersk.com/support
+
+servers:
+  - url: https://api.maersk.com
+    description: Production Gateway
+
+security:
+  - ConsumerKey: []
+
+tags:
+  - name: AirBookings
+    description: Air freight bookings.
+
+paths:
+  /air-booking/v1/bookings:
+    post:
+      summary: Create Air Booking
+      description: Submit a new air freight booking request.
+      operationId: createAirBooking
+      tags:
+        - AirBookings
+      parameters:
+        - name: Consumer-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AirBookingRequest'
+      responses:
+        '201':
+          description: Booking created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AirBooking'
+
+  /air-booking/v1/bookings/{bookingReference}:
+    get:
+      summary: Get Air Booking
+      description: Retrieve an existing air booking by reference.
+      operationId: getAirBooking
+      tags:
+        - AirBookings
+      parameters:
+        - name: bookingReference
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: Consumer-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Booking returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AirBooking'
+
+components:
+  securitySchemes:
+    ConsumerKey:
+      type: apiKey
+      in: header
+      name: Consumer-Key
+  schemas:
+    AirBookingRequest:
+      type: object
+      required: [origin, destination, departureDate, pieces]
+      properties:
+        origin:
+          type: string
+          description: IATA airport code.
+        destination:
+          type: string
+          description: IATA airport code.
+        departureDate:
+          type: string
+          format: date
+        productCode:
+          type: string
+          enum: [GENERAL, EXPRESS, PHARMA, PERISHABLE]
+        pieces:
+          type: array
+          items:
+            type: object
+            properties:
+              count:
+                type: integer
+              grossWeight:
+                type: number
+              weightUnit:
+                type: string
+                enum: [KGM, LBR]
+              dimensions:
+                type: object
+                properties:
+                  length:
+                    type: number
+                  width:
+                    type: number
+                  height:
+                    type: number
+                  unit:
+                    type: string
+                    enum: [CMT, INH]
+        shipper:
+          $ref: '#/components/schemas/AirParty'
+        consignee:
+          $ref: '#/components/schemas/AirParty'
+    AirBooking:
+      allOf:
+        - $ref: '#/components/schemas/AirBookingRequest'
+        - type: object
+          properties:
+            bookingReference:
+              type: string
+            status:
+              type: string
+              enum: [RECEIVED, CONFIRMED, REJECTED, CANCELLED, COMPLETED]
+            createdAt:
+              type: string
+              format: date-time
+    AirParty:
+      type: object
+      properties:
+        name:
+          type: string
+        accountNumber:
+          type: string
+        contactEmail:
+          type: string

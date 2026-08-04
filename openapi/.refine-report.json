@@ -1,0 +1,32 @@
+{
+  "provider": "maersk-line",
+  "sources": [
+    "maersk-line-airbookings-api-openapi.yml",
+    "maersk-line-billoflading-api-openapi.yml",
+    "maersk-line-bookings-api-openapi.yml",
+    "maersk-line-containers-api-openapi.yml",
+    "maersk-line-demurragedetention-api-openapi.yml",
+    "maersk-line-locations-api-openapi.yml",
+    "maersk-line-offers-api-openapi.yml",
+    "maersk-line-schedules-api-openapi.yml",
+    "maersk-line-tracking-api-openapi.yml",
+    "maersk-line-vgm-api-openapi.yml"
+  ],
+  "outputs": [
+    "maersk-line-airbookings-api-openapi.yml",
+    "maersk-line-billoflading-api-openapi.yml",
+    "maersk-line-bookings-api-openapi.yml",
+    "maersk-line-containers-api-openapi.yml",
+    "maersk-line-demurragedetention-api-openapi.yml",
+    "maersk-line-locations-api-openapi.yml",
+    "maersk-line-offers-api-openapi.yml",
+    "maersk-line-schedules-api-openapi.yml",
+    "maersk-line-tracking-api-openapi.yml",
+    "maersk-line-vgm-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

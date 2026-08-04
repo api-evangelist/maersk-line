@@ -1,0 +1,191 @@
+openapi: 3.1.0
+info:
+  title: Maersk Track and Trace API
+  description: >
+    Public ocean Track and Trace data via a RESTful API. Returns neutralized
+    container and shipment milestones (not tied to bill-of-lading party
+    affiliation). Supports lookup by container number, bill-of-lading number,
+    or booking number.
+  version: '2.0'
+  contact:
+    name: Maersk Developer Support
+    url: https://developer.maersk.com/support
+  license:
+    name: Maersk Terms of Service
+    url: https://www.maersk.com/terms
+
+servers:
+  - url: https://api.maersk.com
+    description: Production Gateway
+
+security:
+  - ConsumerKey: []
+  - OAuth2: [read]
+
+tags:
+  - name: Tracking
+    description: Container and shipment tracking events.
+
+paths:
+  /track-and-trace-private/shipments:
+    get:
+      summary: List Shipment Tracking Events
+      description: >
+        Retrieve neutralized tracking events for a shipment referenced by
+        container number, bill-of-lading number, or booking number. Returns
+        location, vessel, voyage, planned and actual timestamps for each
+        milestone.
+      operationId: listShipmentEvents
+      tags:
+        - Tracking
+      parameters:
+        - name: equipmentReference
+          in: query
+          description: Container number (ISO 6346).
+          schema:
+            type: string
+            example: MSKU1234567
+        - name: transportDocumentReference
+          in: query
+          description: Bill of lading number.
+          schema:
+            type: string
+            example: 909876543
+        - name: carrierBookingReference
+          in: query
+          description: Booking reference number.
+          schema:
+            type: string
+            example: 222334455
+        - name: Consumer-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Tracking events returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShipmentTracking'
+        '401':
+          description: Unauthorized — invalid or missing API key.
+        '404':
+          description: Reference not found.
+        '429':
+          description: Rate limit exceeded.
+
+  /track-and-trace-private/events:
+    get:
+      summary: List Container Events
+      description: >
+        Retrieve fine-grained event stream for a single container, including
+        transport events, equipment events, and shipment events.
+      operationId: listContainerEvents
+      tags:
+        - Tracking
+      parameters:
+        - name: equipmentReference
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: eventType
+          in: query
+          description: TRANSPORT, EQUIPMENT, or SHIPMENT.
+          schema:
+            type: string
+            enum: [TRANSPORT, EQUIPMENT, SHIPMENT]
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 100
+        - name: Consumer-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Container events returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Container not found.
+
+components:
+  securitySchemes:
+    ConsumerKey:
+      type: apiKey
+      in: header
+      name: Consumer-Key
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.maersk.com/customer-identity/oauth/v2/access_token
+          scopes:
+            read: Read access to tracking data.
+  schemas:
+    ShipmentTracking:
+      type: object
+      properties:
+        carrierBookingReference:
+          type: string
+        transportDocumentReference:
+          type: string
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+    Event:
+      type: object
+      properties:
+        eventID:
+          type: string
+        eventType:
+          type: string
+          enum: [TRANSPORT, EQUIPMENT, SHIPMENT]
+        eventClassifierCode:
+          type: string
+          enum: [PLN, ACT, EST]
+          description: Planned, Actual, or Estimated.
+        eventDateTime:
+          type: string
+          format: date-time
+        location:
+          $ref: '#/components/schemas/Location'
+        transportCall:
+          $ref: '#/components/schemas/TransportCall'
+        equipmentReference:
+          type: string
+    Location:
+      type: object
+      properties:
+        locationName:
+          type: string
+        UNLocationCode:
+          type: string
+          description: UN/LOCODE for the port or facility.
+        countryCode:
+          type: string
+    TransportCall:
+      type: object
+      properties:
+        carrierServiceCode:
+          type: string
+        vesselIMONumber:
+          type: string
+        carrierVoyageNumber:
+          type: string
+        modeOfTransport:
+          type: string
+          enum: [VESSEL, RAIL, TRUCK, BARGE, MULTIMODAL]
