@@ -760,4 +760,4 @@ description: >-
   Booking (DCSA-aligned), Schedules, Product Offers and pricing, electronic Bills of Lading, Verified Gross Mass,
   Demurrage and Detention, Air Booking, VGM, and container Maintenance and Repair. Many of Maersk's APIs implement
   Digital Container Shipping Association (DCSA) interface standards so the same client can address multiple carriers.
-specificationVersion: '0.16'
+specificationVersion: '0.23'
