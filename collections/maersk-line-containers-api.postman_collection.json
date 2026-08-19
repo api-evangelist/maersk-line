@@ -1,0 +1,123 @@
+{
+  "item": [
+    {
+      "id": "e1111bd3-686d-4521-a918-0450ed88972a",
+      "name": "Containers",
+      "description": {
+        "content": "Supported container size and type combinations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "af9198fe-dee7-422e-93c2-111ec46b7be7",
+          "name": "List Supported Containers",
+          "request": {
+            "name": "List Supported Containers",
+            "description": {
+              "content": "List all container size-types supported for offers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "offers",
+                "v2",
+                "offers",
+                "containers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bcf68dcb-296b-4831-aabd-3bdbbcd9222b",
+              "name": "Container catalog returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offers",
+                    "v2",
+                    "offers",
+                    "containers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.maersk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Consumer-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e8a10eda-ec8d-4b80-ac97-4903a2387c89",
+    "name": "Maersk Air Booking AirBookings Containers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.\n\n\nContact Support:\n Name: Maersk Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

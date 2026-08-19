@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maersk Air Booking AirBookings Offers API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Consumer-Key",
+      "value": "{{Consumer-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Offers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Available Offers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maersk.com/offers/v2/offers/brand/:brandScac/departuredate/:departureDate",
+            "params": [
+              {
+                "name": "brandScac",
+                "value": "",
+                "type": "path",
+                "description": "Carrier SCAC code (MAEU, SEAU, MCPU, SEJJ)."
+              },
+              {
+                "name": "departureDate",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collectionOriginCityName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "collectionOriginCountryCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deliveryDestinationCityName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deliveryDestinationCountryCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "containerIsoCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "serviceMode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve product offers for a given origin, destination, container, and departure date. Includes pricing, schedule, demurrage and detention conditions.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

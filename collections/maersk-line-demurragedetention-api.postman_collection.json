@@ -1,0 +1,164 @@
+{
+  "item": [
+    {
+      "id": "7fc85fd5-8c5e-4f3a-a77e-12568284aabd",
+      "name": "DemurrageDetention",
+      "description": {
+        "content": "Demurrage and detention charges and clocks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "275f0475-162f-43b7-940c-f3c5869e0ccc",
+          "name": "Get Demurrage And Detention Charges",
+          "request": {
+            "name": "Get Demurrage And Detention Charges",
+            "description": {
+              "content": "Retrieve current demurrage and detention charges and remaining free days for one or more containers.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demurrage-detention",
+                "v1",
+                "charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "equipmentReference",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of container numbers."
+                },
+                {
+                  "disabled": false,
+                  "key": "transportDocumentReference",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9d960c6-98c8-408f-937f-f5d786c015c8",
+              "name": "Charge details returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demurrage-detention",
+                    "v1",
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "equipmentReference",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transportDocumentReference",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"equipmentReference\": \"string\",\n    \"transportDocumentReference\": \"string\",\n    \"type\": \"Demurrage\",\n    \"clockStart\": \"1966-11-23T12:36:12.551Z\",\n    \"freeDays\": 269,\n    \"elapsedDays\": 9057,\n    \"chargeableDays\": 6732,\n    \"amount\": 7160.690932690005,\n    \"currency\": \"string\",\n    \"tariffReference\": \"string\"\n  },\n  {\n    \"equipmentReference\": \"string\",\n    \"transportDocumentReference\": \"string\",\n    \"type\": \"Combined\",\n    \"clockStart\": \"2017-04-25T01:52:08.551Z\",\n    \"freeDays\": 2570,\n    \"elapsedDays\": 5055,\n    \"chargeableDays\": 7033,\n    \"amount\": 97.39675191581921,\n    \"currency\": \"string\",\n    \"tariffReference\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.maersk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Consumer-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4d7c1508-a12b-4055-a3b4-c4789fdf5d13",
+    "name": "Maersk Air Booking AirBookings DemurrageDetention API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.\n\n\nContact Support:\n Name: Maersk Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

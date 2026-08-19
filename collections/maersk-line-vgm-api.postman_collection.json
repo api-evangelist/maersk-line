@@ -1,0 +1,360 @@
+{
+  "item": [
+    {
+      "id": "924ab427-a1b6-4c2e-9432-34b00ea7ce9f",
+      "name": "VGM",
+      "description": {
+        "content": "Verified Gross Mass declarations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5d6fe472-cded-44f3-9019-318ac7d03f9f",
+          "name": "Submit Verified Gross Mass",
+          "request": {
+            "name": "Submit Verified Gross Mass",
+            "description": {
+              "content": "Submit one or more VGM entries for the containers on a shipment.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "export-shipments",
+                "vgm",
+                "v1",
+                "shipments",
+                ":transportDocumentReference",
+                "vgm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transportDocumentReference",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"containers\": [\n    {\n      \"equipmentReference\": \"<string>\",\n      \"verifiedGrossMass\": \"<number>\",\n      \"weighingMethod\": \"<string>\",\n      \"responsibleParty\": {\n        \"partyName\": \"<string>\",\n        \"signatory\": \"<string>\",\n        \"contactEmail\": \"<string>\"\n      },\n      \"massUnit\": \"KGM\",\n      \"weighingDate\": \"<dateTime>\",\n      \"weighingFacility\": {\n        \"facilityName\": \"<string>\",\n        \"UNLocationCode\": \"<string>\"\n      }\n    },\n    {\n      \"equipmentReference\": \"<string>\",\n      \"verifiedGrossMass\": \"<number>\",\n      \"weighingMethod\": \"<string>\",\n      \"responsibleParty\": {\n        \"partyName\": \"<string>\",\n        \"signatory\": \"<string>\",\n        \"contactEmail\": \"<string>\"\n      },\n      \"massUnit\": \"KGM\",\n      \"weighingDate\": \"<dateTime>\",\n      \"weighingFacility\": {\n        \"facilityName\": \"<string>\",\n        \"UNLocationCode\": \"<string>\"\n      }\n    }\n  ],\n  \"transportDocumentReference\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bfa00f94-96ad-4c94-99a0-65481f809e91",
+              "name": "VGM accepted for processing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "export-shipments",
+                    "vgm",
+                    "v1",
+                    "shipments",
+                    ":transportDocumentReference",
+                    "vgm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transportDocumentReference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"containers\": [\n    {\n      \"equipmentReference\": \"<string>\",\n      \"verifiedGrossMass\": \"<number>\",\n      \"weighingMethod\": \"<string>\",\n      \"responsibleParty\": {\n        \"partyName\": \"<string>\",\n        \"signatory\": \"<string>\",\n        \"contactEmail\": \"<string>\"\n      },\n      \"massUnit\": \"KGM\",\n      \"weighingDate\": \"<dateTime>\",\n      \"weighingFacility\": {\n        \"facilityName\": \"<string>\",\n        \"UNLocationCode\": \"<string>\"\n      }\n    },\n    {\n      \"equipmentReference\": \"<string>\",\n      \"verifiedGrossMass\": \"<number>\",\n      \"weighingMethod\": \"<string>\",\n      \"responsibleParty\": {\n        \"partyName\": \"<string>\",\n        \"signatory\": \"<string>\",\n        \"contactEmail\": \"<string>\"\n      },\n      \"massUnit\": \"KGM\",\n      \"weighingDate\": \"<dateTime>\",\n      \"weighingFacility\": {\n        \"facilityName\": \"<string>\",\n        \"UNLocationCode\": \"<string>\"\n      }\n    }\n  ],\n  \"transportDocumentReference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "da1977df-b8df-485d-8fd1-0b8ab3a9bc64",
+              "name": "Validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "export-shipments",
+                    "vgm",
+                    "v1",
+                    "shipments",
+                    ":transportDocumentReference",
+                    "vgm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transportDocumentReference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"containers\": [\n    {\n      \"equipmentReference\": \"<string>\",\n      \"verifiedGrossMass\": \"<number>\",\n      \"weighingMethod\": \"<string>\",\n      \"responsibleParty\": {\n        \"partyName\": \"<string>\",\n        \"signatory\": \"<string>\",\n        \"contactEmail\": \"<string>\"\n      },\n      \"massUnit\": \"KGM\",\n      \"weighingDate\": \"<dateTime>\",\n      \"weighingFacility\": {\n        \"facilityName\": \"<string>\",\n        \"UNLocationCode\": \"<string>\"\n      }\n    },\n    {\n      \"equipmentReference\": \"<string>\",\n      \"verifiedGrossMass\": \"<number>\",\n      \"weighingMethod\": \"<string>\",\n      \"responsibleParty\": {\n        \"partyName\": \"<string>\",\n        \"signatory\": \"<string>\",\n        \"contactEmail\": \"<string>\"\n      },\n      \"massUnit\": \"KGM\",\n      \"weighingDate\": \"<dateTime>\",\n      \"weighingFacility\": {\n        \"facilityName\": \"<string>\",\n        \"UNLocationCode\": \"<string>\"\n      }\n    }\n  ],\n  \"transportDocumentReference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2766545-04f3-41ba-8079-ea621baae6b8",
+          "name": "Get Verified Gross Mass",
+          "request": {
+            "name": "Get Verified Gross Mass",
+            "description": {
+              "content": "Retrieve currently recorded VGM entries for a shipment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "export-shipments",
+                "vgm",
+                "v1",
+                "shipments",
+                ":transportDocumentReference",
+                "vgm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transportDocumentReference",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "86092ca7-9d3c-45bc-8ce3-6a9079a99987",
+              "name": "VGM entries returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "export-shipments",
+                    "vgm",
+                    "v1",
+                    "shipments",
+                    ":transportDocumentReference",
+                    "vgm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transportDocumentReference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"containers\": [\n    {\n      \"equipmentReference\": \"string\",\n      \"verifiedGrossMass\": 1459.280146732127,\n      \"weighingMethod\": \"METHOD2\",\n      \"responsibleParty\": {\n        \"partyName\": \"string\",\n        \"signatory\": \"string\",\n        \"contactEmail\": \"string\"\n      },\n      \"massUnit\": \"KGM\",\n      \"weighingDate\": \"1951-01-19T13:53:59.758Z\",\n      \"weighingFacility\": {\n        \"facilityName\": \"string\",\n        \"UNLocationCode\": \"string\"\n      }\n    },\n    {\n      \"equipmentReference\": \"string\",\n      \"verifiedGrossMass\": 4449.349146354722,\n      \"weighingMethod\": \"METHOD2\",\n      \"responsibleParty\": {\n        \"partyName\": \"string\",\n        \"signatory\": \"string\",\n        \"contactEmail\": \"string\"\n      },\n      \"massUnit\": \"KGM\",\n      \"weighingDate\": \"1977-04-10T22:36:50.147Z\",\n      \"weighingFacility\": {\n        \"facilityName\": \"string\",\n        \"UNLocationCode\": \"string\"\n      }\n    }\n  ],\n  \"transportDocumentReference\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.maersk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Consumer-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "29abc16e-2061-4b37-8d1a-2f8411a4880c",
+    "name": "Maersk Air Booking AirBookings VGM API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.\n\n\nContact Support:\n Name: Maersk Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

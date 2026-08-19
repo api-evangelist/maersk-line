@@ -1,0 +1,357 @@
+{
+  "item": [
+    {
+      "id": "81167426-9c55-42f3-b8c5-26d932df30bb",
+      "name": "Locations",
+      "description": {
+        "content": "Origin and destination port lookups.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "67cbf93c-a3d2-4926-ac93-059d589de9e0",
+          "name": "Get Port Pair Locations",
+          "request": {
+            "name": "Get Port Pair Locations",
+            "description": {
+              "content": "List available origin-destination port combinations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "offers",
+                "v2",
+                "offers",
+                "brand",
+                ":brandScac",
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "containerIsoCode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "brandScac",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "076eb65c-9b3a-4558-8db8-69632e9df8a1",
+              "name": "Port pairs returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offers",
+                    "v2",
+                    "offers",
+                    "brand",
+                    ":brandScac",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "containerIsoCode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "brandScac",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3d9cf8e-4ba0-4ded-8be8-80a3a22b78d0",
+          "name": "Get Origin Ports",
+          "request": {
+            "name": "Get Origin Ports",
+            "description": {
+              "content": "List origin ports with available offers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "offers",
+                "v2",
+                "offers",
+                "brand",
+                ":brandScac",
+                "locations",
+                "origins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cityName",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "brandScac",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db17d581-77ff-4f42-9a33-111c147e2f28",
+              "name": "Origin ports returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offers",
+                    "v2",
+                    "offers",
+                    "brand",
+                    ":brandScac",
+                    "locations",
+                    "origins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cityName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "brandScac",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93de2989-8285-4cff-8b66-791cf627a8ee",
+          "name": "Get Destination Ports",
+          "request": {
+            "name": "Get Destination Ports",
+            "description": {
+              "content": "List destination ports with available offers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "offers",
+                "v2",
+                "offers",
+                "brand",
+                ":brandScac",
+                "locations",
+                "destinations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "brandScac",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d24734b-361b-4722-a544-787ffdc3c6fc",
+              "name": "Destination ports returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offers",
+                    "v2",
+                    "offers",
+                    "brand",
+                    ":brandScac",
+                    "locations",
+                    "destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "brandScac",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.maersk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Consumer-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "87879309-8905-43fa-bd5b-65bf43a1ecb0",
+    "name": "Maersk Air Booking AirBookings Locations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.\n\n\nContact Support:\n Name: Maersk Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

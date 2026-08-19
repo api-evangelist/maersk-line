@@ -1,0 +1,747 @@
+{
+  "item": [
+    {
+      "id": "fb755c44-3890-473a-bd04-85416f113c62",
+      "name": "Bookings",
+      "description": {
+        "content": "Create and manage ocean shipment bookings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "23f3c2c2-4c30-4eb0-8aeb-fc1d868df12e",
+          "name": "Create Ocean Booking",
+          "request": {
+            "name": "Create Ocean Booking",
+            "description": {
+              "content": "Submit a booking request for an ocean shipment. The request body follows the DCSA Booking 2.0 schema covering parties, cargo, equipment, routing, and references.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dcsa",
+                "bkg",
+                "v2",
+                "bookings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"carrierServiceCode\": \"<string>\",\n  \"receiptTypeAtOrigin\": \"<string>\",\n  \"deliveryTypeAtDestination\": \"<string>\",\n  \"cargoMovementTypeAtOrigin\": \"<string>\",\n  \"cargoMovementTypeAtDestination\": \"<string>\",\n  \"requestedEquipments\": [\n    {\n      \"ISOEquipmentCode\": \"<string>\",\n      \"units\": \"<integer>\",\n      \"isShipperOwned\": \"<boolean>\"\n    },\n    {\n      \"ISOEquipmentCode\": \"<string>\",\n      \"units\": \"<integer>\",\n      \"isShipperOwned\": \"<boolean>\"\n    }\n  ],\n  \"serviceContractReference\": \"<string>\",\n  \"commodities\": [\n    {\n      \"commodityType\": \"<string>\",\n      \"HSCodes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cargoGrossWeight\": \"<number>\",\n      \"cargoGrossWeightUnit\": \"<string>\"\n    },\n    {\n      \"commodityType\": \"<string>\",\n      \"HSCodes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cargoGrossWeight\": \"<number>\",\n      \"cargoGrossWeightUnit\": \"<string>\"\n    }\n  ],\n  \"partyContactDetails\": [\n    {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0f2e8e28-104c-46a6-9e14-5b8a3de6e87c",
+              "name": "Booking created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dcsa",
+                    "bkg",
+                    "v2",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"carrierServiceCode\": \"<string>\",\n  \"receiptTypeAtOrigin\": \"<string>\",\n  \"deliveryTypeAtDestination\": \"<string>\",\n  \"cargoMovementTypeAtOrigin\": \"<string>\",\n  \"cargoMovementTypeAtDestination\": \"<string>\",\n  \"requestedEquipments\": [\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 7329,\n      \"isShipperOwned\": false\n    },\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 4080,\n      \"isShipperOwned\": true\n    }\n  ],\n  \"serviceContractReference\": \"<string>\",\n  \"commodities\": [\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 1947.786892157516,\n      \"cargoGrossWeightUnit\": \"LBR\"\n    },\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 4232.769567658834,\n      \"cargoGrossWeightUnit\": \"KGM\"\n    }\n  ],\n  \"partyContactDetails\": [\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"carrierServiceCode\": \"string\",\n  \"receiptTypeAtOrigin\": \"SD\",\n  \"deliveryTypeAtDestination\": \"CY\",\n  \"cargoMovementTypeAtOrigin\": \"FCL\",\n  \"cargoMovementTypeAtDestination\": \"BBK\",\n  \"requestedEquipments\": [\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 4597,\n      \"isShipperOwned\": false\n    },\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 6648,\n      \"isShipperOwned\": true\n    }\n  ],\n  \"serviceContractReference\": \"string\",\n  \"commodities\": [\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 8386.589160569682,\n      \"cargoGrossWeightUnit\": \"LBR\"\n    },\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 9036.517515354382,\n      \"cargoGrossWeightUnit\": \"KGM\"\n    }\n  ],\n  \"partyContactDetails\": [\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    }\n  ],\n  \"carrierBookingReference\": \"string\",\n  \"bookingStatus\": \"UPDATE_CONFIRMED\",\n  \"bookingRequestDateTime\": \"2019-11-01T00:37:10.300Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20d7ddd7-670b-4a7e-817f-874a7d0df1ad",
+              "name": "Invalid booking request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dcsa",
+                    "bkg",
+                    "v2",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"carrierServiceCode\": \"<string>\",\n  \"receiptTypeAtOrigin\": \"<string>\",\n  \"deliveryTypeAtDestination\": \"<string>\",\n  \"cargoMovementTypeAtOrigin\": \"<string>\",\n  \"cargoMovementTypeAtDestination\": \"<string>\",\n  \"requestedEquipments\": [\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 7329,\n      \"isShipperOwned\": false\n    },\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 4080,\n      \"isShipperOwned\": true\n    }\n  ],\n  \"serviceContractReference\": \"<string>\",\n  \"commodities\": [\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 1947.786892157516,\n      \"cargoGrossWeightUnit\": \"LBR\"\n    },\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 4232.769567658834,\n      \"cargoGrossWeightUnit\": \"KGM\"\n    }\n  ],\n  \"partyContactDetails\": [\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e398e34d-5724-4191-8048-383174e0a11a",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dcsa",
+                    "bkg",
+                    "v2",
+                    "bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"carrierServiceCode\": \"<string>\",\n  \"receiptTypeAtOrigin\": \"<string>\",\n  \"deliveryTypeAtDestination\": \"<string>\",\n  \"cargoMovementTypeAtOrigin\": \"<string>\",\n  \"cargoMovementTypeAtDestination\": \"<string>\",\n  \"requestedEquipments\": [\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 7329,\n      \"isShipperOwned\": false\n    },\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 4080,\n      \"isShipperOwned\": true\n    }\n  ],\n  \"serviceContractReference\": \"<string>\",\n  \"commodities\": [\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 1947.786892157516,\n      \"cargoGrossWeightUnit\": \"LBR\"\n    },\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 4232.769567658834,\n      \"cargoGrossWeightUnit\": \"KGM\"\n    }\n  ],\n  \"partyContactDetails\": [\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b349b178-e647-449c-b573-da04eb42312c",
+          "name": "Retrieve Ocean Booking",
+          "request": {
+            "name": "Retrieve Ocean Booking",
+            "description": {
+              "content": "Retrieve an existing booking by carrier booking reference.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dcsa",
+                "bkg",
+                "v2",
+                "bookings",
+                ":carrierBookingReference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "carrierBookingReference",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "539cf963-903d-4288-9fde-ebba8a095930",
+              "name": "Booking returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dcsa",
+                    "bkg",
+                    "v2",
+                    "bookings",
+                    ":carrierBookingReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "carrierBookingReference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"carrierServiceCode\": \"string\",\n  \"receiptTypeAtOrigin\": \"SD\",\n  \"deliveryTypeAtDestination\": \"CY\",\n  \"cargoMovementTypeAtOrigin\": \"FCL\",\n  \"cargoMovementTypeAtDestination\": \"BBK\",\n  \"requestedEquipments\": [\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 4597,\n      \"isShipperOwned\": false\n    },\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 6648,\n      \"isShipperOwned\": true\n    }\n  ],\n  \"serviceContractReference\": \"string\",\n  \"commodities\": [\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 8386.589160569682,\n      \"cargoGrossWeightUnit\": \"LBR\"\n    },\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 9036.517515354382,\n      \"cargoGrossWeightUnit\": \"KGM\"\n    }\n  ],\n  \"partyContactDetails\": [\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    }\n  ],\n  \"carrierBookingReference\": \"string\",\n  \"bookingStatus\": \"UPDATE_CONFIRMED\",\n  \"bookingRequestDateTime\": \"2019-11-01T00:37:10.300Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbd4e4b7-4b70-4095-9fb9-ba289eabfbb4",
+              "name": "Booking not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dcsa",
+                    "bkg",
+                    "v2",
+                    "bookings",
+                    ":carrierBookingReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "carrierBookingReference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc2403f3-0b78-41d7-8d7f-d798a50aba7d",
+          "name": "Amend Ocean Booking",
+          "request": {
+            "name": "Amend Ocean Booking",
+            "description": {
+              "content": "Submit an amendment to an existing booking.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dcsa",
+                "bkg",
+                "v2",
+                "bookings",
+                ":carrierBookingReference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "carrierBookingReference",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"carrierServiceCode\": \"<string>\",\n  \"receiptTypeAtOrigin\": \"<string>\",\n  \"deliveryTypeAtDestination\": \"<string>\",\n  \"cargoMovementTypeAtOrigin\": \"<string>\",\n  \"cargoMovementTypeAtDestination\": \"<string>\",\n  \"requestedEquipments\": [\n    {\n      \"ISOEquipmentCode\": \"<string>\",\n      \"units\": \"<integer>\",\n      \"isShipperOwned\": \"<boolean>\"\n    },\n    {\n      \"ISOEquipmentCode\": \"<string>\",\n      \"units\": \"<integer>\",\n      \"isShipperOwned\": \"<boolean>\"\n    }\n  ],\n  \"serviceContractReference\": \"<string>\",\n  \"commodities\": [\n    {\n      \"commodityType\": \"<string>\",\n      \"HSCodes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cargoGrossWeight\": \"<number>\",\n      \"cargoGrossWeightUnit\": \"<string>\"\n    },\n    {\n      \"commodityType\": \"<string>\",\n      \"HSCodes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"cargoGrossWeight\": \"<number>\",\n      \"cargoGrossWeightUnit\": \"<string>\"\n    }\n  ],\n  \"partyContactDetails\": [\n    {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b31860bc-7955-4944-80bf-d89de7107e5c",
+              "name": "Amendment accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dcsa",
+                    "bkg",
+                    "v2",
+                    "bookings",
+                    ":carrierBookingReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "carrierBookingReference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"carrierServiceCode\": \"<string>\",\n  \"receiptTypeAtOrigin\": \"<string>\",\n  \"deliveryTypeAtDestination\": \"<string>\",\n  \"cargoMovementTypeAtOrigin\": \"<string>\",\n  \"cargoMovementTypeAtDestination\": \"<string>\",\n  \"requestedEquipments\": [\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 7329,\n      \"isShipperOwned\": false\n    },\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 4080,\n      \"isShipperOwned\": true\n    }\n  ],\n  \"serviceContractReference\": \"<string>\",\n  \"commodities\": [\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 1947.786892157516,\n      \"cargoGrossWeightUnit\": \"LBR\"\n    },\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 4232.769567658834,\n      \"cargoGrossWeightUnit\": \"KGM\"\n    }\n  ],\n  \"partyContactDetails\": [\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "08d88de6-69fb-438a-b33a-3b36bd455c2d",
+              "name": "Booking not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dcsa",
+                    "bkg",
+                    "v2",
+                    "bookings",
+                    ":carrierBookingReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "carrierBookingReference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"carrierServiceCode\": \"<string>\",\n  \"receiptTypeAtOrigin\": \"<string>\",\n  \"deliveryTypeAtDestination\": \"<string>\",\n  \"cargoMovementTypeAtOrigin\": \"<string>\",\n  \"cargoMovementTypeAtDestination\": \"<string>\",\n  \"requestedEquipments\": [\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 7329,\n      \"isShipperOwned\": false\n    },\n    {\n      \"ISOEquipmentCode\": \"22GP\",\n      \"units\": 4080,\n      \"isShipperOwned\": true\n    }\n  ],\n  \"serviceContractReference\": \"<string>\",\n  \"commodities\": [\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 1947.786892157516,\n      \"cargoGrossWeightUnit\": \"LBR\"\n    },\n    {\n      \"commodityType\": \"string\",\n      \"HSCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cargoGrossWeight\": 4232.769567658834,\n      \"cargoGrossWeightUnit\": \"KGM\"\n    }\n  ],\n  \"partyContactDetails\": [\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"phone\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c916096c-cadf-4006-82ee-f89ede4c3f8d",
+          "name": "Cancel Ocean Booking",
+          "request": {
+            "name": "Cancel Ocean Booking",
+            "description": {
+              "content": "Cancel an existing booking.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dcsa",
+                "bkg",
+                "v2",
+                "bookings",
+                ":carrierBookingReference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "carrierBookingReference",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c95b27ec-1210-46da-8da1-66b5d09692a2",
+              "name": "Booking cancelled.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dcsa",
+                    "bkg",
+                    "v2",
+                    "bookings",
+                    ":carrierBookingReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "carrierBookingReference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.maersk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Consumer-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3082a5e7-2693-4dea-a575-b1fa14be4937",
+    "name": "Maersk Air Booking AirBookings Bookings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.\n\n\nContact Support:\n Name: Maersk Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

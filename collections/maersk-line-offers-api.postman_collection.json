@@ -1,0 +1,230 @@
+{
+  "item": [
+    {
+      "id": "efcaa270-bd86-4f2a-ac57-b75855c9f147",
+      "name": "Offers",
+      "description": {
+        "content": "Product offers, prices, and surcharges.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5cf393f7-098b-4d55-a863-4b3614b7ec4d",
+          "name": "List Available Offers",
+          "request": {
+            "name": "List Available Offers",
+            "description": {
+              "content": "Retrieve product offers for a given origin, destination, container, and departure date. Includes pricing, schedule, demurrage and detention conditions.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "offers",
+                "v2",
+                "offers",
+                "brand",
+                ":brandScac",
+                "departuredate",
+                ":departureDate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collectionOriginCityName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionOriginCountryCode",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "deliveryDestinationCityName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "deliveryDestinationCountryCode",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "containerIsoCode",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "serviceMode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "brandScac",
+                  "description": "(Required) Carrier SCAC code (MAEU, SEAU, MCPU, SEJJ)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<date>",
+                  "key": "departureDate",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e593a5e2-df0a-41eb-84b9-ab1a639769fc",
+              "name": "Offers returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offers",
+                    "v2",
+                    "offers",
+                    "brand",
+                    ":brandScac",
+                    "departuredate",
+                    ":departureDate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collectionOriginCityName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collectionOriginCountryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deliveryDestinationCityName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deliveryDestinationCountryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "containerIsoCode",
+                      "value": "22G1"
+                    },
+                    {
+                      "key": "serviceMode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "brandScac",
+                      "description": "(Required) Carrier SCAC code (MAEU, SEAU, MCPU, SEJJ)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "departureDate",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"offerId\": \"string\",\n    \"carrierServiceCode\": \"string\",\n    \"originLocation\": \"string\",\n    \"destinationLocation\": \"string\",\n    \"departureDate\": \"1995-01-06T02:25:02.218Z\",\n    \"arrivalDate\": \"1957-09-07T08:35:13.644Z\",\n    \"transitTime\": 9742,\n    \"containerIsoCode\": \"string\",\n    \"totalPrice\": {\n      \"chargeCode\": \"string\",\n      \"chargeName\": \"string\",\n      \"amount\": 933.7303291151278,\n      \"currency\": \"string\",\n      \"basis\": \"PerBillOfLading\"\n    },\n    \"priceBreakdown\": [\n      {\n        \"chargeCode\": \"string\",\n        \"chargeName\": \"string\",\n        \"amount\": 7577.034694710851,\n        \"currency\": \"string\",\n        \"basis\": \"PerBillOfLading\"\n      },\n      {\n        \"chargeCode\": \"string\",\n        \"chargeName\": \"string\",\n        \"amount\": 4131.340006984308,\n        \"currency\": \"string\",\n        \"basis\": \"PerShipment\"\n      }\n    ],\n    \"demurrageDetention\": {\n      \"originFreeDays\": 613,\n      \"destinationFreeDays\": 3988\n    }\n  },\n  {\n    \"offerId\": \"string\",\n    \"carrierServiceCode\": \"string\",\n    \"originLocation\": \"string\",\n    \"destinationLocation\": \"string\",\n    \"departureDate\": \"2018-08-11T11:28:01.998Z\",\n    \"arrivalDate\": \"2000-09-24T09:01:43.746Z\",\n    \"transitTime\": 3519,\n    \"containerIsoCode\": \"string\",\n    \"totalPrice\": {\n      \"chargeCode\": \"string\",\n      \"chargeName\": \"string\",\n      \"amount\": 1222.5923331153754,\n      \"currency\": \"string\",\n      \"basis\": \"PerShipment\"\n    },\n    \"priceBreakdown\": [\n      {\n        \"chargeCode\": \"string\",\n        \"chargeName\": \"string\",\n        \"amount\": 9881.64129253267,\n        \"currency\": \"string\",\n        \"basis\": \"PerContainer\"\n      },\n      {\n        \"chargeCode\": \"string\",\n        \"chargeName\": \"string\",\n        \"amount\": 8433.006598022072,\n        \"currency\": \"string\",\n        \"basis\": \"PerContainer\"\n      }\n    ],\n    \"demurrageDetention\": {\n      \"originFreeDays\": 4236,\n      \"destinationFreeDays\": 6052\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.maersk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Consumer-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "da71c268-b9e0-4f07-b7c2-750f3ec4bf95",
+    "name": "Maersk Air Booking AirBookings Offers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.\n\n\nContact Support:\n Name: Maersk Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

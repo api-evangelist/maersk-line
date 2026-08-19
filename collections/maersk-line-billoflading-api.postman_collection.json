@@ -1,0 +1,328 @@
+{
+  "item": [
+    {
+      "id": "85547594-b304-4414-a49e-3e4a57b7b719",
+      "name": "BillOfLading",
+      "description": {
+        "content": "Electronic bill of lading lifecycle.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "29203f8a-04ea-4951-b1d3-14974f4bd6c2",
+          "name": "Get Transport Document",
+          "request": {
+            "name": "Get Transport Document",
+            "description": {
+              "content": "Retrieve the current state of a carrier transport document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dcsa",
+                "ebl",
+                "v3",
+                "transport-documents",
+                ":transportDocumentReference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transportDocumentReference",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2018a2b4-556a-4b71-aa65-c6f518feb489",
+              "name": "Transport document returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dcsa",
+                    "ebl",
+                    "v3",
+                    "transport-documents",
+                    ":transportDocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transportDocumentReference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transportDocumentReference\": \"string\",\n  \"transportDocumentTypeCode\": \"SWB\",\n  \"transportDocumentStatus\": \"DRAFT\",\n  \"shipperParty\": {\n    \"partyName\": \"string\",\n    \"address\": {\n      \"street\": \"string\",\n      \"city\": \"string\",\n      \"countryCode\": \"string\"\n    },\n    \"partyContactDetails\": [\n      {\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\"\n      }\n    ]\n  },\n  \"consigneeParty\": {\n    \"partyName\": \"string\",\n    \"address\": {\n      \"street\": \"string\",\n      \"city\": \"string\",\n      \"countryCode\": \"string\"\n    },\n    \"partyContactDetails\": [\n      {\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\"\n      }\n    ]\n  },\n  \"carrierCode\": \"string\",\n  \"issueDate\": \"1954-10-25\",\n  \"placeOfIssue\": {\n    \"UNLocationCode\": \"string\"\n  },\n  \"cargoMovementTypeAtOrigin\": \"string\",\n  \"cargoMovementTypeAtDestination\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1976674-bfba-4989-8c73-a4e3d6c0c595",
+              "name": "Document not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dcsa",
+                    "ebl",
+                    "v3",
+                    "transport-documents",
+                    ":transportDocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transportDocumentReference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "936dd2d8-a4e1-42e0-89c8-8e606b0289a3",
+          "name": "Approve Transport Document",
+          "request": {
+            "name": "Approve Transport Document",
+            "description": {
+              "content": "Shipper approval of the carrier-issued draft transport document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dcsa",
+                "ebl",
+                "v3",
+                "transport-documents",
+                ":transportDocumentReference",
+                "approve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transportDocumentReference",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4af292e-b40e-4bf2-a066-e948e9d0b3f6",
+              "name": "Approval recorded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dcsa",
+                    "ebl",
+                    "v3",
+                    "transport-documents",
+                    ":transportDocumentReference",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transportDocumentReference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.maersk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Consumer-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "231e7af1-9e8c-4f12-940f-582ecb487538",
+    "name": "Maersk Air Booking AirBookings BillOfLading API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.\n\n\nContact Support:\n Name: Maersk Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

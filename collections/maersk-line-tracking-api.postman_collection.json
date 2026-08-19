@@ -1,0 +1,591 @@
+{
+  "item": [
+    {
+      "id": "c4624e44-bd14-41b5-af9a-8ab268151247",
+      "name": "Tracking",
+      "description": {
+        "content": "Container and shipment tracking events.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9a904ef2-84f2-4d4e-8873-a1ac85713454",
+          "name": "List Shipment Tracking Events",
+          "request": {
+            "name": "List Shipment Tracking Events",
+            "description": {
+              "content": "Retrieve neutralized tracking events for a shipment referenced by container number, bill-of-lading number, or booking number. Returns location, vessel, voyage, planned and actual timestamps for each milestone.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "track-and-trace-private",
+                "shipments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "equipmentReference",
+                  "value": "<string>",
+                  "description": "Container number (ISO 6346)."
+                },
+                {
+                  "disabled": false,
+                  "key": "transportDocumentReference",
+                  "value": "<string>",
+                  "description": "Bill of lading number."
+                },
+                {
+                  "disabled": false,
+                  "key": "carrierBookingReference",
+                  "value": "<string>",
+                  "description": "Booking reference number."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e568d666-1e22-44a6-a649-a8b73ff44ffe",
+              "name": "Tracking events returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track-and-trace-private",
+                    "shipments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "equipmentReference",
+                      "value": "MSKU1234567"
+                    },
+                    {
+                      "key": "transportDocumentReference",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "carrierBookingReference",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"carrierBookingReference\": \"string\",\n  \"transportDocumentReference\": \"string\",\n  \"events\": [\n    {\n      \"eventID\": \"string\",\n      \"eventType\": \"TRANSPORT\",\n      \"eventClassifierCode\": \"PLN\",\n      \"eventDateTime\": \"1972-11-24T02:03:37.338Z\",\n      \"location\": {\n        \"locationName\": \"string\",\n        \"UNLocationCode\": \"string\",\n        \"countryCode\": \"string\"\n      },\n      \"transportCall\": {\n        \"carrierServiceCode\": \"string\",\n        \"vesselIMONumber\": \"string\",\n        \"carrierVoyageNumber\": \"string\",\n        \"modeOfTransport\": \"VESSEL\"\n      },\n      \"equipmentReference\": \"string\"\n    },\n    {\n      \"eventID\": \"string\",\n      \"eventType\": \"SHIPMENT\",\n      \"eventClassifierCode\": \"PLN\",\n      \"eventDateTime\": \"1976-05-03T02:36:27.485Z\",\n      \"location\": {\n        \"locationName\": \"string\",\n        \"UNLocationCode\": \"string\",\n        \"countryCode\": \"string\"\n      },\n      \"transportCall\": {\n        \"carrierServiceCode\": \"string\",\n        \"vesselIMONumber\": \"string\",\n        \"carrierVoyageNumber\": \"string\",\n        \"modeOfTransport\": \"MULTIMODAL\"\n      },\n      \"equipmentReference\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b85b82ac-5cf9-41be-8632-4d69886dd75f",
+              "name": "Unauthorized — invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track-and-trace-private",
+                    "shipments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "equipmentReference",
+                      "value": "MSKU1234567"
+                    },
+                    {
+                      "key": "transportDocumentReference",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "carrierBookingReference",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1db799f4-0b3d-4e58-95b7-cd2a998dfeb8",
+              "name": "Reference not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track-and-trace-private",
+                    "shipments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "equipmentReference",
+                      "value": "MSKU1234567"
+                    },
+                    {
+                      "key": "transportDocumentReference",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "carrierBookingReference",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a57e1861-a35d-4414-a848-7665d961e890",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track-and-trace-private",
+                    "shipments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "equipmentReference",
+                      "value": "MSKU1234567"
+                    },
+                    {
+                      "key": "transportDocumentReference",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "carrierBookingReference",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "83ddc968-c0d5-4136-8b90-e335a80ebadb",
+          "name": "List Container Events",
+          "request": {
+            "name": "List Container Events",
+            "description": {
+              "content": "Retrieve fine-grained event stream for a single container, including transport events, equipment events, and shipment events.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "track-and-trace-private",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "equipmentReference",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "eventType",
+                  "value": "<string>",
+                  "description": "TRANSPORT, EQUIPMENT, or SHIPMENT."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Consumer-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c4f6c6d-1039-4e53-9d7c-644b34c0003f",
+              "name": "Container events returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track-and-trace-private",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "equipmentReference",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"eventID\": \"string\",\n    \"eventType\": \"TRANSPORT\",\n    \"eventClassifierCode\": \"EST\",\n    \"eventDateTime\": \"1993-05-26T19:33:59.551Z\",\n    \"location\": {\n      \"locationName\": \"string\",\n      \"UNLocationCode\": \"string\",\n      \"countryCode\": \"string\"\n    },\n    \"transportCall\": {\n      \"carrierServiceCode\": \"string\",\n      \"vesselIMONumber\": \"string\",\n      \"carrierVoyageNumber\": \"string\",\n      \"modeOfTransport\": \"MULTIMODAL\"\n    },\n    \"equipmentReference\": \"string\"\n  },\n  {\n    \"eventID\": \"string\",\n    \"eventType\": \"TRANSPORT\",\n    \"eventClassifierCode\": \"ACT\",\n    \"eventDateTime\": \"2005-05-30T14:49:25.717Z\",\n    \"location\": {\n      \"locationName\": \"string\",\n      \"UNLocationCode\": \"string\",\n      \"countryCode\": \"string\"\n    },\n    \"transportCall\": {\n      \"carrierServiceCode\": \"string\",\n      \"vesselIMONumber\": \"string\",\n      \"carrierVoyageNumber\": \"string\",\n      \"modeOfTransport\": \"RAIL\"\n    },\n    \"equipmentReference\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43f1ab8e-152d-4e0f-b96a-c966f73ed6c8",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track-and-trace-private",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "equipmentReference",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1f00e1b1-5a33-46fb-bb3a-db4f72a16c9c",
+              "name": "Container not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "track-and-trace-private",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "equipmentReference",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Consumer-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Consumer-Key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.maersk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Consumer-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d2dff8ab-a68c-46bf-8b80-cbd03c337df7",
+    "name": "Maersk Air Booking AirBookings Tracking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.\n\n\nContact Support:\n Name: Maersk Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
