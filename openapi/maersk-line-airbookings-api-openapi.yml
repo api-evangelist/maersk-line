@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Maersk Air Booking AirBookings API
+  title: Maersk Air Booking Air Bookings API
   description: 'Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.
 
     '
@@ -126,15 +126,6 @@ components:
           $ref: '#/components/schemas/AirParty'
         consignee:
           $ref: '#/components/schemas/AirParty'
-    AirParty:
-      type: object
-      properties:
-        name:
-          type: string
-        accountNumber:
-          type: string
-        contactEmail:
-          type: string
     AirBooking:
       allOf:
       - $ref: '#/components/schemas/AirBookingRequest'
@@ -153,6 +144,15 @@ components:
           createdAt:
             type: string
             format: date-time
+    AirParty:
+      type: object
+      properties:
+        name:
+          type: string
+        accountNumber:
+          type: string
+        contactEmail:
+          type: string
   securitySchemes:
     ConsumerKey:
       type: apiKey

@@ -1,18 +1,21 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Maersk Air Booking AirBookings Locations API
-  description: 'Submit air freight booking requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings between supported origin and destination airports.
+  title: Maersk Product Offers Locations API
+  description: 'Quote prices and product offers for ocean shipments. Returns route and schedule, vessel and deadline information, and prices including surcharges for the requested origin, destination, container size-type combination, and departure date.
 
     '
-  version: '1.0'
+  version: '2.0'
   contact:
     name: Maersk Developer Support
     url: https://developer.maersk.com/support
 servers:
-- url: https://api.maersk.com
-  description: Production Gateway
+- url: https://api.productmanagement.maersk.com
+  description: Production
+- url: https://api-spt.env.productmanagement.maersk.com
+  description: Sandbox
 security:
 - ConsumerKey: []
+- ForgeRockJWT: []
 tags:
 - name: Locations
   description: Origin and destination port lookups.
@@ -79,3 +82,7 @@ components:
       type: apiKey
       in: header
       name: Consumer-Key
+    ForgeRockJWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

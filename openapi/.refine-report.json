@@ -1,23 +1,21 @@
 {
   "provider": "maersk-line",
   "sources": [
-    "maersk-line-airbookings-api-openapi.yml",
-    "maersk-line-billoflading-api-openapi.yml",
-    "maersk-line-bookings-api-openapi.yml",
-    "maersk-line-containers-api-openapi.yml",
-    "maersk-line-demurragedetention-api-openapi.yml",
-    "maersk-line-locations-api-openapi.yml",
-    "maersk-line-offers-api-openapi.yml",
-    "maersk-line-schedules-api-openapi.yml",
-    "maersk-line-tracking-api-openapi.yml",
-    "maersk-line-vgm-api-openapi.yml"
+    "_original/maersk-air-booking-api-openapi.yml",
+    "_original/maersk-bill-of-lading-api-openapi.yml",
+    "_original/maersk-demurrage-detention-api-openapi.yml",
+    "_original/maersk-ocean-booking-api-openapi.yml",
+    "_original/maersk-product-offers-api-openapi.yml",
+    "_original/maersk-schedules-api-openapi.yml",
+    "_original/maersk-track-and-trace-api-openapi.yml",
+    "_original/maersk-vgm-api-openapi.yml"
   ],
   "outputs": [
     "maersk-line-airbookings-api-openapi.yml",
     "maersk-line-billoflading-api-openapi.yml",
+    "maersk-line-demurragedetention-api-openapi.yml",
     "maersk-line-bookings-api-openapi.yml",
     "maersk-line-containers-api-openapi.yml",
-    "maersk-line-demurragedetention-api-openapi.yml",
     "maersk-line-locations-api-openapi.yml",
     "maersk-line-offers-api-openapi.yml",
     "maersk-line-schedules-api-openapi.yml",
@@ -27,6 +25,27 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (8 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "maersk-air-booking-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "maersk-bill-of-lading-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "maersk-demurrage-detention-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "maersk-ocean-booking-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "maersk-product-offers-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "maersk-schedules-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "maersk-track-and-trace-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "maersk-vgm-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+  ],
+  "skipped": [
+    "maersk-line-airbookings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "maersk-line-billoflading-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "maersk-line-bookings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "maersk-line-containers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "maersk-line-demurragedetention-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "maersk-line-locations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "maersk-line-offers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "maersk-line-schedules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "maersk-line-tracking-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "maersk-line-vgm-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
