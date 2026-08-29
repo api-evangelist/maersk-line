@@ -1,0 +1,90 @@
+slug: maersk-line
+provider: Maersk
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: BillOfLading
+  spec_file: maersk-line-billoflading-api-openapi.yml
+  capability_id: BC-2500.10
+  capability_id_l1: BC-2500
+  capability_name: Bill of Lading Management
+  confidence: 0.95
+  evidence: '"DCSA-compliant Carrier Bill of Lading (eBL) API. Retrieve, issue, and surrender electronic
+    transport documents for ocean shipments"; schema TransportDocument'
+  reason: Operations retrieve and approve ocean electronic bills of lading per DCSA eBL 3.0 — issuance
+    and lifecycle of the bill of lading, no other reading fits.
+- tag: Bookings
+  spec_file: maersk-line-bookings-api-openapi.yml
+  capability_id: BC-2400.40
+  capability_id_l1: BC-2400
+  capability_name: Booking and Reservation Management
+  confidence: 0.9
+  evidence: POST /dcsa/bkg/v2/bookings  Create Ocean Booking; PATCH amendBooking  Amend Ocean Booking;
+    DELETE cancelBooking  Cancel Ocean Booking
+  reason: Create, retrieve, amend and cancel ocean shipment bookings against carrier schedules is precisely
+    acceptance/modification/cancellation of capacity bookings.
+- tag: Tracking
+  spec_file: maersk-line-tracking-api-openapi.yml
+  capability_id: BC-2510.20
+  capability_id_l1: BC-2510
+  capability_name: Shipment Tracking Management
+  confidence: 0.9
+  evidence: GET /track-and-trace-private/shipments  listShipmentEvents  List Shipment Tracking Events;
+    "Returns neutralized container and shipment milestones ... lookup by container number, bill-of-lading
+    number, or booking number"
+  reason: Resolves container and shipment milestone status for external consumers keyed by container/BL/booking
+    reference — shipment tracking and event status delivery.
+- tag: AirBookings
+  spec_file: maersk-line-airbookings-api-openapi.yml
+  capability_id: BC-2400.40
+  capability_id_l1: BC-2400
+  capability_name: Booking and Reservation Management
+  confidence: 0.85
+  evidence: POST /air-booking/v1/bookings  createAirBooking  Create Air Booking; "Submit air freight booking
+    requests via Maersk Air Cargo. Covers consolidation, charter, and forwarder bookings"
+  reason: Acceptance and retrieval of air-freight capacity bookings against supported origin/destination
+    airports is squarely booking and reservation management of transport capacity.
+- tag: DemurrageDetention
+  spec_file: maersk-line-demurragedetention-api-openapi.yml
+  capability_id: BC-2520.40
+  capability_id_l1: BC-2520
+  capability_name: Accessorial and Surcharge Management
+  confidence: 0.85
+  evidence: '"Retrieve demurrage and detention charges, free days, and clock status for import containers";
+    schema DemurrageDetentionCharge'
+  reason: The surface exposes demurrage and detention accessorial charges and free-day clocks, which the
+    candidate list places explicitly under accessorial, surcharge, demurrage and detention tariff management.
+- tag: Offers
+  spec_file: maersk-line-offers-api-openapi.yml
+  capability_id: BC-2520
+  capability_id_l1: BC-2520
+  capability_name: Freight Rating & Tariff Management
+  confidence: 0.7
+  evidence: '"Quote prices and product offers for ocean shipments ... prices including surcharges for
+    the requested origin, destination, container size-type combination, and departure date"; schemas Price,
+    ProductOffer'
+  reason: Returns priced ocean product offers for a lane and departure date, i.e. the carrier's freight
+    rating/quoting surface. Kept at L1 because the evidence does not distinguish published tariff, contract
+    rate or spot rate.
+- tag: VGM
+  spec_file: maersk-line-vgm-api-openapi.yml
+  capability_id: BC-2500
+  capability_id_l1: BC-2500
+  capability_name: Cargo Documentation Management
+  confidence: 0.7
+  evidence: '"Submit Verified Gross Mass (VGM) declarations for export shipments per SOLAS regulations";
+    POST submitVgm on /export-shipments/vgm/v1/shipments/{transportDocumentReference}/vgm'
+  reason: The operations issue and retrieve a mandatory cargo declaration (VGM) tied to a transport document
+    reference before vessel cut-off — that is issuance and lifecycle of a regulated cargo document, so
+    BC-2500 Cargo Documentation Management at L1. No listed L2 (BL, AWB, consignment note, manifest, eDoc
+    platform) squarely covers a VGM declaration, so no sub-capability is asserted.
