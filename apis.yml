@@ -73,7 +73,7 @@ apis:
   description: Electronic bill of lading lifecycle.
   humanURL: https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus
   tags:
-  - Bill of Lading
+  - BillOfLading
   tags_raw:
   - BillOfLading
   properties:
