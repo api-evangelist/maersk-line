@@ -586,6 +586,8 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/maersk-line.png
 access: 3rd-Party
 common:
+  - type: Website
+    url: https://www.maersk.com/
   - type: CapabilityMap
     url: capabilities/maersk-line-capability-edges.yml
     name: Maersk Business Capability Map
