@@ -68,61 +68,6 @@ apis:
     url: https://developer.maersk.com/api-catalogue/Import%20Demurrage%20and%20Detention
   - type: Documentation
     url: https://developer.maersk.com/api-catalogue/external-air-booking
-- aid: maersk-line:maersk-line-billoflading-api
-  name: Maersk BillOfLading API
-  description: Electronic bill of lading lifecycle.
-  humanURL: https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus
-  tags:
-  - Bill of Lading
-  tags_raw:
-  - BillOfLading
-  properties:
-  - type: OpenAPI
-    url: openapi/maersk-line-billoflading-api-openapi.yml
-  - type: Documentation
-    url: https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus
-  - type: Documentation
-    url: https://developer.maersk.com/api-catalogue/multi-carrier-track-trace
-  - type: JSONSchema
-    url: json-schema/maersk-shipment-schema.json
-  - type: Examples
-    url: examples/maersk-tracking-shipment-example.json
-  - type: Documentation
-    url: https://developer.maersk.com/api-catalogue/EDP%20Booking
-  - type: Documentation
-    url: https://developer.maersk.com/api-catalogue/Booking%20Status
-  - type: Documentation
-    url: https://developer.maersk.com/api-catalogue/ocean-booking-status-webhook
-  - type: JSONSchema
-    url: json-schema/maersk-booking-schema.json
-  - type: Examples
-    url: examples/maersk-booking-request-example.json
-  - type: Documentation
-    url: https://developer.maersk.com/api-catalogue/Point-to-Point%20Schedules
-  - type: Documentation
-    url: https://developer.maersk.com/api-catalogue/ocean-commercial-schedules
-  - type: Documentation
-    url: https://api.productmanagement.maersk.com/offers/docs/endpoints/productoffers.html
-  - type: Documentation
-    url: https://api.productmanagement.maersk.com/offers/docs/datamodels/productoffers.html
-  - type: Documentation
-    url: https://api.productmanagement.maersk.com/offers/docs/datamodels/prices.html
-  - type: JSONSchema
-    url: json-schema/maersk-product-offer-schema.json
-  - type: Examples
-    url: examples/maersk-product-offer-example.json
-  - type: Documentation
-    url: https://developer.maersk.com/api-catalogue/dcsa-bill-of-lading
-  - type: Documentation
-    url: https://developer.maersk.com/api-catalogue/VGM
-  - type: Documentation
-    url: https://developer.maersk.com/api-catalogue/VGM/Learn-more
-  - type: Examples
-    url: examples/maersk-vgm-submission-example.json
-  - type: Documentation
-    url: https://developer.maersk.com/api-catalogue/Import%20Demurrage%20and%20Detention
-  - type: Documentation
-    url: https://developer.maersk.com/api-catalogue/external-air-booking
 - aid: maersk-line:maersk-line-bookings-api
   name: Maersk Bookings API
   description: Create and manage ocean shipment bookings.
@@ -503,6 +448,59 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/maersk-line-vgm-api-openapi.yml
+  - type: Documentation
+    url: https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus
+  - type: Documentation
+    url: https://developer.maersk.com/api-catalogue/multi-carrier-track-trace
+  - type: JSONSchema
+    url: json-schema/maersk-shipment-schema.json
+  - type: Examples
+    url: examples/maersk-tracking-shipment-example.json
+  - type: Documentation
+    url: https://developer.maersk.com/api-catalogue/EDP%20Booking
+  - type: Documentation
+    url: https://developer.maersk.com/api-catalogue/Booking%20Status
+  - type: Documentation
+    url: https://developer.maersk.com/api-catalogue/ocean-booking-status-webhook
+  - type: JSONSchema
+    url: json-schema/maersk-booking-schema.json
+  - type: Examples
+    url: examples/maersk-booking-request-example.json
+  - type: Documentation
+    url: https://developer.maersk.com/api-catalogue/Point-to-Point%20Schedules
+  - type: Documentation
+    url: https://developer.maersk.com/api-catalogue/ocean-commercial-schedules
+  - type: Documentation
+    url: https://api.productmanagement.maersk.com/offers/docs/endpoints/productoffers.html
+  - type: Documentation
+    url: https://api.productmanagement.maersk.com/offers/docs/datamodels/productoffers.html
+  - type: Documentation
+    url: https://api.productmanagement.maersk.com/offers/docs/datamodels/prices.html
+  - type: JSONSchema
+    url: json-schema/maersk-product-offer-schema.json
+  - type: Examples
+    url: examples/maersk-product-offer-example.json
+  - type: Documentation
+    url: https://developer.maersk.com/api-catalogue/dcsa-bill-of-lading
+  - type: Documentation
+    url: https://developer.maersk.com/api-catalogue/VGM
+  - type: Documentation
+    url: https://developer.maersk.com/api-catalogue/VGM/Learn-more
+  - type: Examples
+    url: examples/maersk-vgm-submission-example.json
+  - type: Documentation
+    url: https://developer.maersk.com/api-catalogue/Import%20Demurrage%20and%20Detention
+  - type: Documentation
+    url: https://developer.maersk.com/api-catalogue/external-air-booking
+- aid: maersk-line:maersk-line-bill-of-lading-api
+  name: Maersk Bill of Lading API
+  description: Electronic bill of lading lifecycle.
+  humanURL: https://developer.maersk.com/api-catalogue/aems-maintenance-repair
+  tags:
+  - Bill of Lading
+  properties:
+  - type: OpenAPI
+    url: openapi/maersk-line-bill-of-lading-api-openapi.yml
   - type: Documentation
     url: https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus
   - type: Documentation
