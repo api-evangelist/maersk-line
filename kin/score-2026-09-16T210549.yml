@@ -1,31 +1,32 @@
-# Kin Score artifact — maersk-line — 2026-08-17T064519
+# Kin Score artifact — maersk-line — 2026-09-16T210549
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: maersk-line
-  schema_version: 0.11.0
-  scored_at: '2026-08-17'
-  run_ts: 2026-08-17T064519
-  composite: 54.7
+  schema_version: 0.22.0
+  scored_at: '2026-09-16'
+  run_ts: 2026-09-16T210549
+  composite: 47.8
   band: developing
   facets:
     discoverability: 64.8
-    contract_quality: 72.1
-    governance: 68.8
+    contract_quality: 72.7
+    contract_governance: 28.8
     operational_transparency: 5.3
-    developer_ergonomics: 45.7
-    commercial_clarity: 60.5
+    developer_ergonomics: 38.1
+    access_clarity: 60.5
   agent_readiness:
-    score: 30.6
+    score: 22.8
     band: agent-aware
     dimensions:
       spec_presence: true
       agentic_access: derived
+      reversibility_documented: documented
       mcp_server: false
-      auth_clarity: true
+      auth_clarity: bearer
       idempotency: false
       error_semantics: false
-      openapi_examples: false
+      openapi_examples: documented
       rate_limit_signal: documented
       event_surface_described: false
       agent_skills: false
@@ -33,6 +34,10 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: false
+      protected_resource_metadata: false
+      dynamic_client_registration: false
+      agentic_commerce: false
   provenance:
     agentic_access: derived
     contracts:

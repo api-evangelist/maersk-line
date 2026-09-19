@@ -73,6 +73,8 @@ apis:
   description: Create and manage ocean shipment bookings.
   humanURL: https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus
   tags:
+  - Booking
+  tags_raw:
   - Bookings
   properties:
   - type: OpenAPI
@@ -232,6 +234,8 @@ apis:
   description: Origin and destination port lookups.
   humanURL: https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
@@ -338,6 +342,8 @@ apis:
   description: Sailing schedules and vessel routings.
   humanURL: https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus
   tags:
+  - Schedule
+  tags_raw:
   - Schedules
   properties:
   - type: OpenAPI
