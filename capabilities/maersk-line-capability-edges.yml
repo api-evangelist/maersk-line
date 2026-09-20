@@ -14,7 +14,8 @@ capability_model:
 edge_count: 7
 edges:
 - tag: BillOfLading
-  spec_file: maersk-line-billoflading-api-openapi.yml
+  spec_file: maersk-line-bill-of-lading-api-openapi.yml
+  reanchored_from: maersk-line-billoflading-api-openapi.yml
   capability_id: BC-2500.10
   capability_id_l1: BC-2500
   capability_name: Bill of Lading Management
