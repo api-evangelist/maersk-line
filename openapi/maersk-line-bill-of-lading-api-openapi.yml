@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: Maersk Bill Of Lading API
-  description: 'DCSA-compliant Carrier Bill of Lading (eBL) API. Retrieve, issue, and surrender electronic transport documents for ocean shipments per the DCSA eBL 3.0 interface.
-
-    '
+  description: DCSA-compliant Carrier Bill of Lading (eBL) API. Retrieve, issue, and surrender electronic transport documents for ocean shipments per the DCSA eBL 3.0 interface.
   version: '3.0'
   contact:
     name: Maersk Developer Support
@@ -16,7 +14,7 @@ security:
 - OAuth2:
   - ebl
 tags:
-- name: BillOfLading
+- name: Bill of Lading
   description: Electronic bill of lading lifecycle.
 paths:
   /dcsa/ebl/v3/transport-documents/{transportDocumentReference}:
@@ -25,7 +23,7 @@ paths:
       description: Retrieve the current state of a carrier transport document.
       operationId: getTransportDocument
       tags:
-      - BillOfLading
+      - Bill of Lading
       parameters:
       - name: transportDocumentReference
         in: path
@@ -52,7 +50,7 @@ paths:
       description: Shipper approval of the carrier-issued draft transport document.
       operationId: approveTransportDocument
       tags:
-      - BillOfLading
+      - Bill of Lading
       parameters:
       - name: transportDocumentReference
         in: path

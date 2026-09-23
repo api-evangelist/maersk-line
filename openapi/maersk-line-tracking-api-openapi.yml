@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: Maersk Track and Trace Tracking API
-  description: 'Public ocean Track and Trace data via a RESTful API. Returns neutralized container and shipment milestones (not tied to bill-of-lading party affiliation). Supports lookup by container number, bill-of-lading number, or booking number.
-
-    '
+  description: Public ocean Track and Trace data via a RESTful API. Returns neutralized container and shipment milestones (not tied to bill-of-lading party affiliation). Supports lookup by container number, bill-of-lading number, or booking number.
   version: '2.0'
   contact:
     name: Maersk Developer Support
@@ -25,9 +23,7 @@ paths:
   /track-and-trace-private/shipments:
     get:
       summary: List Shipment Tracking Events
-      description: 'Retrieve neutralized tracking events for a shipment referenced by container number, bill-of-lading number, or booking number. Returns location, vessel, voyage, planned and actual timestamps for each milestone.
-
-        '
+      description: Retrieve neutralized tracking events for a shipment referenced by container number, bill-of-lading number, or booking number. Returns location, vessel, voyage, planned and actual timestamps for each milestone.
       operationId: listShipmentEvents
       tags:
       - Tracking
@@ -71,9 +67,7 @@ paths:
   /track-and-trace-private/events:
     get:
       summary: List Container Events
-      description: 'Retrieve fine-grained event stream for a single container, including transport events, equipment events, and shipment events.
-
-        '
+      description: Retrieve fine-grained event stream for a single container, including transport events, equipment events, and shipment events.
       operationId: listContainerEvents
       tags:
       - Tracking
@@ -117,6 +111,27 @@ paths:
           description: Container not found.
 components:
   schemas:
+    ShipmentTracking:
+      type: object
+      properties:
+        carrierBookingReference:
+          type: string
+        transportDocumentReference:
+          type: string
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+    Location:
+      type: object
+      properties:
+        locationName:
+          type: string
+        UNLocationCode:
+          type: string
+          description: UN/LOCODE for the port or facility.
+        countryCode:
+          type: string
     Event:
       type: object
       properties:
@@ -144,27 +159,6 @@ components:
           $ref: '#/components/schemas/TransportCall'
         equipmentReference:
           type: string
-    Location:
-      type: object
-      properties:
-        locationName:
-          type: string
-        UNLocationCode:
-          type: string
-          description: UN/LOCODE for the port or facility.
-        countryCode:
-          type: string
-    ShipmentTracking:
-      type: object
-      properties:
-        carrierBookingReference:
-          type: string
-        transportDocumentReference:
-          type: string
-        events:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
     TransportCall:
       type: object
       properties:

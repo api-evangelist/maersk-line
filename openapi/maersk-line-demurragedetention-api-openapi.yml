@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Maersk Import Demurrage and Detention Demurrage Detention API
-  description: 'Retrieve demurrage and detention charges, free days, and clock status for import containers. Helps consignees and freight forwarders avoid accessorial charges by surfacing accruing penalties.
-
-    '
+  title: Maersk Import Demurrage and Detention Demurrage Detention…
+  description: Retrieve demurrage and detention charges, free days, and clock status for import containers. Helps consignees and freight forwarders avoid accessorial charges by surfacing accruing penalties.
   version: '1.0'
   contact:
     name: Maersk Developer Support
@@ -20,9 +18,7 @@ paths:
   /demurrage-detention/v1/charges:
     get:
       summary: Get Demurrage And Detention Charges
-      description: 'Retrieve current demurrage and detention charges and remaining free days for one or more containers.
-
-        '
+      description: Retrieve current demurrage and detention charges and remaining free days for one or more containers.
       operationId: getDemurrageDetention
       tags:
       - DemurrageDetention

@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: Maersk Ocean Booking Bookings API
-  description: 'DCSA-compliant Ocean Booking v2 API for Maersk. Create, retrieve, amend, and cancel ocean shipment bookings. Aligned with the DCSA Booking 2.0 interface standard so requests work across multiple ocean carriers.
-
-    '
+  description: DCSA-compliant Ocean Booking v2 API for Maersk. Create, retrieve, amend, and cancel ocean shipment bookings. Aligned with the DCSA Booking 2.0 interface standard so requests work across multiple ocean carriers.
   version: '2.0'
   contact:
     name: Maersk Developer Support
@@ -22,9 +20,7 @@ paths:
   /dcsa/bkg/v2/bookings:
     post:
       summary: Create Ocean Booking
-      description: 'Submit a booking request for an ocean shipment. The request body follows the DCSA Booking 2.0 schema covering parties, cargo, equipment, routing, and references.
-
-        '
+      description: Submit a booking request for an ocean shipment. The request body follows the DCSA Booking 2.0 schema covering parties, cargo, equipment, routing, and references.
       operationId: createBooking
       tags:
       - Bookings
@@ -128,6 +124,41 @@ paths:
           description: Booking cancelled.
 components:
   schemas:
+    RequestedEquipment:
+      type: object
+      properties:
+        ISOEquipmentCode:
+          type: string
+          example: 22GP
+        units:
+          type: integer
+        isShipperOwned:
+          type: boolean
+    PartyContact:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+    Commodity:
+      type: object
+      properties:
+        commodityType:
+          type: string
+        HSCodes:
+          type: array
+          items:
+            type: string
+        cargoGrossWeight:
+          type: number
+        cargoGrossWeightUnit:
+          type: string
+          enum:
+          - KGM
+          - LBR
     BookingRequest:
       type: object
       required:
@@ -178,31 +209,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PartyContact'
-    Commodity:
-      type: object
-      properties:
-        commodityType:
-          type: string
-        HSCodes:
-          type: array
-          items:
-            type: string
-        cargoGrossWeight:
-          type: number
-        cargoGrossWeightUnit:
-          type: string
-          enum:
-          - KGM
-          - LBR
-    PartyContact:
-      type: object
-      properties:
-        name:
-          type: string
-        email:
-          type: string
-        phone:
-          type: string
     Booking:
       allOf:
       - $ref: '#/components/schemas/BookingRequest'
@@ -223,16 +229,6 @@ components:
           bookingRequestDateTime:
             type: string
             format: date-time
-    RequestedEquipment:
-      type: object
-      properties:
-        ISOEquipmentCode:
-          type: string
-          example: 22GP
-        units:
-          type: integer
-        isShipperOwned:
-          type: boolean
   securitySchemes:
     ConsumerKey:
       type: apiKey

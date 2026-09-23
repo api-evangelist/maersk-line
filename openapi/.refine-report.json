@@ -22,7 +22,9 @@
     "maersk-line-tracking-api-openapi.yml",
     "maersk-line-vgm-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -34,11 +36,13 @@
     "maersk-product-offers-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "maersk-schedules-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "maersk-track-and-trace-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "maersk-vgm-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+    "maersk-vgm-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: maersk-line-bill-of-lading-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 11 total)"
   ],
   "skipped": [
     "maersk-line-airbookings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "maersk-line-billoflading-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "maersk-line-bill-of-lading-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "maersk-line-bookings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "maersk-line-containers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "maersk-line-demurragedetention-api-openapi.yml: previously refined output, superseded by openapi/_original/",

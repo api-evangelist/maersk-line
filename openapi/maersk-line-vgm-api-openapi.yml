@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: Maersk Verified Gross Mass VGM API
-  description: 'Submit Verified Gross Mass (VGM) declarations for export shipments per SOLAS regulations. Allows shippers to electronically submit and update VGM for each container before vessel cut-off.
-
-    '
+  description: Submit Verified Gross Mass (VGM) declarations for export shipments per SOLAS regulations. Allows shippers to electronically submit and update VGM for each container before vessel cut-off.
   version: '1.0'
   contact:
     name: Maersk Developer Support
@@ -22,9 +20,7 @@ paths:
   /export-shipments/vgm/v1/shipments/{transportDocumentReference}/vgm:
     post:
       summary: Submit Verified Gross Mass
-      description: 'Submit one or more VGM entries for the containers on a shipment.
-
-        '
+      description: Submit one or more VGM entries for the containers on a shipment.
       operationId: submitVgm
       tags:
       - VGM

@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: Maersk Product Offers Containers API
-  description: 'Quote prices and product offers for ocean shipments. Returns route and schedule, vessel and deadline information, and prices including surcharges for the requested origin, destination, container size-type combination, and departure date.
-
-    '
+  description: Quote prices and product offers for ocean shipments. Returns route and schedule, vessel and deadline information, and prices including surcharges for the requested origin, destination, container size-type combination, and departure date.
   version: '2.0'
   contact:
     name: Maersk Developer Support
