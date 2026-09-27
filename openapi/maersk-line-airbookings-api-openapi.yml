@@ -68,6 +68,24 @@ paths:
                 $ref: '#/components/schemas/AirBooking'
 components:
   schemas:
+    AirBooking:
+      allOf:
+      - $ref: '#/components/schemas/AirBookingRequest'
+      - type: object
+        properties:
+          bookingReference:
+            type: string
+          status:
+            type: string
+            enum:
+            - RECEIVED
+            - CONFIRMED
+            - REJECTED
+            - CANCELLED
+            - COMPLETED
+          createdAt:
+            type: string
+            format: date-time
     AirParty:
       type: object
       properties:
@@ -133,24 +151,6 @@ components:
           $ref: '#/components/schemas/AirParty'
         consignee:
           $ref: '#/components/schemas/AirParty'
-    AirBooking:
-      allOf:
-      - $ref: '#/components/schemas/AirBookingRequest'
-      - type: object
-        properties:
-          bookingReference:
-            type: string
-          status:
-            type: string
-            enum:
-            - RECEIVED
-            - CONFIRMED
-            - REJECTED
-            - CANCELLED
-            - COMPLETED
-          createdAt:
-            type: string
-            format: date-time
   securitySchemes:
     ConsumerKey:
       type: apiKey

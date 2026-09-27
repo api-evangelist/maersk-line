@@ -122,16 +122,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Event'
-    Location:
-      type: object
-      properties:
-        locationName:
-          type: string
-        UNLocationCode:
-          type: string
-          description: UN/LOCODE for the port or facility.
-        countryCode:
-          type: string
     Event:
       type: object
       properties:
@@ -158,6 +148,16 @@ components:
         transportCall:
           $ref: '#/components/schemas/TransportCall'
         equipmentReference:
+          type: string
+    Location:
+      type: object
+      properties:
+        locationName:
+          type: string
+        UNLocationCode:
+          type: string
+          description: UN/LOCODE for the port or facility.
+        countryCode:
           type: string
     TransportCall:
       type: object

@@ -105,6 +105,31 @@ paths:
                   $ref: '#/components/schemas/ServiceSchedule'
 components:
   schemas:
+    SchedulePoint:
+      type: object
+      properties:
+        transportSchedules:
+          type: array
+          items:
+            type: object
+            properties:
+              vesselName:
+                type: string
+              vesselIMONumber:
+                type: string
+              carrierServiceCode:
+                type: string
+              carrierVoyageNumber:
+                type: string
+              departureDateTime:
+                type: string
+                format: date-time
+              arrivalDateTime:
+                type: string
+                format: date-time
+              transitTime:
+                type: integer
+                description: Transit time in days.
     ServiceSchedule:
       type: object
       properties:
@@ -134,31 +159,6 @@ components:
                     plannedDepartureDate:
                       type: string
                       format: date-time
-    SchedulePoint:
-      type: object
-      properties:
-        transportSchedules:
-          type: array
-          items:
-            type: object
-            properties:
-              vesselName:
-                type: string
-              vesselIMONumber:
-                type: string
-              carrierServiceCode:
-                type: string
-              carrierVoyageNumber:
-                type: string
-              departureDateTime:
-                type: string
-                format: date-time
-              arrivalDateTime:
-                type: string
-                format: date-time
-              transitTime:
-                type: integer
-                description: Transit time in days.
   securitySchemes:
     ConsumerKey:
       type: apiKey

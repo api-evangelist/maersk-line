@@ -124,16 +124,6 @@ paths:
           description: Booking cancelled.
 components:
   schemas:
-    RequestedEquipment:
-      type: object
-      properties:
-        ISOEquipmentCode:
-          type: string
-          example: 22GP
-        units:
-          type: integer
-        isShipperOwned:
-          type: boolean
     PartyContact:
       type: object
       properties:
@@ -143,6 +133,26 @@ components:
           type: string
         phone:
           type: string
+    Booking:
+      allOf:
+      - $ref: '#/components/schemas/BookingRequest'
+      - type: object
+        properties:
+          carrierBookingReference:
+            type: string
+          bookingStatus:
+            type: string
+            enum:
+            - RECEIVED
+            - PENDING_UPDATE
+            - UPDATE_CONFIRMED
+            - CONFIRMED
+            - REJECTED
+            - CANCELLED
+            - COMPLETED
+          bookingRequestDateTime:
+            type: string
+            format: date-time
     Commodity:
       type: object
       properties:
@@ -209,26 +219,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PartyContact'
-    Booking:
-      allOf:
-      - $ref: '#/components/schemas/BookingRequest'
-      - type: object
-        properties:
-          carrierBookingReference:
-            type: string
-          bookingStatus:
-            type: string
-            enum:
-            - RECEIVED
-            - PENDING_UPDATE
-            - UPDATE_CONFIRMED
-            - CONFIRMED
-            - REJECTED
-            - CANCELLED
-            - COMPLETED
-          bookingRequestDateTime:
-            type: string
-            format: date-time
+    RequestedEquipment:
+      type: object
+      properties:
+        ISOEquipmentCode:
+          type: string
+          example: 22GP
+        units:
+          type: integer
+        isShipperOwned:
+          type: boolean
   securitySchemes:
     ConsumerKey:
       type: apiKey
