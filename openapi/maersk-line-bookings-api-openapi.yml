@@ -124,35 +124,6 @@ paths:
           description: Booking cancelled.
 components:
   schemas:
-    PartyContact:
-      type: object
-      properties:
-        name:
-          type: string
-        email:
-          type: string
-        phone:
-          type: string
-    Booking:
-      allOf:
-      - $ref: '#/components/schemas/BookingRequest'
-      - type: object
-        properties:
-          carrierBookingReference:
-            type: string
-          bookingStatus:
-            type: string
-            enum:
-            - RECEIVED
-            - PENDING_UPDATE
-            - UPDATE_CONFIRMED
-            - CONFIRMED
-            - REJECTED
-            - CANCELLED
-            - COMPLETED
-          bookingRequestDateTime:
-            type: string
-            format: date-time
     Commodity:
       type: object
       properties:
@@ -169,6 +140,16 @@ components:
           enum:
           - KGM
           - LBR
+    RequestedEquipment:
+      type: object
+      properties:
+        ISOEquipmentCode:
+          type: string
+          example: 22GP
+        units:
+          type: integer
+        isShipperOwned:
+          type: boolean
     BookingRequest:
       type: object
       required:
@@ -219,16 +200,35 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PartyContact'
-    RequestedEquipment:
+    PartyContact:
       type: object
       properties:
-        ISOEquipmentCode:
+        name:
           type: string
-          example: 22GP
-        units:
-          type: integer
-        isShipperOwned:
-          type: boolean
+        email:
+          type: string
+        phone:
+          type: string
+    Booking:
+      allOf:
+      - $ref: '#/components/schemas/BookingRequest'
+      - type: object
+        properties:
+          carrierBookingReference:
+            type: string
+          bookingStatus:
+            type: string
+            enum:
+            - RECEIVED
+            - PENDING_UPDATE
+            - UPDATE_CONFIRMED
+            - CONFIRMED
+            - REJECTED
+            - CANCELLED
+            - COMPLETED
+          bookingRequestDateTime:
+            type: string
+            format: date-time
   securitySchemes:
     ConsumerKey:
       type: apiKey

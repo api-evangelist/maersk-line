@@ -111,44 +111,6 @@ paths:
           description: Container not found.
 components:
   schemas:
-    ShipmentTracking:
-      type: object
-      properties:
-        carrierBookingReference:
-          type: string
-        transportDocumentReference:
-          type: string
-        events:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-    Event:
-      type: object
-      properties:
-        eventID:
-          type: string
-        eventType:
-          type: string
-          enum:
-          - TRANSPORT
-          - EQUIPMENT
-          - SHIPMENT
-        eventClassifierCode:
-          type: string
-          enum:
-          - PLN
-          - ACT
-          - EST
-          description: Planned, Actual, or Estimated.
-        eventDateTime:
-          type: string
-          format: date-time
-        location:
-          $ref: '#/components/schemas/Location'
-        transportCall:
-          $ref: '#/components/schemas/TransportCall'
-        equipmentReference:
-          type: string
     Location:
       type: object
       properties:
@@ -176,6 +138,44 @@ components:
           - TRUCK
           - BARGE
           - MULTIMODAL
+    Event:
+      type: object
+      properties:
+        eventID:
+          type: string
+        eventType:
+          type: string
+          enum:
+          - TRANSPORT
+          - EQUIPMENT
+          - SHIPMENT
+        eventClassifierCode:
+          type: string
+          enum:
+          - PLN
+          - ACT
+          - EST
+          description: Planned, Actual, or Estimated.
+        eventDateTime:
+          type: string
+          format: date-time
+        location:
+          $ref: '#/components/schemas/Location'
+        transportCall:
+          $ref: '#/components/schemas/TransportCall'
+        equipmentReference:
+          type: string
+    ShipmentTracking:
+      type: object
+      properties:
+        carrierBookingReference:
+          type: string
+        transportDocumentReference:
+          type: string
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
   securitySchemes:
     ConsumerKey:
       type: apiKey
