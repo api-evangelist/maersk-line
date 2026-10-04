@@ -68,6 +68,15 @@ paths:
                 $ref: '#/components/schemas/AirBooking'
 components:
   schemas:
+    AirParty:
+      type: object
+      properties:
+        name:
+          type: string
+        accountNumber:
+          type: string
+        contactEmail:
+          type: string
     AirBookingRequest:
       type: object
       required:
@@ -124,15 +133,6 @@ components:
           $ref: '#/components/schemas/AirParty'
         consignee:
           $ref: '#/components/schemas/AirParty'
-    AirParty:
-      type: object
-      properties:
-        name:
-          type: string
-        accountNumber:
-          type: string
-        contactEmail:
-          type: string
     AirBooking:
       allOf:
       - $ref: '#/components/schemas/AirBookingRequest'

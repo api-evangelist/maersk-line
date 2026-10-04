@@ -111,33 +111,17 @@ paths:
           description: Container not found.
 components:
   schemas:
-    Location:
+    ShipmentTracking:
       type: object
       properties:
-        locationName:
+        carrierBookingReference:
           type: string
-        UNLocationCode:
+        transportDocumentReference:
           type: string
-          description: UN/LOCODE for the port or facility.
-        countryCode:
-          type: string
-    TransportCall:
-      type: object
-      properties:
-        carrierServiceCode:
-          type: string
-        vesselIMONumber:
-          type: string
-        carrierVoyageNumber:
-          type: string
-        modeOfTransport:
-          type: string
-          enum:
-          - VESSEL
-          - RAIL
-          - TRUCK
-          - BARGE
-          - MULTIMODAL
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
     Event:
       type: object
       properties:
@@ -165,17 +149,33 @@ components:
           $ref: '#/components/schemas/TransportCall'
         equipmentReference:
           type: string
-    ShipmentTracking:
+    Location:
       type: object
       properties:
-        carrierBookingReference:
+        locationName:
           type: string
-        transportDocumentReference:
+        UNLocationCode:
           type: string
-        events:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
+          description: UN/LOCODE for the port or facility.
+        countryCode:
+          type: string
+    TransportCall:
+      type: object
+      properties:
+        carrierServiceCode:
+          type: string
+        vesselIMONumber:
+          type: string
+        carrierVoyageNumber:
+          type: string
+        modeOfTransport:
+          type: string
+          enum:
+          - VESSEL
+          - RAIL
+          - TRUCK
+          - BARGE
+          - MULTIMODAL
   securitySchemes:
     ConsumerKey:
       type: apiKey
