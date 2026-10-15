@@ -10,6 +10,39 @@ edges:
   detected_by: detect-carrier-edges.py
   first_seen: '2026-10-13'
   matched_by: domain:maersk.com
+- partner_name: Digital Container Shipping Association (carrier members)
+  partner: dcsa
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://dcsa.org/about-us/members
+  category: DCSA carrier member
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: DCSA carrier members (dcsa.org/about-us/members)
+    spec_file: null
+    standard: DCSA standards
+    role: dcsa-carrier-member
+    registered_name: Maersk
+    website: https://developer.maersk.com/
+    matched_domain: maersk.com
+    matched_by: domain+verified
+    implemented_standards: Booking 2.0 Beta, Track and Trace 2.2, Operational Vessel Schedules 3.0 Beta 1 and Bill
+      of Lading 2.0 (Transport Document adopted)
+    signal_note: 'participation; implemented_standards is DCSA''s adoption statement (context, not a conformance
+      result: no certified_products)'
+    detected_by: sweep-maritime-logistics.py
+    detected: '2026-10-15'
+  detected_by: sweep-maritime-logistics.py
+  first_seen: '2026-10-15'
 generated: '2026-10-12'
 method: searched
-checked: []
+checked:
+- https://dcsa.org/about-us/members
+- https://dcsa.org/get-involved/dcsa-plus
+- https://ipcsa.international/about/members/
+- https://www.igpandi.org/article/ig-approved-electronic-bill-of-lading-systems/
+source:
+- https://www.igpandi.org/article/ig-approved-electronic-bill-of-lading-systems/
+- https://dcsa.org/about-us/members

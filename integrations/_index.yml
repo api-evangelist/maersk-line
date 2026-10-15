@@ -14,3 +14,30 @@
   relationship: carrier-coverage
   status: not-a-workflow
   arazzo: null
+- slug: maersk-line-digital-container-shipping-association-carrier-members
+  label: Digital Container Shipping Association (carrier members)
+  partner: dcsa
+  partner_name: Digital Container Shipping Association (carrier members)
+  category: DCSA carrier member
+  type: register
+  channel: standard-directory
+  evidence: https://dcsa.org/about-us/members
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: DCSA carrier members (dcsa.org/about-us/members)
+    spec_file: null
+    standard: DCSA standards
+    role: dcsa-carrier-member
+    registered_name: Maersk
+    website: https://developer.maersk.com/
+    matched_domain: maersk.com
+    matched_by: domain+verified
+    implemented_standards: Booking 2.0 Beta, Track and Trace 2.2, Operational Vessel Schedules 3.0 Beta 1 and Bill
+      of Lading 2.0 (Transport Document adopted)
+    signal_note: 'participation; implemented_standards is DCSA''s adoption statement (context, not a conformance
+      result: no certified_products)'
+    detected_by: sweep-maritime-logistics.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
