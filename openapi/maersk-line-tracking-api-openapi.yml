@@ -111,6 +111,33 @@ paths:
           description: Container not found.
 components:
   schemas:
+    TransportCall:
+      type: object
+      properties:
+        carrierServiceCode:
+          type: string
+        vesselIMONumber:
+          type: string
+        carrierVoyageNumber:
+          type: string
+        modeOfTransport:
+          type: string
+          enum:
+          - VESSEL
+          - RAIL
+          - TRUCK
+          - BARGE
+          - MULTIMODAL
+    Location:
+      type: object
+      properties:
+        locationName:
+          type: string
+        UNLocationCode:
+          type: string
+          description: UN/LOCODE for the port or facility.
+        countryCode:
+          type: string
     ShipmentTracking:
       type: object
       properties:
@@ -149,33 +176,6 @@ components:
           $ref: '#/components/schemas/TransportCall'
         equipmentReference:
           type: string
-    Location:
-      type: object
-      properties:
-        locationName:
-          type: string
-        UNLocationCode:
-          type: string
-          description: UN/LOCODE for the port or facility.
-        countryCode:
-          type: string
-    TransportCall:
-      type: object
-      properties:
-        carrierServiceCode:
-          type: string
-        vesselIMONumber:
-          type: string
-        carrierVoyageNumber:
-          type: string
-        modeOfTransport:
-          type: string
-          enum:
-          - VESSEL
-          - RAIL
-          - TRUCK
-          - BARGE
-          - MULTIMODAL
   securitySchemes:
     ConsumerKey:
       type: apiKey

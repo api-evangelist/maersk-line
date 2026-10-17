@@ -83,6 +83,23 @@ paths:
                   $ref: '#/components/schemas/ProductOffer'
 components:
   schemas:
+    Price:
+      type: object
+      properties:
+        chargeCode:
+          type: string
+        chargeName:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        basis:
+          type: string
+          enum:
+          - PerContainer
+          - PerShipment
+          - PerBillOfLading
     ProductOffer:
       type: object
       properties:
@@ -117,23 +134,6 @@ components:
               type: integer
             destinationFreeDays:
               type: integer
-    Price:
-      type: object
-      properties:
-        chargeCode:
-          type: string
-        chargeName:
-          type: string
-        amount:
-          type: number
-        currency:
-          type: string
-        basis:
-          type: string
-          enum:
-          - PerContainer
-          - PerShipment
-          - PerBillOfLading
   securitySchemes:
     ConsumerKey:
       type: apiKey

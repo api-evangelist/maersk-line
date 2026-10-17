@@ -124,6 +124,22 @@ paths:
           description: Booking cancelled.
 components:
   schemas:
+    Commodity:
+      type: object
+      properties:
+        commodityType:
+          type: string
+        HSCodes:
+          type: array
+          items:
+            type: string
+        cargoGrossWeight:
+          type: number
+        cargoGrossWeightUnit:
+          type: string
+          enum:
+          - KGM
+          - LBR
     BookingRequest:
       type: object
       required:
@@ -174,6 +190,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PartyContact'
+    RequestedEquipment:
+      type: object
+      properties:
+        ISOEquipmentCode:
+          type: string
+          example: 22GP
+        units:
+          type: integer
+        isShipperOwned:
+          type: boolean
     PartyContact:
       type: object
       properties:
@@ -203,32 +229,6 @@ components:
           bookingRequestDateTime:
             type: string
             format: date-time
-    RequestedEquipment:
-      type: object
-      properties:
-        ISOEquipmentCode:
-          type: string
-          example: 22GP
-        units:
-          type: integer
-        isShipperOwned:
-          type: boolean
-    Commodity:
-      type: object
-      properties:
-        commodityType:
-          type: string
-        HSCodes:
-          type: array
-          items:
-            type: string
-        cargoGrossWeight:
-          type: number
-        cargoGrossWeightUnit:
-          type: string
-          enum:
-          - KGM
-          - LBR
   securitySchemes:
     ConsumerKey:
       type: apiKey

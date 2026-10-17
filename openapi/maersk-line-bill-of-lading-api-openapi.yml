@@ -67,6 +67,31 @@ paths:
           description: Approval recorded.
 components:
   schemas:
+    Party:
+      type: object
+      properties:
+        partyName:
+          type: string
+        address:
+          type: object
+          properties:
+            street:
+              type: string
+            city:
+              type: string
+            countryCode:
+              type: string
+        partyContactDetails:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              email:
+                type: string
+              phone:
+                type: string
     TransportDocument:
       type: object
       properties:
@@ -104,31 +129,6 @@ components:
           type: string
         cargoMovementTypeAtDestination:
           type: string
-    Party:
-      type: object
-      properties:
-        partyName:
-          type: string
-        address:
-          type: object
-          properties:
-            street:
-              type: string
-            city:
-              type: string
-            countryCode:
-              type: string
-        partyContactDetails:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              email:
-                type: string
-              phone:
-                type: string
   securitySchemes:
     ConsumerKey:
       type: apiKey

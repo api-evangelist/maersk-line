@@ -68,15 +68,6 @@ paths:
                 $ref: '#/components/schemas/AirBooking'
 components:
   schemas:
-    AirParty:
-      type: object
-      properties:
-        name:
-          type: string
-        accountNumber:
-          type: string
-        contactEmail:
-          type: string
     AirBookingRequest:
       type: object
       required:
@@ -151,6 +142,15 @@ components:
           createdAt:
             type: string
             format: date-time
+    AirParty:
+      type: object
+      properties:
+        name:
+          type: string
+        accountNumber:
+          type: string
+        contactEmail:
+          type: string
   securitySchemes:
     ConsumerKey:
       type: apiKey
