@@ -1,4 +1,4 @@
-# Maersk (maersk-line)
+# Maersk
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,280 +66,191 @@
 
 A.P. Moller - Maersk is the Danish integrated container shipping and logistics company. Maersk operates one of the world's largest ocean fleets and a global network of warehouses, inland transport, customs services, and air-freight capacity through Maersk Air Cargo. The Maersk Developer Portal exposes a catalogue of APIs for Track and Trace, Ocean Booking (DCSA-aligned), Schedules, Product Offers and pricing, electronic Bills of Lading, Verified Gross Mass, Demurrage and Detention, Air Booking, VGM, and container Maintenance and Repair. Many of Maersk's APIs implement Digital Container Shipping Association (DCSA) interface standards so the same client can address multiple carriers.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/maersk-line/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/maersk-line/refs/heads/main/apis.yml)
+**Areas:** Shipping · Logistics · Container Shipping · Ocean Freight · Air Freight · Supply Chain · DCSA · Maritime · Freight
 
-## Scope
+## Maersk on APIs.io
 
-- **Position:** Producing
-- **Access:** 3rd-Party
+Everything profiled for Maersk is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/maersk-line/](https://apis.io/providers/maersk-line/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (11)
 
-- Shipping
-- Logistics
-- Container Shipping
-- Ocean Freight
-- Air Freight
-- Supply Chain
-- DCSA
-- Maritime
+- [Maersk Container Maintenance and Repair API](https://apis.io/apis/maersk-line/maersk-container-maintenance-repair-api/) — Container Maintenance and Repair (M&R) API surfacing equipment-management events and repair workflow data for Maersk container assets.
+- [Maersk AirBookings API](https://apis.io/apis/maersk-line/maersk-line-airbookings-api/) — Air freight bookings.
+- [Maersk Bookings API](https://apis.io/apis/maersk-line/maersk-line-bookings-api/) — Create and manage ocean shipment bookings.
+- [Maersk Containers API](https://apis.io/apis/maersk-line/maersk-line-containers-api/) — Supported container size and type combinations.
+- [Maersk DemurrageDetention API](https://apis.io/apis/maersk-line/maersk-line-demurragedetention-api/) — Demurrage and detention charges and clocks.
+- [Maersk Locations API](https://apis.io/apis/maersk-line/maersk-line-locations-api/) — Origin and destination port lookups.
+- [Maersk Offers API](https://apis.io/apis/maersk-line/maersk-line-offers-api/) — Product offers, prices, and surcharges.
+- [Maersk Schedules API](https://apis.io/apis/maersk-line/maersk-line-schedules-api/) — Sailing schedules and vessel routings.
+- [Maersk Tracking API](https://apis.io/apis/maersk-line/maersk-line-tracking-api/) — Container and shipment tracking events.
+- [Maersk VGM API](https://apis.io/apis/maersk-line/maersk-line-vgm-api/) — Verified Gross Mass declarations.
+- [Maersk Bill of Lading API](https://apis.io/apis/maersk-line/maersk-line-bill-of-lading-api/) — Electronic bill of lading lifecycle.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Maersk Track and Trace API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Retrieve neutralized container and shipment milestones via a RESTful API. Supports lookup by container number, bill-of-lading number, or booking reference. Returns transport, equipment, and shipment events with planned and actual timestamps.
+- [Maersk Line Agentic Access](https://apis.io/agentic-access/maersk-line/maersk-line-agentic-access/)
 
-- **Human URL:** [https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus](https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus)
+#### JSON Schema (3)
 
-#### Tags
+The data models the API reads and writes.
 
-- Shipping
-- Tracking
-- Containers
-- Ocean
+- [Maersk Ocean Booking](https://apis.io/schemas/maersk-line/maersk-booking/)
+- [Maersk Product Offer](https://apis.io/schemas/maersk-line/maersk-product-offer/)
+- [Maersk Shipment](https://apis.io/schemas/maersk-line/maersk-shipment/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://developer.maersk.com/api-catalogue/Track%20and%20Trace%20Plus)
-- [Documentation](https://developer.maersk.com/api-catalogue/multi-carrier-track-trace)
-- [OpenAPI](openapi/maersk-track-and-trace-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maersk-track-and-trace-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-track-and-trace-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/maersk-shipment-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Example](examples/maersk-tracking-shipment-example.json)
+Linked-data contexts for the provider's vocabulary.
 
-### Maersk Ocean Booking API
+- [Maersk Line Context](https://apis.io/jsonld/maersk-line/maersk-line-context/)
 
-Create, retrieve, amend, and cancel ocean shipment bookings. DCSA Booking 2.0 compliant so the same payloads work across DCSA-aligned ocean carriers. Includes booking status webhooks for asynchronous lifecycle notifications.
+#### Vocabulary (1)
 
-- **Human URL:** [https://developer.maersk.com/api-catalogue/EDP%20Booking](https://developer.maersk.com/api-catalogue/EDP%20Booking)
+The provider's domain terms, defined.
 
-#### Tags
+- [Maersk Line Vocabulary](https://apis.io/vocabularies/maersk-line/maersk-line-vocabulary/)
 
-- Shipping
-- Booking
-- DCSA
-- Ocean
+#### Examples (4)
 
-#### Properties
+Example requests and responses.
 
-- [Documentation](https://developer.maersk.com/api-catalogue/EDP%20Booking)
-- [Documentation](https://developer.maersk.com/api-catalogue/Booking%20Status)
-- [Documentation](https://developer.maersk.com/api-catalogue/ocean-booking-status-webhook)
-- [OpenAPI](openapi/maersk-ocean-booking-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maersk-ocean-booking-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-ocean-booking-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/maersk-booking-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Example](examples/maersk-booking-request-example.json)
+- [Maersk Booking Request Example](https://apis.io/examples/maersk-line/maersk-booking-request-example/)
+- [Maersk Product Offer Example](https://apis.io/examples/maersk-line/maersk-product-offer-example/)
+- [Maersk Tracking Shipment Example](https://apis.io/examples/maersk-line/maersk-tracking-shipment-example/)
+- [Maersk Vgm Submission Example](https://apis.io/examples/maersk-line/maersk-vgm-submission-example/)
 
-### Maersk Schedules API
+#### Collections (18)
 
-Retrieve point-to-point sailing options and commercial service schedules for Maersk ocean routes. Returns vessel, voyage, transit time, and intermediate transshipments for a given origin, destination, and date range.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://developer.maersk.com/api-catalogue/Point-to-Point%20Schedules](https://developer.maersk.com/api-catalogue/Point-to-Point%20Schedules)
+- [Maersk Air Booking API](https://apis.io/collections/maersk-line/open-maersk-air-booking-api/)
+- [Maersk Bill of Lading API](https://apis.io/collections/maersk-line/open-maersk-bill-of-lading-api/)
+- [Maersk Import Demurrage and Detention API](https://apis.io/collections/maersk-line/open-maersk-demurrage-detention-api/)
+- [Maersk Air Booking AirBookings API](https://apis.io/collections/maersk-line/open-maersk-line-airbookings-api/)
+- [Maersk Air Booking AirBookings BillOfLading API](https://apis.io/collections/maersk-line/open-maersk-line-billoflading-api/)
+- [Maersk Air Booking AirBookings Bookings API](https://apis.io/collections/maersk-line/open-maersk-line-bookings-api/)
+- [Maersk Air Booking AirBookings Containers API](https://apis.io/collections/maersk-line/open-maersk-line-containers-api/)
+- [Maersk Air Booking AirBookings DemurrageDetention API](https://apis.io/collections/maersk-line/open-maersk-line-demurragedetention-api/)
+- [Maersk Air Booking AirBookings Locations API](https://apis.io/collections/maersk-line/open-maersk-line-locations-api/)
+- [Maersk Air Booking AirBookings Offers API](https://apis.io/collections/maersk-line/open-maersk-line-offers-api/)
+- [Maersk Air Booking AirBookings Schedules API](https://apis.io/collections/maersk-line/open-maersk-line-schedules-api/)
+- [Maersk Air Booking AirBookings Tracking API](https://apis.io/collections/maersk-line/open-maersk-line-tracking-api/)
+- [Maersk Air Booking AirBookings VGM API](https://apis.io/collections/maersk-line/open-maersk-line-vgm-api/)
+- [Maersk Ocean Booking API](https://apis.io/collections/maersk-line/open-maersk-ocean-booking-api/)
+- [Maersk Product Offers API](https://apis.io/collections/maersk-line/open-maersk-product-offers-api/)
+- [Maersk Schedules API](https://apis.io/collections/maersk-line/open-maersk-schedules-api/)
+- [Maersk Track and Trace API](https://apis.io/collections/maersk-line/open-maersk-track-and-trace-api/)
+- [Maersk Verified Gross Mass API](https://apis.io/collections/maersk-line/open-maersk-vgm-api/)
 
-#### Tags
+#### Governance rules (2)
 
-- Shipping
-- Schedules
-- Ocean
-- DCSA
+Spectral rulesets for the provider's contracts.
 
-#### Properties
+- [Maersk — jsonschema rules](https://apis.io/rules/maersk-line/maersk-line-jsonschema-spectral-rules/)
+- [Maersk — maersk rules](https://apis.io/rules/maersk-line/maersk-rules/)
 
-- [Documentation](https://developer.maersk.com/api-catalogue/Point-to-Point%20Schedules)
-- [Documentation](https://developer.maersk.com/api-catalogue/ocean-commercial-schedules)
-- [OpenAPI](openapi/maersk-schedules-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maersk-schedules-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-schedules-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Security (3)
 
-### Maersk Product Offers API
+Authentication, trust centre, and vulnerability disclosure.
 
-Quote ocean shipping offers. Returns route and schedule, vessel and deadline details, plus full price breakdowns including base ocean freight, bunker adjustment, terminal handling, and other surcharges. Supports origin and destination port lookups and supported container catalog endpoints.
+- [Maersk Line Authentication](https://apis.io/security/maersk-line/maersk-line-authentication/)
+- [Maersk Line Domain Security](https://apis.io/security/maersk-line/maersk-line-domain-security/)
+- [Maersk Line Vulnerability Disclosure](https://apis.io/security/maersk-line/maersk-line-vulnerability-disclosure/)
 
-- **Human URL:** [https://api.productmanagement.maersk.com/offers/docs/endpoints/productoffers.html](https://api.productmanagement.maersk.com/offers/docs/endpoints/productoffers.html)
+#### OAuth scopes (1)
 
-#### Tags
+The permissions the API asks for.
 
-- Shipping
-- Pricing
-- Quotes
-- Surcharges
+- [Maersk Line Scopes](https://apis.io/scopes/maersk-line/maersk-line-scopes/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://api.productmanagement.maersk.com/offers/docs/endpoints/productoffers.html)
-- [Documentation](https://api.productmanagement.maersk.com/offers/docs/datamodels/productoffers.html)
-- [Documentation](https://api.productmanagement.maersk.com/offers/docs/datamodels/prices.html)
-- [OpenAPI](openapi/maersk-product-offers-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maersk-product-offers-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-product-offers-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/maersk-product-offer-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Example](examples/maersk-product-offer-example.json)
+Published plans, tiers and prices.
 
-### Maersk Bill of Lading API
+- [Maersk Line Plans Pricing](https://apis.io/plans/maersk-line/maersk-line-plans-pricing/)
 
-DCSA-compliant Carrier Bill of Lading (eBL) API. Retrieve, approve, and surrender electronic transport documents per the DCSA eBL 3.0 interface standard.
+#### Rate limits (1)
 
-- **Human URL:** [https://developer.maersk.com/api-catalogue/dcsa-bill-of-lading](https://developer.maersk.com/api-catalogue/dcsa-bill-of-lading)
+Published request limits.
 
-#### Tags
+- [Maersk Line Rate Limits](https://apis.io/rate-limits/maersk-line/maersk-line-rate-limits/)
 
-- Shipping
-- eBL
-- DCSA
-- Documents
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://developer.maersk.com/api-catalogue/dcsa-bill-of-lading)
-- [OpenAPI](openapi/maersk-bill-of-lading-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maersk-bill-of-lading-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-bill-of-lading-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Maersk Line Finops](https://apis.io/finops/maersk-line/maersk-line-finops/)
 
-### Maersk Verified Gross Mass API
+## Where to find this API
 
-Submit and retrieve Verified Gross Mass declarations for export containers per SOLAS regulations. Allows shippers to electronically file container weights before vessel cut-off.
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- **Human URL:** [https://developer.maersk.com/api-catalogue/VGM](https://developer.maersk.com/api-catalogue/VGM)
-
-#### Tags
-
-- Shipping
-- VGM
-- SOLAS
-- Export
-- Compliance
-
-#### Properties
-
-- [Documentation](https://developer.maersk.com/api-catalogue/VGM)
-- [Documentation](https://developer.maersk.com/api-catalogue/VGM/Learn-more)
-- [OpenAPI](openapi/maersk-vgm-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maersk-vgm-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-vgm-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Example](examples/maersk-vgm-submission-example.json)
-
-### Maersk Import Demurrage and Detention API
-
-Retrieve accruing demurrage and detention charges, free-day balances, and clock status for import containers. Helps consignees and freight forwarders avoid accessorial charges by surfacing live penalty risk.
-
-- **Human URL:** [https://developer.maersk.com/api-catalogue/Import%20Demurrage%20and%20Detention](https://developer.maersk.com/api-catalogue/Import%20Demurrage%20and%20Detention)
-
-#### Tags
-
-- Shipping
-- Demurrage
-- Detention
-- Import
-- Charges
-
-#### Properties
-
-- [Documentation](https://developer.maersk.com/api-catalogue/Import%20Demurrage%20and%20Detention)
-- [OpenAPI](openapi/maersk-demurrage-detention-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maersk-demurrage-detention-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-demurrage-detention-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Maersk Air Booking API
-
-Submit air freight booking requests via Maersk Air Cargo. Supports consolidation, charter, and forwarder bookings with product tiers for General, Express, Pharma, and Perishable cargo.
-
-- **Human URL:** [https://developer.maersk.com/api-catalogue/external-air-booking](https://developer.maersk.com/api-catalogue/external-air-booking)
-
-#### Tags
-
-- Shipping
-- Air
-- Booking
-- Cargo
-
-#### Properties
-
-- [Documentation](https://developer.maersk.com/api-catalogue/external-air-booking)
-- [OpenAPI](openapi/maersk-air-booking-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maersk-air-booking-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-air-booking-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Maersk Container Maintenance and Repair API
-
-Container Maintenance and Repair (M&R) API surfacing equipment-management events and repair workflow data for Maersk container assets.
-
-- **Human URL:** [https://developer.maersk.com/api-catalogue/aems-maintenance-repair](https://developer.maersk.com/api-catalogue/aems-maintenance-repair)
-
-#### Tags
-
-- Shipping
-- Equipment
-- Containers
-- Maintenance
-
-#### Properties
-
-- [Documentation](https://developer.maersk.com/api-catalogue/aems-maintenance-repair)
-- [Postman Collection](collections/maersk-air-booking-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-air-booking-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/maersk-bill-of-lading-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-bill-of-lading-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/maersk-demurrage-detention-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-demurrage-detention-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/maersk-ocean-booking-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-ocean-booking-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/maersk-product-offers-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-product-offers-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/maersk-schedules-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-schedules-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/maersk-track-and-trace-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-track-and-trace-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/maersk-vgm-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maersk-vgm-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Portal](https://developer.maersk.com)
+- [Website](https://www.maersk.com/)
 - [Documentation](https://developer.maersk.com/api-catalogue)
+- [Getting started](https://developer.maersk.com/support/getting-started-api)
 - [Support](https://developer.maersk.com/support/:tabName)
-- [Getting Started](https://developer.maersk.com/support/getting-started-api)
-- [Authentication](https://developer.maersk.com/support/authorisation)
-- [F A Q](https://developer.maersk.com/support/faqs)
-- [Documentation](https://www.maersk.com/digital-services/data-integrations/api)
-- [Documentation](https://www.maersk.com/digital-services/data-integrations)
-- [Documentation](https://www.maersk.com/digital-services/data-integrations/solutions)
-- [Portal](https://www.maersk.com)
-- [About](https://www.maersk.com/about)
 - [Blog](https://www.maersk.com/news)
-- [Blog](https://www.maersk.com/insights)
-- [Documentation](https://www.maersk.com/local-information)
-- [Terms of Service](https://www.maersk.com/terms)
-- [Privacy Policy](https://www.maersk.com/privacy-policy)
-- [Documentation](https://www.maersk.com/career)
-- [LinkedIn](https://www.linkedin.com/company/maersk-group)
-- [X (Twitter)](https://twitter.com/Maersk)
-- [YouTube](https://www.youtube.com/user/MAERSK)
-- [GitHub Organization](https://github.com/Maersk-Global)
-- [GitHub Organization](https://github.com/MaerskTech)
-- [Standard](https://dcsa.org)
-- [Specification](https://github.com/dcsaorg/DCSA-OpenAPI)
-- [Spectral Rules](rules/maersk-rules.yml)
-- [Vocabulary](vocabulary/maersk-line-vocabulary.yml)
-- [JSON-LD](json-ld/maersk-line-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Plans](plans/maersk-line-plans-pricing.yml)
-- [Rate Limits](rate-limits/maersk-line-rate-limits.yml)
-- [Fin Ops](finops/maersk-line-finops.yml)
-- [Authentication](https://developer.maersk.com/support/authorisation)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Solutions](undefined)
+- [Terms of service](https://www.maersk.com/terms)
+- [Privacy policy](https://www.maersk.com/privacy-policy)
+- [GitHub](https://github.com/Maersk-Global)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 44.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 65.5 |
+| Contract governance | 27.3 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 39.3 |
+| Access clarity | 28.9 |
+
+**Agent readiness 21.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 40.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/maersk-line/](https://apis.io/providers/maersk-line/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Maersk: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/maersk-line/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
